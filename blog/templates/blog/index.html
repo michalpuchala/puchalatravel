@@ -1,0 +1,45 @@
+{% load static %}
+<html>
+    <head>
+        <title>Puchała Travel</title>
+        <link rel="stylesheet" href="{% static 'css/default.css' %}">
+    </head>
+    <body>
+        <div class="header">
+            <h2>Puchała Travel</h2>
+        </div>
+
+        <div class="row">
+            <div class="leftcolumn">
+                {% for post in posts %}
+                <div class="card">
+                    <h2><a href="">{{ post.title }}</a></h2>
+                    <h5>published: {{ post.published_date }}</h5>
+                    <div class="image" style="height:200px;">Image</div>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="rightcolumn">
+                <div class="card">
+                    <h2>About Me</h2>
+                    <div class="image" style="height:100px;">Image</div>
+                    <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+                    </div>
+                <div class="card">
+                    <h3>Popular Post</h3>
+                    <div class="image">Image</div><br>
+                    <div class="image">Image</div><br>
+                    <div class="image">Image</div>
+              </div>
+              <div class="card">
+                <h3>Follow Me</h3>
+                <p>Some text..</p>
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <h2>Footer</h2>
+          </div>
+    </body>
+</html>

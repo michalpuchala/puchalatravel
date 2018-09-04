@@ -20,16 +20,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '8^u2lmo3uxuwktk!(9ana-&j4kzd$=2hl8aytov#b&kx#93#(g'
+SECRET_KEY = 'sin&xj$yz7d4bkc82$9l%4p1bh0mg4ru=uy*3s*lp@!f9d(*e%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    '*',
     'ec2-18-188-249-6.us-east-2.compute.amazonaws.com',
     'puchalatravel.com',
-    '0.0.0.0',
-    '127.0.0.1',
 ]
 
 
@@ -42,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -123,5 +123,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
