@@ -2,13 +2,20 @@
 <html>
     <head>
         <title>Puchała Travel</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
         <link rel="stylesheet" href="{% static 'css/default.css' %}">
     </head>
     <body>
+        <div class="topnav">
+            <a class="active" href="#home">Home</a>
+            <a href="#news"><img src="{% static 'pictures/instagram_logo.png' %}" alt="Follow us on Instagram!" width="23" height="23"></a>
+            <a href="#contact"><img src="{% static 'pictures/twitter_logo.png' %}" alt="Follow us on Twitter!" width="23" height="23"></a>
+            <a href="#about">About</a>
+        </div>
         <div class="header">
             <h2>Puchała Travel</h2>
         </div>
-
         <div class="row">
             <div class="leftcolumn">
                 {% for post in posts %}
@@ -22,24 +29,24 @@
             </div>
             <div class="rightcolumn">
                 <div class="card">
-                    <h2>About Me</h2>
+                    <h2>About Us</h2>
                     <div class="image" style="height:100px;">Image</div>
                     <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
                     </div>
                 <div class="card">
-                    <h3>Popular Post</h3>
+                    <h3>Popular Posts</h3>
                     <div class="image">Image</div><br>
                     <div class="image">Image</div><br>
                     <div class="image">Image</div>
               </div>
               <div class="card">
-                <h3>Follow Me</h3>
+                <h3>Follow Us</h3>
                 <p>Some text..</p>
               </div>
             </div>
-          </div>
-          <div class="footer">
+        </div>
+        <div class="footer">
             <h2>Footer</h2>
-          </div>
+        </div>
     </body>
 </html>
