@@ -10,15 +10,18 @@
         {% block navbar %}
         <div class="topnav">
             <a class="active" href="#home">Home</a>
-            <a href="#news"><img src="{% static 'pictures/instagram_logo.png' %}" alt="Follow us on Instagram!" width="23" height="23"></a>
-            <a href="#contact"><img src="{% static 'pictures/twitter_logo.png' %}" alt="Follow us on Twitter!" width="23" height="23"></a>
+            <a href="#about">Blog</a>
+            <a href="#about">Map</a>
             <a href="#about">About</a>
+            <a class="title" href="http://puchalatravel.com">Puchała Travel</a>
+            <a class="social" href="https://www.instagram.com/puchalatravel/" target="_blank" align="right"><img src="{% static 'pictures/instagram_logo.png' %}" alt="Follow us on Instagram!" width="23" height="23"></a>
+            <a class="social" href="https://twitter.com/puchalatravel/" target="_blank" align="right"><img src="{% static 'pictures/twitter_logo.png' %}" alt="Follow us on Twitter!" width="23" height="23"></a>
         </div>
         {% endblock %}
         {% block header %}
-        <div class="header">
+        <!-- <div class="header">
             <h2>Puchała Travel</h2>
-        </div>
+        </div> -->
         {% endblock %}
         <div class="row">
             {% block leftcolumn %}
