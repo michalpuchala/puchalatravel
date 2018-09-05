@@ -30,30 +30,33 @@ body {
   float: left;
   color: #3a3a3a;
   text-align: center;
-  padding: 10px 12px;
+  padding: 0.4% 0.8%;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 1.1vw;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+  border-bottom: 4px solid #3a3a3a;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #a5a5a5;
-  color: white;
+  font-weight: bold;
 }
 
 /* Change features for social buttons */
 .topnav a.social {
   float: right;
+  width: 3.25%;
+  height: 3.25%;
 }
 
 /* Change features for main title */
 .topnav a.title {
+  border-bottom: none !important;
+  font-size: 1.3vw;
+  font-weight: bold;
   position: relative;
   right: -30%;
 }
