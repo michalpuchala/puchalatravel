@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'markdownx',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Markdownx settings
+
+MARKDOWNX_IMAGE_MAX_SIZE = {
+    'size': (1000, 5000),
+    'quality': 100
+}

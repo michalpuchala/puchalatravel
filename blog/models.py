@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone
+from markdownx.utils import markdownify
+from markdownx.models import MarkdownxField
 
 
 class Category(models.Model):
@@ -22,7 +24,7 @@ class Tag(models.Model):
 class Author(models.Model):
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
-    bio = models.CharField(max_length=5000)
+    bio = models.TextField(max_length=5000)
 
     def __str__(self):
         return self.first_name
@@ -40,12 +42,10 @@ class Trip(models.Model):
 
 class Image(models.Model):
     name = models.CharField(max_length=32)
-    picture = models.ImageField(default='defualt.png')
+    picture = models.ImageField(upload_to='pictures/', blank=True)
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
     taken = models.DateTimeField(blank=True, null=True)
     uploaded = models.DateTimeField(default=timezone.now)
-    width = models.IntegerField()
-    height = models.IntegerField()
 
     def __unicode__(self):
         return self.name
@@ -58,7 +58,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100, unique=True)
     byline = models.CharField(max_length=255)
     tag = models.ManyToManyField(Tag)
-    text = models.TextField()
+    text = MarkdownxField()
     slug = models.SlugField(max_length=128)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
@@ -66,6 +66,14 @@ class Post(models.Model):
     images = models.ManyToManyField(Image, related_name='images')
     instagram_link = models.URLField()
     twitter_link = models.URLField()
+
+    # Create a property that returns the markdown instead
+    @property
+    def formatted_markdown(self):
+        return markdownify(self.text)
+
+    def get_absolute_url(self):
+        return reverse('post-detail', kwargs={'pk': self.pk})
 
     def publish(self):
         self.published_date = timezone.now()
