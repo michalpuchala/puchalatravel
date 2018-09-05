@@ -20,14 +20,15 @@ body {
 
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: #333;
+  background-color: white;
   overflow: hidden;
+  border-bottom: 1px solid #3a3a3a;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
-  color: #f2f2f2;
+  color: #3a3a3a;
   text-align: center;
   padding: 10px 12px;
   text-decoration: none;
@@ -42,8 +43,19 @@ body {
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #7c7e7f;
+  background-color: #a5a5a5;
   color: white;
+}
+
+/* Change features for social buttons */
+.topnav a.social {
+  float: right;
+}
+
+/* Change features for main title */
+.topnav a.title {
+  position: relative;
+  right: -30%;
 }
 
 /* Create two unequal columns that floats next to each other */
