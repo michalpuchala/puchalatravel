@@ -2,6 +2,11 @@
 <html>
     <head>
         <title>Puchała Travel</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Puchałą Travel blog">
+        <meta name="keywords" content="travel,blog,photography">
+        <meta name="author" content="Michał Puchała, Magdalena Puchała">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
         <link rel="stylesheet" href="{% static 'css/default.css' %}">
@@ -14,14 +19,14 @@
             <a href="#about">Map</a>
             <a href="#about">About</a>
             <a class="title" href="http://puchalatravel.com">Puchała Travel</a>
-            <a class="social" href="https://www.instagram.com/puchalatravel/" target="_blank" align="right"><img src="{% static 'pictures/instagram_logo.png' %}" alt="Follow us on Instagram!" width="23" height="23"></a>
-            <a class="social" href="https://twitter.com/puchalatravel/" target="_blank" align="right"><img src="{% static 'pictures/twitter_logo.png' %}" alt="Follow us on Twitter!" width="23" height="23"></a>
+            <a class="social" href="https://www.instagram.com/puchalatravel/" target="_blank" align="right"><img src="{% static 'pictures/instagram_logo.png' %}" title="Follow us on Instagram!"></a>
+            <a class="social" href="https://twitter.com/puchalatravel/" target="_blank" align="right"><img src="{% static 'pictures/twitter_logo.png' %}" title="Follow us on Twitter!"></a>
         </div>
         {% endblock %}
         {% block header %}
-        <!-- <div class="header">
-            <h2>Puchała Travel</h2>
-        </div> -->
+        <div class="header">
+            <img style="width: 100%; max-height: 100%" src="{% static 'pictures/top_background.jpg' %}">
+        </div>
         {% endblock %}
         <div class="row">
             {% block leftcolumn %}

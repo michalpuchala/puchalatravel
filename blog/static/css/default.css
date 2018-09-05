@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -11,11 +12,7 @@ body {
 
 /* Header/Blog Title */
 .header {
-  font-family: "Oswald";
-  padding: 0px;
-  font-size: 40px;
-  text-align: center;
-  background: white;
+  max-height: 50%
 }
 
 /* Add a black background color to the top navigation */
@@ -30,7 +27,7 @@ body {
   float: left;
   color: #3a3a3a;
   text-align: center;
-  padding: 0.4% 0.8%;
+  padding: 10px 12px;
   text-decoration: none;
   font-size: 1.1vw;
 }
@@ -48,30 +45,18 @@ body {
 /* Change features for social buttons */
 .topnav a.social {
   float: right;
-  width: 3.25%;
-  height: 3.25%;
+  width: 23px;
+  height: 23px;
 }
 
 /* Change features for main title */
 .topnav a.title {
+  font-family: "Oswald";
   border-bottom: none !important;
   font-size: 1.3vw;
   font-weight: bold;
   position: relative;
   right: -30%;
-}
-
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 1000px) {
-  .topnav a { 
-    font-size: 4vw;
-  }
-
-  .topnav a.social {
-    float: right;
-    width: 7%;
-    height: 7%;
-  }
 }
 
 /* Create two unequal columns that floats next to each other */
@@ -100,6 +85,10 @@ body {
   background-color: white;
   padding: 15px;
   margin-top: 10px;
+}
+
+.card p {
+  max-width: 100%
 }
 
 /* Clear floats after the columns */

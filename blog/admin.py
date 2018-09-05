@@ -19,11 +19,6 @@ class PostAdmin(admin.ModelAdmin):
         models.TextField: {'widget': AdminMarkdownxWidget},
     }
 
-    # def formfield_for_foreignkey(self, db_field, request, **kwargs):
-    #     if db_field.name == 'trip':
-    #         return CustomModelChoiceField(queryset=Category.objects.all())
-    #     return super().formfield_for_foreignkey(db_field, request, **kwargs)
-
     fieldsets = [
         (None,      {'fields': ['author', 'trip', 'tag', 'category']}),
         ('Content', {'fields': ['title', 'byline', 'text']}),

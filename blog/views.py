@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.template import RequestContext
 from .models import Post
+
 
 def index(request):
     posts = Post.objects.all().order_by('published_date')
