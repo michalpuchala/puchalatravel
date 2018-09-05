@@ -61,6 +61,19 @@ body {
   right: -30%;
 }
 
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 1000px) {
+  .topnav a { 
+    font-size: 4vw;
+  }
+
+  .topnav a.social {
+    float: right;
+    width: 7%;
+    height: 7%;
+  }
+}
+
 /* Create two unequal columns that floats next to each other */
 /* Left column */
 .leftcolumn { 
