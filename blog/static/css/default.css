@@ -133,7 +133,7 @@ nav ul li a:hover {
 }
 
 #post-1 {
-  background-color: #f7f6f4;
+  background-color: #fcfcfc;
   width: 25.33%;
   padding: 4% 4% 6% 4%
 }
@@ -145,7 +145,7 @@ nav ul li a:hover {
 }
 
 #post-3 {
-  background-color: #f7f6f4;
+  background-color: #fcfcfc;
   width: 25.33%;
   padding: 4% 4% 6% 4%
 }
@@ -265,6 +265,25 @@ footer.copyrights p {
   height: 80%
 }
 
+.marker {
+  background-image: url(../pictures/red_pin.png);
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 60%
+}
+
 /*--- Start Media Queries --*/
 
 @media all and (max-width: 1100px) {
@@ -315,20 +334,20 @@ footer.copyrights p {
     float: left;
     width: 100%
   }
+  .post-container {
+    font-size: 100%;
+  }
   #post-1 {
-    background-color: #f7f6f4;
-    width: 90%;
-    padding: 5% 5% 0 5%
+    width: 70%;
+    padding: 5% 15% 10% 15%
   }
   #post-2 {
-    background-color: #fcfcfc;
-    width: 90%;
-    padding: 5% 5% 5% 5%
+    width: 70%;
+    padding: 0% 15% 15% 15%
   }
   #post-3 {
-    background-color: #f7f6f4;
-    width: 90%;
-    padding: 0 5% 5% 5%
+    width: 70%;
+    padding: 0% 15% 15% 15%
   }
   article {
     float: left;

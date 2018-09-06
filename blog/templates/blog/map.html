@@ -1,42 +1,69 @@
 {% extends 'blog/base.html' %}
 
+{% block header %}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css' rel='stylesheet'/>
+{% endblock %}
+
 {% block banner %}
 {% endblock %}
 
 {% block two_columns %}
+
 <div id='map'></div>
+
 <script>
-mapboxgl.accessToken = "pk.eyJ1IjoibWljaGFscHVjaGFsYSIsImEiOiJjamxxeWk0ZTYwcWJyM3BwbGVzMWpobjFqIn0.sBxqcK2lDMxn9RvqaBfduw";
 
-/* Map: This represents the map on the page. */
+mapboxgl.accessToken = 'pk.eyJ1IjoibWljaGFscHVjaGFsYSIsImEiOiJjamxxeWk0ZTYwcWJyM3BwbGVzMWpobjFqIn0.sBxqcK2lDMxn9RvqaBfduw';
+
 var map = new mapboxgl.Map({
-  container: "map",
-  style: "mapbox://styles/mapbox/light-v9",
-  zoom:1.1,
-  center: [0,20]
+  container: 'map',
+  style: 'mapbox://styles/mapbox/light-v9',
+  center: [-96, 37.8],
+  zoom: 3
 });
 
-map.on("load", function () {
-  /* Image: An image is loaded and added to the map. */
-  map.loadImage("https://i.imgur.com/MK4NUzI.png", function(error, image) {
-      if (error) throw error;
-      map.addImage("custom-marker", image);
-      /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
-      map.addLayer({
-        id: "markers",
-        type: "symbol",
-        /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
-        source: {
-          type: "geojson",
-          data: {
-            type: "FeatureCollection",
-            features:[{"type":"Feature","geometry":{"type":"Point","coordinates":[-77.24136187691387,38.087572924505935]}}]}
-        },
-        layout: {
-          "icon-image": "custom-marker",
-        }
-      });
-    });
+var geojson = {
+  type: 'FeatureCollection',
+  features: [{
+    type: 'Feature',
+    geometry: {
+      type: 'Point',
+      coordinates: [-77.032, 38.913]
+    },
+    properties: {
+      title: 'Mapbox',
+      description: 'Washington, D.C.'
+    }
+  },
+  {
+    type: 'Feature',
+    geometry: {
+      type: 'Point',
+      coordinates: [-122.414, 37.776]
+    },
+    properties: {
+      title: 'Mapbox',
+      description: 'San Francisco, California'
+    }
+  }]
+};
+
+// add markers to map
+geojson.features.forEach(function(marker) {
+
+// create a HTML element for each feature
+var el = document.createElement('div');
+el.className = 'marker';
+
+// make a marker for each feature and add to the map
+new mapboxgl.Marker(el)
+.setLngLat(marker.geometry.coordinates)
+.setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+.setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+.addTo(map);
 });
+
 </script>
 {% endblock %}
