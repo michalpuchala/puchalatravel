@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
     <link rel="stylesheet" href="{% static 'css/default.css' %}">
+
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css' rel='stylesheet' />
+
 </head>
 <!---End Head-->
 <body>
@@ -18,15 +22,15 @@
     <header>
         <div id="header-inner">
             <div id="title">
-                <a href="http://puchalatravel.com">PUCHAŁA TRAVEL</a>
+                <a href="{% url 'index' %}">PUCHAŁA TRAVEL</a>
             </div>
             <nav>
                 <a href="#" id="menu-icon"></a>
                 <ul>
-                    <li><a href="index.html" class="current">Home</a></li>
-                    <li><a href="#about">Blog</a></li>
-                    <li><a href="#about">Map</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="{% url 'index' %}" class="current">Home</a></li>
+                    <li><a href="{% url 'posts' %}">Blog</a></li>
+                    <li><a href="{% url 'map' %}">Map</a></li>
+                    <li><a href="{% url 'about_us' %}">About us</a></li>
                 </ul>
             </nav>
         </div>
@@ -42,44 +46,9 @@
     {% endblock %}
 <!---End Banner-->
     {% block three_columns %}
-    <section class="one-third" id="post-1">
-        <h3>Blog post #1</h3>
-    </section>
-    <section class="one-third" id="post-2">
-        <h3>Blog post #2</h3>
-    </section>
-    <section class="one-third" id="post-3">
-        <h3>Blog post #3</h3>
-    </section>
     {% endblock %}
 <!---End Four Column Section-->
     {% block two_columns %}
-    <section class="inner-wrapper">
-        <article id="about-us">
-            <img src="{% static 'pictures/about_us.jpg' %}">
-        </article>
-        <aside id="about-us">
-            <h2>ABOUT US</h2>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</p>
-        </aside>
-    </section>
-    <section class="inner-wrapper-2">
-        <article id="travel-challenge">
-            <h2>THE TRAVEL CHALLENGE</h2>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</p>
-        </article>
-        <aside id="about-us">
-            <img src="{% static 'pictures/puchalatravel_mapa.JPG' %}">
-        </aside>
-    </section>
     {% endblock %}
 <!---End Two Column Section-->
     {% block footer %}

@@ -12,3 +12,12 @@ def index(request):
                                                 'latest_post': latest_post,
                                                 'second_latest_post': second_latest_post,
                                                 'third_latest_post': third_latest_post})
+
+def posts(request):
+    return render(request, 'blog/posts.html')
+
+def map(request):
+    return render(request, 'blog/map.html')
+
+def about_us(request):
+    return render(request, 'blog/about_us.html')

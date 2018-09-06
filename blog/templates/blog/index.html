@@ -1,28 +1,57 @@
 {% extends 'blog/base.html' %}
-
+{% load static %}
 {% block three_columns %}
 <section class="one-third" id="post-1">
     <div class="post-container">
-        <img src="{{ latest_post.main_image.picture.url }}">
+        <a href="#"><img src="{{ latest_post.main_image.picture.url }}">
         <div class="post-title">
-            <a href="#">{{ latest_post.title }}</a>
+            {{ latest_post.title }}</a>
         </div>
     </div>
 </section>
 <section class="one-third" id="post-2">
     <div class="post-container">
-        <img src="{{ second_latest_post.main_image.picture.url }}">
+        <a href="#"><img src="{{ second_latest_post.main_image.picture.url }}">
         <div class="post-title">
-            <a href="#">{{ second_latest_post.title }}</a>
+            {{ second_latest_post.title }}</a>
         </div>
     </div>
 </section>
 <section class="one-third" id="post-3">
     <div class="post-container">
-        <img src="{{ third_latest_post.main_image.picture.url }}">
+        <a href="#"><img src="{{ third_latest_post.main_image.picture.url }}">
         <div class="post-title">
-            <a href="#">{{ third_latest_post.title }}</a>
+            {{ third_latest_post.title }}</a>
         </div>
     </div>
+</section>
+{% endblock %}
+
+{% block two_columns %}
+<section class="inner-wrapper">
+    <article id="about-us">
+        <img src="{% static 'pictures/about_us.jpg' %}">
+    </article>
+    <aside id="about-us">
+        <h2>ABOUT US</h2>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
+            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+            deserunt mollit anim id est laborum.</p>
+    </aside>
+</section>
+<section class="inner-wrapper-2">
+    <article id="travel-challenge">
+        <h2>THE TRAVEL CHALLENGE</h2>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
+            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+            deserunt mollit anim id est laborum.</p>
+    </article>
+    <aside id="about-us">
+        <img src="{% static 'pictures/puchalatravel_mapa.JPG' %}">
+    </aside>
 </section>
 {% endblock %}
