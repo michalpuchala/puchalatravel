@@ -126,26 +126,57 @@ nav ul li a:hover {
   margin: 0 auto
 }
 
-.one-fourth {
-  width: 25%;
+.one-third {
+  width: 33.33%;
   float: left;
   text-align: center
 }
 
 #post-1 {
-  background-color: #f7f6f4
+  background-color: #f7f6f4;
+  width: 29.33%;
+  padding: 2%
 }
 
 #post-2 {
-  background-color: #fcfcfc
+  background-color: #fcfcfc;
+  width: 29.33%;
+  padding: 2%
 }
 
 #post-3 {
-  background-color: #f7f6f4
+  background-color: #f7f6f4;
+  width: 29.33%;
+  padding: 2%
 }
 
-#post-4 {
-  background-color: #fcfcfc
+.post-container {
+  position: relative;
+  text-align: center;
+  font-size: 200%;
+  font-weight: 800;
+  color: white;
+}
+
+.post-container a {
+  color: #fcfcfc;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000; 
+}
+
+.post-container a:hover {
+  color: #b7b7b7
+}
+
+.post-title {
+  position: absolute;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .inner-wrapper {
@@ -162,7 +193,8 @@ article {
 }
 
 #about-us {
-  background-color: #fcfcfc
+  background-color: #fcfcfc;
+  text-align: center
 }
 
 aside {
@@ -255,27 +287,41 @@ footer.copyrights p {
     position: absolute;
     padding: 20px;
     background: #f7f6f4;
-    margin-right: 10px;
-    margin-top: 20px;
+    right: 15px;
+    top: 60px;
     border: 1px solid #b7b7b7;
     border-radius: 2px 0 2px 2px;
     width: 30%;
-
   }
   nav:hover ul {
     display: block;
   }
   nav li {
-    text-align: left;
+    text-align: justify;
     width: 100%;
-    padding: 15px 0 15px 0
+    font-weight: 800
   }
   .banner{
-    padding-top: 60px
+    padding-top: 60px;
   }
-  .one-fourth {
+  .one-third {
     float: left;
     width: 100%
+  }
+  #post-1 {
+    background-color: #f7f6f4;
+    width: 90%;
+    padding: 5% 5% 0 5%
+  }
+  #post-2 {
+    background-color: #fcfcfc;
+    width: 90%;
+    padding: 5% 5% 5% 5%
+  }
+  #post-3 {
+    background-color: #f7f6f4;
+    width: 90%;
+    padding: 0 5% 5% 5%
   }
   article {
     float: left;
@@ -283,5 +329,9 @@ footer.copyrights p {
   }
   aside {
     width: 100%
+  }
+  .social img {
+    width: 10vw;
+    height: 10vw;
   }
 }

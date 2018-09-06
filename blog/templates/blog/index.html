@@ -1,1 +1,28 @@
 {% extends 'blog/base.html' %}
+
+{% block three_columns %}
+<section class="one-third" id="post-1">
+    <div class="post-container">
+        <img src="{{ latest_post.main_image.picture.url }}">
+        <div class="post-title">
+            <a href="#">{{ latest_post.title }}</a>
+        </div>
+    </div>
+</section>
+<section class="one-third" id="post-2">
+    <div class="post-container">
+        <img src="{{ second_latest_post.main_image.picture.url }}">
+        <div class="post-title">
+            <a href="#">{{ second_latest_post.title }}</a>
+        </div>
+    </div>
+</section>
+<section class="one-third" id="post-3">
+    <div class="post-container">
+        <img src="{{ third_latest_post.main_image.picture.url }}">
+        <div class="post-title">
+            <a href="#">{{ third_latest_post.title }}</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
