@@ -60,7 +60,6 @@ header {
 }
 
 #header-inner {
-  max-width: 1600px;
   margin: 0 auto
 }
 
@@ -124,13 +123,11 @@ nav ul li a:hover {
 }
 
 .banner-inner {
-  max-width: 1600px;
   margin: 0 auto
 }
 
 .one-fourth {
   width: 25%;
-  max-width: 400px;
   float: left;
   text-align: center
 }
@@ -154,7 +151,6 @@ nav ul li a:hover {
 .inner-wrapper {
   float: left;
   width: 100%;
-  max-width: 1600px;
   background-color: #fcfcfc
 }
 
