@@ -1,14 +1,1 @@
 {% extends 'blog/base.html' %}
-
-{% block leftcolumn %}
-{% for post in posts %}
-<div class="leftcolumn">
-    <div class="card" style="max-width: 100%">
-        <h2><a href="">{{ post.title }}</a></h2>
-        <h5>published: {{ post.published_date }}, by: {{ post.author }}</h5>
-        <div><img src="{{ post.main_image.url }}"></div>
-        <p>{{ post.byline }}</p>
-    </div>
-</div>
-{% endfor %}
-{% endblock %}

@@ -1,60 +1,98 @@
 {% load static %}
 <html>
-    <head>
-        <title>Puchała Travel</title>
-        <meta charset="UTF-8">
-        <meta name="description" content="Puchałą Travel blog">
-        <meta name="keywords" content="travel,blog,photography">
-        <meta name="author" content="Michał Puchała, Magdalena Puchała">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
-        <link rel="stylesheet" href="{% static 'css/default.css' %}">
-    </head>
-    <body>
-        {% block navbar %}
-        <div class="topnav">
-            <a class="active" href="#home">Home</a>
-            <a href="#about">Blog</a>
-            <a href="#about">Map</a>
-            <a href="#about">About</a>
-            <a class="title" href="http://puchalatravel.com">Puchała Travel</a>
-            <a class="social" href="https://www.instagram.com/puchalatravel/" target="_blank" align="right"><img src="{% static 'pictures/instagram_logo.png' %}" title="Follow us on Instagram!"></a>
-            <a class="social" href="https://twitter.com/puchalatravel/" target="_blank" align="right"><img src="{% static 'pictures/twitter_logo.png' %}" title="Follow us on Twitter!"></a>
-        </div>
-        {% endblock %}
-        {% block header %}
-        <div class="header">
-            <img style="width: 100%; max-height: 100%" src="{% static 'pictures/top_background.jpg' %}">
-        </div>
-        {% endblock %}
-        <div class="row">
-            {% block leftcolumn %}
-            {% endblock %}
-            {% block rightcolumn %}
-            <div class="rightcolumn">
-                <div class="card">
-                    <h2>About Us</h2>
-                    <div class="image" style="height:100px;">Image</div>
-                    <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-                    </div>
-                <div class="card">
-                    <h3>Popular Posts</h3>
-                    <div class="image">Image</div><br>
-                    <div class="image">Image</div><br>
-                    <div class="image">Image</div>
-              </div>
-              <div class="card">
-                <h3>Follow Us</h3>
-                <p>Some text..</p>
-              </div>
+<head>
+    <title>Puchała Travel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Puchała Travel blog">
+    <meta name="keywords" content="travel,blog,photography">
+    <meta name="author" content="Michał Puchała, Magdalena Puchała">
+    <link rel="shortcut icon" type="image/png" href="">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
+</head>
+<!---End Head-->
+<body>
+    {% block navbar %}
+    <header>
+        <div id="header-inner">
+            <div id="title">
+                <a href="http://puchalatravel.com">PUCHAŁA TRAVEL</a>
             </div>
-            {% endblock %}
+            <nav>
+                <a href="#" id="menu-icon"></a>
+                <ul>
+                    <li><a href="index.html" class="current">Home</a></li>
+                    <li><a href="#about">Blog</a></li>
+                    <li><a href="#about">Map</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
         </div>
-        {% block footer %}
-        <div class="footer">
-            <h2>Footer</h2>
+    </header>
+    {% endblock %}
+<!---End Header-->
+    {% block banner %}
+    <section class="banner">
+        <div class="banner-inner">
+            <img src="{% static 'pictures/top_background.jpg' %}">
         </div>
-        {% endblock %}
-    </body>
+    </section>
+    {% endblock %}
+<!---End Banner-->
+    {% block four_columns %}
+    <section class="one-fourth" id="post-1">
+        <h3>Blog post #1</h3>
+    </section>
+    <section class="one-fourth" id="post-2">
+        <h3>Blog post #2</h3>
+    </section>
+    <section class="one-fourth" id="post-3">
+        <h3>Blog post #3</h3>
+    </section>
+    <section class="one-fourth" id="post-4">
+        <h3>Blog post #4</h3>
+    </section>
+    {% endblock %}
+<!---End Four Column Section-->
+    {% block two_columns %}
+    <section class="inner-wrapper">
+        <article id="about-us">
+            <img src="{% static 'pictures/about_us.jpg' %}">
+        </article>
+        <aside id="about-us">
+            <h2>ABOUT US</h2>
+            <p>Some amazing stuff about us.</p>
+        </aside>
+    </section>
+    <section class="inner-wrapper-2">
+        <article id="travel-challenge">
+            <h2>THE TRAVEL CHALLENGE</h2>
+            <p>Something about our guests giving us tips where to travel.</p>
+        </article>
+        <aside id="about-us">
+            <img src="{% static 'pictures/puchalatravel_mapa.jpg' %}">
+        </aside>
+    </section>
+    {% endblock %}
+<!---End Two Column Section-->
+    {% block footer %}
+    <section id="logo">
+        <h2>LOGO</h2>
+    </section>
+<!---End Logo Section-->
+    <footer>
+        <ul class="social">
+            <li><a href="https://www.instagram.com/puchalatravel/" target="_blank"><img src="{% static 'pictures/instagram_logo.png' %}" title="Follow us on Instagram!"></a></li>
+            <li><a href="https://twitter.com/puchalatravel/" target="_blank"><img src="{% static 'pictures/twitter_logo.png' %}" title="Follow us on Twitter!"></a></li>
+        </ul>
+    </footer>
+<!---End Footer-->
+    <footer class="copyrights">
+        <p>&copy: Michał and Magdalena Puchała</p>
+    </footer>
+    {% endblock %}
+<!---End Copyrights-->
+</body>
 </html>
