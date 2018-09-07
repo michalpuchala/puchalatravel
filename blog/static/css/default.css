@@ -54,6 +54,9 @@ a:visited {
 }
 
 header {
+  position: fixed;
+  z-index: 1000;
+  margin-top: -60px;
   background-color: #fcfcfc;
   width: 100%;
   height: 60px
@@ -118,6 +121,7 @@ nav ul li a:hover {
 /*--- End Navigation --*/
 
 .banner {
+  margin-top: 60px;
   width: 100%;
   background-color: #fcfcfc;
 }
@@ -169,7 +173,7 @@ nav ul li a:hover {
 
 .post-title {
   position: absolute;
-  z-index: 1000;
+  z-index: 900;
   top: 110%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -297,7 +301,7 @@ footer.copyrights p {
     font-size: 120%
   }
   header {
-    position: absolute;
+    position: fixed;
     z-index: 995
   }
   #title {
@@ -327,9 +331,6 @@ footer.copyrights p {
     text-align: justify;
     width: 100%;
     font-weight: 800
-  }
-  .banner{
-    padding-top: 60px;
   }
   .one-third {
     float: left;
@@ -365,7 +366,7 @@ footer.copyrights p {
     font-size: 50%
   }
   #map{
-    padding-top: 60px;
+    margin-top: 60px;
     z-index: 0
   }
 }
