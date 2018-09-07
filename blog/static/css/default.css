@@ -31,7 +31,7 @@ h3 {
 p {
   font-family: "Open Sans", sans-serif;
   color: #3d3d3d;
-  font-size: 160%;
+  font-size: 120%;
   line-height: 120%;
   padding: 3%;
   text-indent: 2%;
@@ -67,7 +67,7 @@ header {
 }
 
 #title {
-  margin: 10px;
+  margin: 5px 0 0 15px;
   float: left;
   font-size: 250%;
   font-weight: 700;
@@ -83,6 +83,7 @@ nav {
 
 #menu-icon {
   display: hidden;
+  margin-top: -3px;
   width: 30px;
   height: 30px;
   background: url(../pictures/menu.png) center;
@@ -99,7 +100,7 @@ ul {
 nav ul li {
   font-size: 150%;
   display: inline-block;
-  padding: 6px 10px 7px 10px;
+  padding: 0px 10px 7px 10px;
   font-family: "Open Sans", sans-serif;
   right: 0;
   left: auto
@@ -186,6 +187,7 @@ nav ul li a:hover {
 }
 
 article {
+  font-size: 80%;
   float: left;
   margin: 0 auto;
   width: 50%;
@@ -193,6 +195,7 @@ article {
 }
 
 #about-us {
+  font-size: 80%;
   background-color: #fcfcfc;
   text-align: center
 }
@@ -303,11 +306,13 @@ footer.copyrights p {
   }
   header {
     position: fixed;
+    height: 50px;
+    margin-top: -50px;
     z-index: 995
   }
   #title {
-    font-size: 150%;
-    margin: 15px 0 20px 15px; 
+    font-size: 130%;
+    margin: 13px 0 20px 15px; 
   }
   #menu-icon {
     display: inline-block;
@@ -332,6 +337,9 @@ footer.copyrights p {
     text-align: justify;
     width: 100%;
     font-weight: 800
+  }
+  .banner {
+    margin-top: 50px
   }
   .one-third {
     float: left;
