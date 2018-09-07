@@ -51,10 +51,30 @@ class Image(models.Model):
         return self.name
 
 
+class PlaceStatus(models.Model):
+    status = models.CharField(max_length=32)
+    
+    def __unicode__(self):
+        return self.name
+
+
+class Place(models.Model):
+    name = models.CharField(max_length=32)
+    coord_v = models.FloatField()
+    coord_h = models.FloatField()
+    status = models.ForeignKey(PlaceStatus, on_delete=models.CASCADE)
+    trip = models.ManyToManyField(Trip, blank=True, null=True)
+    images = models.ManyToManyField(Image, blank=True, null=True)
+
+    def __unicode__(self):
+        return self.name
+
+
 class Post(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     category = models.ManyToManyField(Category)
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
+    place = models.ManyToManyField(Place, blank=True, null=True)
     title = models.CharField(max_length=100, unique=True)
     byline = models.CharField(max_length=255)
     tag = models.ManyToManyField(Tag)
@@ -63,9 +83,9 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     main_image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name='main_image')
-    images = models.ManyToManyField(Image, related_name='images')
-    instagram_link = models.URLField()
-    twitter_link = models.URLField()
+    images = models.ManyToManyField(Image, related_name='images', blank=True, null=True)
+    instagram_link = models.URLField(blank=True, null=True)
+    twitter_link = models.URLField(blank=True, null=True)
 
     # Create a property that returns the markdown instead
     @property

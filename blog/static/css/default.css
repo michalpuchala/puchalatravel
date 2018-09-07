@@ -56,7 +56,7 @@ a:visited {
 header {
   background-color: #fcfcfc;
   width: 100%;
-  height: 60px;
+  height: 60px
 }
 
 #header-inner {
@@ -80,8 +80,8 @@ nav {
 
 #menu-icon {
   display: hidden;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   background: url(../pictures/menu.png) center;
 }
 
@@ -297,7 +297,8 @@ footer.copyrights p {
     font-size: 120%
   }
   header {
-    position: absolute
+    position: absolute;
+    z-index: 995
   }
   #title {
     font-size: 150%;
@@ -357,7 +358,14 @@ footer.copyrights p {
     width: 100%
   }
   .social img {
-    width: 10vw;
-    height: 10vw;
+    width: 8vw;
+    height: 8vw;
+  }
+  .copyrights {
+    font-size: 50%
+  }
+  #map{
+    padding-top: 60px;
+    z-index: 0
   }
 }
