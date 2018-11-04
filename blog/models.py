@@ -43,7 +43,7 @@ class Trip(models.Model):
 class Image(models.Model):
     name = models.CharField(max_length=32)
     picture = models.ImageField(upload_to='pictures/', blank=True)
-    trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
+    trip = models.ForeignKey(Trip, on_delete=models.CASCADE, blank=True, null=True)
     taken = models.DateTimeField(blank=True, null=True)
     uploaded = models.DateTimeField(default=timezone.now)
 
@@ -53,6 +53,9 @@ class Image(models.Model):
 
 class PlaceStatus(models.Model):
     status = models.CharField(max_length=32)
+
+    class Meta:
+        verbose_name_plural = "Place statuses"
     
     def __unicode__(self):
         return self.name
@@ -77,7 +80,7 @@ class Post(models.Model):
     place = models.ManyToManyField(Place, blank=True, null=True)
     title = models.CharField(max_length=100, unique=True)
     byline = models.CharField(max_length=255)
-    tag = models.ManyToManyField(Tag)
+    tag = models.ManyToManyField(Tag, blank=True, null=True)
     text = MarkdownxField()
     slug = models.SlugField(max_length=128)
     created_date = models.DateTimeField(default=timezone.now)

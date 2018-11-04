@@ -26,28 +26,21 @@ var map = new mapboxgl.Map({
 
 var geojson = {
   type: 'FeatureCollection',
-  features: [{
-    type: 'Feature',
-    geometry: {
-      type: 'Point',
-      coordinates: [-77.032, 38.913]
+  features: [
+  {% for place in places %}
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [place.coord_h, place.coord_v]
+      },
+      properties: {
+        title: 'Mapbox',
+        description: place.name
+      }
     },
-    properties: {
-      title: 'Mapbox',
-      description: 'Washington, D.C.'
-    }
-  },
-  {
-    type: 'Feature',
-    geometry: {
-      type: 'Point',
-      coordinates: [-122.414, 37.776]
-    },
-    properties: {
-      title: 'Mapbox',
-      description: 'San Francisco, California'
-    }
-  }]
+  {% endfor %}
+]
 };
 
 // add markers to map

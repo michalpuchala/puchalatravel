@@ -4,7 +4,7 @@ from django.db import models
 from markdownx.admin import MarkdownxModelAdmin
 from markdownx.widgets import AdminMarkdownxWidget
 from django.forms import TextInput, Textarea
-from blog.models import Category, Tag, Author, Trip, Image, Post
+from blog.models import Category, Tag, Author, Trip, Image, PlaceStatus, Place, Post
 
 # Adjusting views
 
@@ -64,6 +64,14 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
 
+class PlaceStatusAdmin(admin.ModelAdmin):
+    list_display = ('id', 'status',)
+
+
+class PlaceAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+
+
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'bio')
 
@@ -85,3 +93,5 @@ admin.site.register(Trip, TripAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Author, AuthorAdmin)
+admin.site.register(PlaceStatus, PlaceStatusAdmin)
+admin.site.register(Place, PlaceAdmin)

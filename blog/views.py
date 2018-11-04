@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.template import RequestContext
-from .models import Post
+from .models import Post, Place
 
 
 def index(request):
@@ -17,7 +17,8 @@ def posts(request):
     return render(request, 'blog/posts.html')
 
 def map(request):
-    return render(request, 'blog/map.html')
+    places = Place.objects.all()
+    return render(request, 'blog/map.html', {'places': places})
 
 def about_us(request):
     return render(request, 'blog/about_us.html')
