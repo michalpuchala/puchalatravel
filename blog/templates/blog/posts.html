@@ -2,3 +2,12 @@
 
 {% block banner %}
 {% endblock %}
+
+{% block three_columns %}
+<section class="one-third-posts" id='posts_list'>
+    {% for post in post_list %}
+    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a><br>
+    <a href="{{ post.get_absolute_url }}"><img src="{{ post.main_image.picture.url }}"></a>
+    {% endfor %}
+</section>
+{% endblock %}

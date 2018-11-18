@@ -268,6 +268,20 @@ footer.copyrights p {
   text-align: center
 }
 
+/*--- Start Blog Posts View --*/
+
+.one-third-posts {
+  margin-top: 60px;
+  width: 33.33%;
+  text-align: center
+}
+
+#posts_list {
+  background-color: #fcfcfc;
+  width: 25.33%;
+  padding: 4% 4% 6% 4%
+}
+
 /*--- Start Map View --*/
 
 #map {

@@ -32,11 +32,11 @@ var geojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [place.coord_h, place.coord_v]
+        coordinates: [{{ place.coord_h }}, {{ place.coord_v }}]
       },
       properties: {
         title: 'Mapbox',
-        description: place.name
+        description: '{{ place.name }}'
       }
     },
   {% endfor %}
