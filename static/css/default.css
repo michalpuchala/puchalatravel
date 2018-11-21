@@ -59,10 +59,9 @@ header {
   font-family: "Saira Extra Condensed", sans-serif;
   position: fixed;
   z-index: 1000;
-  margin-top: -60px;
-  background-color: #fcfcfc;
+  background: rgba(255,255,255, 0.85);
   width: 100%;
-  height: 60px
+  height: 60px;
 }
 
 #header-inner {
@@ -125,7 +124,6 @@ nav ul li a:hover {
 /*--- End Navigation --*/
 
 .banner {
-  margin-top: 60px;
   width: 100%;
   background-color: #fcfcfc;
 }
@@ -270,10 +268,24 @@ footer.copyrights p {
 
 /*--- Start Blog Posts View --*/
 
-.one-third-posts {
-  margin-top: 60px;
-  width: 33.33%;
-  text-align: center
+.top-section-title {
+  width: 100%;
+  text-align: center;
+  padding-top: 70px;
+  font-size: 200%;
+  margin-bottom: -50px
+}
+
+.section-title {
+  float: left;
+  width: 100%;
+  background-color: #fcfcfc;
+  text-align: center;
+  margin-top: -20px;
+  margin-bottom: -30px;
+  z-index: 995;
+  position: relative;
+  font-size: 200%
 }
 
 #posts_list {
@@ -285,16 +297,15 @@ footer.copyrights p {
 /*--- Start Map View --*/
 
 #map {
-  margin-top: 60px;
   width:100%;
   height: 80%
 }
 
 .marker {
-  background-image: url(../pictures/red_pin.png);
+  background-image: url(../pictures/green_pin.png);
   background-size: cover;
-  width: 30px;
-  height: 30px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -307,6 +318,15 @@ footer.copyrights p {
   text-align: center;
   font-family: 'Saira Condensed', sans-serif;
   font-size: 60%
+}
+
+/*--- Start About Us View --*/
+
+.inner-wrapper-about-us {
+  padding-top: 60px;
+  float: left;
+  width: 100%;
+  background-color: #fcfcfc
 }
 
 /*--- Start Media Queries --*/

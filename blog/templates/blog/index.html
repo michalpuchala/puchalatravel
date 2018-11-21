@@ -30,7 +30,7 @@
 {% block two_columns %}
 <section class="inner-wrapper">
     <article id="about-us">
-        <img src="{% static 'pictures/about_us.jpg' %}">
+        <a href="{% url 'about_us' %}"><img src="{% static 'pictures/about_us.jpg' %}"></a>
     </article>
     <aside id="about-us">
         <h2>ABOUT US</h2>
@@ -51,7 +51,7 @@
             deserunt mollit anim id est laborum.</p>
     </article>
     <aside id="about-us">
-        <img src="{% static 'pictures/puchalatravel_mapa.JPG' %}">
+            <a href="{% url 'map' %}"><img src="{% static 'pictures/puchalatravel_mapa.JPG' %}"></a>
     </aside>
 </section>
 {% endblock %}
