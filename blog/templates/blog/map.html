@@ -19,8 +19,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWljaGFscHVjaGFsYSIsImEiOiJjamxxeWk0ZTYwcWJyM
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/light-v9',
-  center: [0, 20],
-  zoom: 1.1
+  center: [0, 40],
+  zoom: 1.0
 });
 
 var geojson = {
@@ -34,8 +34,8 @@ var geojson = {
         coordinates: [{{ place.coord_h }}, {{ place.coord_v }}]
       },
       properties: {
-        title: 'Mapbox',
-        description: '{{ place.name }}'
+        title: '{{ place.name }}',
+        description: '{{ place.status }}'
       }
     },
   {% endfor %}
@@ -47,7 +47,7 @@ geojson.features.forEach(function(marker) {
 
 // create a HTML element for each feature
 var el = document.createElement('div');
-el.className = 'marker';
+el.className = 'marker-green';
 
 // make a marker for each feature and add to the map
 new mapboxgl.Marker(el)

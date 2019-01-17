@@ -14,11 +14,17 @@ class Category(models.Model):
     def __unicode__(self):
         return self.name
 
+    def __str__(self):
+        return self.name
+
 
 class Tag(models.Model):
     name = models.CharField(max_length=32)
 
     def __unicode__(self):
+        return self.name
+
+    def __str__(self):
         return self.name
 
 
@@ -40,6 +46,9 @@ class Trip(models.Model):
     def __unicode__(self):
         return self.name
 
+    def __str__(self):
+        return self.name
+
 
 class Image(models.Model):
     name = models.CharField(max_length=32)
@@ -51,6 +60,9 @@ class Image(models.Model):
     def __unicode__(self):
         return self.name
 
+    def __str__(self):
+        return self.name
+
 
 class PlaceStatus(models.Model):
     status = models.CharField(max_length=32)
@@ -59,7 +71,10 @@ class PlaceStatus(models.Model):
         verbose_name_plural = "Place statuses"
     
     def __unicode__(self):
-        return self.name
+        return self.status
+
+    def __str__(self):
+        return self.status
 
 
 class Place(models.Model):
@@ -71,6 +86,9 @@ class Place(models.Model):
     images = models.ManyToManyField(Image, blank=True, null=True)
 
     def __unicode__(self):
+        return self.name
+
+    def __str__(self):
         return self.name
 
 

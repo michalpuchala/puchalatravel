@@ -298,11 +298,20 @@ footer.copyrights p {
 
 #map {
   width:100%;
-  height: 80%
+  height: 90%
 }
 
-.marker {
+.marker-green {
   background-image: url(../pictures/green_pin.png);
+  background-size: cover;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.marker-red {
+  background-image: url(../pictures/red_pin.png);
   background-size: cover;
   width: 15px;
   height: 15px;
