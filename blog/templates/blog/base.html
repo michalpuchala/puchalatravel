@@ -37,7 +37,11 @@
                     <li><a href="{% url 'posts' %}">Blog</a></li>
                     <li><a href="{% url 'map' %}">Map</a></li>
                     <li><a href="{% url 'about_us' %}">About us</a></li>
-                    <li><a href="#">Log In</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'logout'%}?next={{request.path}}">{{ user.get_username }} (logout)</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>
@@ -71,7 +75,7 @@
     </footer>
 <!---End Footer-->
     <footer class="copyrights">
-        <p>&copy: Michał and Magdalena Puchała 2018</p>
+        <p>&copy: Michał and Magdalena Puchała 2019</p>
     </footer>
     {% endblock %}
 <!---End Copyrights-->

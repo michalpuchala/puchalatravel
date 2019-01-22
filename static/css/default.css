@@ -304,8 +304,8 @@ footer.copyrights p {
 .marker-green {
   background-image: url(../pictures/green_pin.png);
   background-size: cover;
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -313,8 +313,8 @@ footer.copyrights p {
 .marker-red {
   background-image: url(../pictures/red_pin.png);
   background-size: cover;
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -348,6 +348,15 @@ footer.copyrights p {
 
 #michal {
   background-color: #fcfcfc
+}
+
+/*--- Start Login and Registration --*/
+
+#login {
+  width: 100%;
+  padding-top: 60px;
+  text-align: center;
+  font-size: 120%;
 }
 
 /*--- Start Media Queries --*/

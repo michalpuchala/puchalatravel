@@ -5,6 +5,9 @@
 
 {% block two_columns %}
 <div id='posts_list'>
-    {{ post.title }}
+    {{ post.title }} <br>
+    {{ post.text|safe }} <br><br>
+    Post has {{ post.number_of_likes }} likes.<br>
+    Post has {{ post.post_views }} views
 </div>
 {% endblock %}

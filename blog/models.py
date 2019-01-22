@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.urls import reverse
 from markdownx.utils import markdownify
 from markdownx.models import MarkdownxField
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -92,6 +93,18 @@ class Place(models.Model):
         return self.name
 
 
+class PostLikes(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    time = models.DateTimeField(default=timezone.now)
+    slug = models.SlugField(max_length=128)
+
+    def __unicode__(self):
+        return self.name
+
+    def __str__(self):
+        return self.slug
+
+
 class Post(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     category = models.ManyToManyField(Category)
@@ -100,7 +113,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100, unique=True)
     byline = models.CharField(max_length=255)
     tag = models.ManyToManyField(Tag, blank=True, null=True)
-    text = MarkdownxField()
+    text = models.TextField()
     slug = models.SlugField(max_length=128)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
@@ -108,6 +121,8 @@ class Post(models.Model):
     images = models.ManyToManyField(Image, related_name='images', blank=True, null=True)
     instagram_link = models.URLField(blank=True, null=True)
     twitter_link = models.URLField(blank=True, null=True)
+    post_likes = models.ForeignKey(PostLikes, on_delete=models.CASCADE, blank=True, null=True)
+    post_views = models.IntegerField(default=0)
 
     # Create a property that returns the markdown instead
     @property
