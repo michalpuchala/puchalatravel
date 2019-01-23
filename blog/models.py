@@ -2,7 +2,6 @@ from django.db import models
 from django.utils import timezone
 from django.urls import reverse
 from markdownx.utils import markdownify
-from markdownx.models import MarkdownxField
 from django.contrib.auth.models import User
 
 
@@ -83,46 +82,33 @@ class Place(models.Model):
     coord_v = models.FloatField()
     coord_h = models.FloatField()
     status = models.ForeignKey(PlaceStatus, on_delete=models.CASCADE)
-    trip = models.ManyToManyField(Trip, blank=True, null=True)
-    images = models.ManyToManyField(Image, blank=True, null=True)
+    trip = models.ManyToManyField(Trip, blank=True)
+    images = models.ManyToManyField(Image, blank=True)
 
     def __unicode__(self):
         return self.name
 
     def __str__(self):
         return self.name
-
-
-class PostLikes(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    time = models.DateTimeField(default=timezone.now)
-    slug = models.SlugField(max_length=128)
-
-    def __unicode__(self):
-        return self.name
-
-    def __str__(self):
-        return self.slug
 
 
 class Post(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     category = models.ManyToManyField(Category)
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
-    place = models.ManyToManyField(Place, blank=True, null=True)
+    place = models.ManyToManyField(Place, blank=True)
     title = models.CharField(max_length=100, unique=True)
     byline = models.CharField(max_length=255)
-    tag = models.ManyToManyField(Tag, blank=True, null=True)
+    tag = models.ManyToManyField(Tag, blank=True)
     text = models.TextField()
     slug = models.SlugField(max_length=128)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     main_image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name='main_image')
-    images = models.ManyToManyField(Image, related_name='images', blank=True, null=True)
+    images = models.ManyToManyField(Image, related_name='images', blank=True)
     instagram_link = models.URLField(blank=True, null=True)
     twitter_link = models.URLField(blank=True, null=True)
-    post_likes = models.ForeignKey(PostLikes, on_delete=models.CASCADE, blank=True, null=True)
-    post_views = models.IntegerField(default=0)
+    post_likes = models.ManyToManyField(User, blank=True, related_name='post_likes')
 
     # Create a property that returns the markdown instead
     @property
@@ -131,6 +117,12 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
+
+    def get_like_url(self):
+        return reverse('post-like-toggle', kwargs={'pk': self.pk})
+
+    def get_api_like_url(self):
+        return reverse('post-like-api-toggle', kwargs={'pk': self.pk})
 
     def publish(self):
         self.published_date = timezone.now()

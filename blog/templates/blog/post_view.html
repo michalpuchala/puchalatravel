@@ -1,13 +1,54 @@
 {% extends 'blog/base.html' %}
+<!---Hit Count Start-->
+{% load staticfiles %}
+<script src="{% static 'hitcount/jquery.postcsrf.js' %}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+          // use the template tags in our JavaScript call
+          $.postCSRF("{{ hitcount.ajax_url }}", { hitcountPK : "{{ hitcount.pk }}" })
+            .done(function(data){
+              $('<i />').text(data.hit_counted).attr('id','hit-counted-value').appendTo('#hit-counted');
+              $('#hit-response').text(data.hit_message);
+          }).fail(function(data){
+      console.log('POST failed');
+      console.log(data);
+  });
+});
+</script>
+<!---Hit Count End-->
+
+{% load hitcount_tags %}
+{% get_hit_count_js_variables for post as hitcount %}
 
 {% block banner %}
+<!---jquery Start-->
+<script>
+$(".like-btn").click(function(e){
+    e.preventDefault()
+    var this_ = $(this)
+    var likeUrl = this_.attr("data-href")
+    $.ajax({
+        url: likeUrl,
+        method: "GET",
+        data: {},
+        success: function(data){
+            console.log(data)
+        }, error: function(error){
+            console.log(error)
+            console.log("error")
+        }
+    })
+})
+</script>
+<script type="text/JavaScript" src="{%  static 'js/jquery.js' %}"></script>
+<!---jquery End-->
 {% endblock %}
 
 {% block two_columns %}
 <div id='posts_list'>
     {{ post.title }} <br>
     {{ post.text|safe }} <br><br>
-    Post has {{ post.number_of_likes }} likes.<br>
-    Post has {{ post.post_views }} views
+    Post has {{ post.post_likes.count }} likes.<a class="like-btn" data-href="{{ post.get_api_like_url }}" href = "{{ post.get_like_url }}">Like</a><br>
+    Post has {{ hitcount.total_hits }} views
 </div>
 {% endblock %}

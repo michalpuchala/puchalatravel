@@ -1,8 +1,16 @@
 from django.shortcuts import render, redirect
-from django.views import generic
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
-from django.db.models import Count, F
+from django.views.generic import RedirectView
+from django.shortcuts import get_object_or_404
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import authentication, permissions
+from django.contrib.auth.models import User
+
+from hitcount.views import HitCountDetailView
+
 from .models import Post, Place
 
 
@@ -39,11 +47,49 @@ def posts(request):
                                                 'third_latest_post': third_latest_post})
 
 
-class PostDetailView(generic.DetailView):
+class PostDetailView(HitCountDetailView):
     model = Post
-    likes = Post.objects.annotate(number_of_likes=Count('post_likes'))
-    # Post.objects.filter(id__in=posts).update(post_views=F('vote') + 1)
+    count_hit = True
     template_name = 'blog/post_view.html'
+
+
+class PostLikeToggle(RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        pk = self.kwargs.get('pk')
+        print(pk)
+        obj = get_object_or_404(Post, pk=pk)
+        url_ = obj.get_absolute_url()
+        user = self.request.user
+        if user.is_authenticated:
+            if user in obj.post_likes.all():
+                obj.post_likes.remove(user)
+            else:
+                obj.post_likes.add(user)
+        return url_
+
+
+class PostLikeAPIToggle(APIView):
+    authentication_classes = (authentication.SessionAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def get(self, request, pk=None, format=None):
+        obj = get_object_or_404(Post, pk=pk)
+        url_ = obj.get_absolute_url()
+        user = self.request.user
+        updated = False
+        liked = False
+        if user.is_authenticated:
+            if user in obj.post_likes.all():
+                obj.post_likes.remove(user)
+            else:
+                liked = True
+                obj.post_likes.add(user)
+            updated = True
+        data = {
+            "updated": updated,
+            "liked": liked
+        }
+        return Response(data)
 
 
 def signup(request):
