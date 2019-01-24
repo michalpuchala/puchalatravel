@@ -294,6 +294,10 @@ footer.copyrights p {
   padding: 4% 4% 6% 4%
 }
 
+.comment {
+    margin: 20px 0px 20px 20px;
+}
+
 /*--- Start Map View --*/
 
 #map {

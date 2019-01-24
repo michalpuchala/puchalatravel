@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib import admin
 from django.db import models
-from markdownx.admin import MarkdownxModelAdmin
 from markdownx.widgets import AdminMarkdownxWidget
 from django.forms import TextInput, Textarea
 from blog.models import Category, Tag, Author, Trip, Image, PlaceStatus, Place, Post

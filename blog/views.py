@@ -4,14 +4,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import RedirectView
 from django.shortcuts import get_object_or_404
 
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import authentication, permissions
-from django.contrib.auth.models import User
-
 from hitcount.views import HitCountDetailView
 
 from .models import Post, Place
+from .forms import CommentForm
 
 
 def index(request):
@@ -53,6 +49,20 @@ class PostDetailView(HitCountDetailView):
     template_name = 'blog/post_view.html'
 
 
+def add_comment_to_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return redirect('post_view', pk=post.pk)
+    else:
+        form = CommentForm()
+        return render(request, 'blog/add_comment_to_post.html', {'form': form})
+
+
 class PostLikeToggle(RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         pk = self.kwargs.get('pk')
@@ -66,30 +76,6 @@ class PostLikeToggle(RedirectView):
             else:
                 obj.post_likes.add(user)
         return url_
-
-
-class PostLikeAPIToggle(APIView):
-    authentication_classes = (authentication.SessionAuthentication,)
-    permission_classes = (permissions.IsAuthenticated,)
-
-    def get(self, request, pk=None, format=None):
-        obj = get_object_or_404(Post, pk=pk)
-        url_ = obj.get_absolute_url()
-        user = self.request.user
-        updated = False
-        liked = False
-        if user.is_authenticated:
-            if user in obj.post_likes.all():
-                obj.post_likes.remove(user)
-            else:
-                liked = True
-                obj.post_likes.add(user)
-            updated = True
-        data = {
-            "updated": updated,
-            "liked": liked
-        }
-        return Response(data)
 
 
 def signup(request):
