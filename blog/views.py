@@ -24,8 +24,15 @@ def index(request):
 
 
 def map(request):
-    places = Place.objects.all()
-    return render(request, 'blog/map.html', {'places': places})
+    planned_places = Place.objects.filter(status=1)
+    visited_places = Place.objects.filter(status=2)
+    planned_wedding_places = Place.objects.filter(status=3)
+    visited_wedding_places = Place.objects.filter(status=4)
+    return render(request, 'blog/map.html',
+                  {'planned_places': planned_places,
+                   'visited_places': visited_places,
+                   'planned_wedding_places': planned_wedding_places,
+                   'visited_wedding_places': visited_wedding_places})
 
 
 def about_us(request):

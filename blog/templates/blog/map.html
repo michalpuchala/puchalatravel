@@ -23,19 +23,19 @@ var map = new mapboxgl.Map({
   zoom: 1.0
 });
 
-var geojson = {
+var geojson_planned = {
   type: 'FeatureCollection',
   features: [
-  {% for place in places %}
+  {% for i in planned_places %}
     {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [{{ place.coord_h }}, {{ place.coord_v }}]
+        coordinates: [{{ i.coord_h }}, {{ i.coord_v }}]
       },
       properties: {
-        title: '{{ place.name }}',
-        description: '{{ place.status }}'
+        title: '{{ i.name }}',
+        description: '{{ i.status }}'
       }
     },
   {% endfor %}
@@ -43,7 +43,109 @@ var geojson = {
 };
 
 // add markers to map
-geojson.features.forEach(function(marker) {
+geojson_planned.features.forEach(function(marker) {
+
+// create a HTML element for each feature
+var el = document.createElement('div');
+el.className = 'marker-light-red';
+
+// make a marker for each feature and add to the map
+new mapboxgl.Marker(el)
+.setLngLat(marker.geometry.coordinates)
+.setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+.setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+.addTo(map);
+});
+
+var geojson_visited = {
+  type: 'FeatureCollection',
+  features: [
+  {% for i in visited_places %}
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [{{ i.coord_h }}, {{ i.coord_v }}]
+      },
+      properties: {
+        title: '{{ i.name }}',
+        description: '{{ i.status }}'
+      }
+    },
+  {% endfor %}
+]
+};
+
+// add markers to map
+geojson_visited.features.forEach(function(marker) {
+
+// create a HTML element for each feature
+var el = document.createElement('div');
+el.className = 'marker-light-green';
+
+// make a marker for each feature and add to the map
+new mapboxgl.Marker(el)
+.setLngLat(marker.geometry.coordinates)
+.setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+.setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+.addTo(map);
+});
+
+var geojson_planned_wedding = {
+  type: 'FeatureCollection',
+  features: [
+  {% for i in planned_wedding_places %}
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [{{ i.coord_h }}, {{ i.coord_v }}]
+      },
+      properties: {
+        title: '{{ i.name }}',
+        description: '{{ i.status }}'
+      }
+    },
+  {% endfor %}
+]
+};
+
+// add markers to map
+geojson_planned_wedding.features.forEach(function(marker) {
+
+// create a HTML element for each feature
+var el = document.createElement('div');
+el.className = 'marker-red';
+
+// make a marker for each feature and add to the map
+new mapboxgl.Marker(el)
+.setLngLat(marker.geometry.coordinates)
+.setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+.setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+.addTo(map);
+});
+
+var geojson_visited_wedding = {
+  type: 'FeatureCollection',
+  features: [
+  {% for i in visited_wedding_places %}
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [{{ i.coord_h }}, {{ i.coord_v }}]
+      },
+      properties: {
+        title: '{{ i.name }}',
+        description: '{{ i.status }}'
+      }
+    },
+  {% endfor %}
+]
+};
+
+// add markers to map
+geojson_visited_wedding.features.forEach(function(marker) {
 
 // create a HTML element for each feature
 var el = document.createElement('div');

@@ -323,6 +323,24 @@ footer.copyrights p {
   cursor: pointer;
 }
 
+.marker-light-green {
+  background-image: url(../pictures/light_green_pin.png);
+  background-size: cover;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.marker-light-red {
+  background-image: url(../pictures/light_red_pin.png);
+  background-size: cover;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 .mapboxgl-popup {
   max-width: 200px;
 }
