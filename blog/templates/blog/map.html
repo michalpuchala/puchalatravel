@@ -23,6 +23,7 @@ var map = new mapboxgl.Map({
   zoom: 1.0
 });
 
+// planned
 var geojson_planned = {
   type: 'FeatureCollection',
   features: [
@@ -49,7 +50,7 @@ geojson_planned.features.forEach(function(marker) {
 var el = document.createElement('div');
 el.className = 'marker-light-red';
 
-// make a marker for each feature and add to the map
+// visited
 new mapboxgl.Marker(el)
 .setLngLat(marker.geometry.coordinates)
 .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
@@ -83,7 +84,7 @@ geojson_visited.features.forEach(function(marker) {
 var el = document.createElement('div');
 el.className = 'marker-light-green';
 
-// make a marker for each feature and add to the map
+// planned wedding
 new mapboxgl.Marker(el)
 .setLngLat(marker.geometry.coordinates)
 .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
@@ -117,7 +118,7 @@ geojson_planned_wedding.features.forEach(function(marker) {
 var el = document.createElement('div');
 el.className = 'marker-red';
 
-// make a marker for each feature and add to the map
+// visited_wedding
 new mapboxgl.Marker(el)
 .setLngLat(marker.geometry.coordinates)
 .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
