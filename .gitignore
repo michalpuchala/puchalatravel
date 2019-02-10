@@ -3,6 +3,9 @@
 *.pot
 *.pyc
 __pycache__/
+blog/__pycache__/
+puchalatravel/__pycache__/
+blog/migrations/__pycache__/
 local_settings.py
 
 ### PyCharm ###
