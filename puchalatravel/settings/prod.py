@@ -20,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'sin&xj$yz7d4bkc82$9l%4p1bh0mg4ru=uy*3s*lp@!f9d(*e%'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'sin&xj$yz7d4bkc82$9l%4p1bh0mg4ru=uy*3s*lp@!f9d(*e%')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = [
     '*',
@@ -83,8 +83,12 @@ WSGI_APPLICATION = 'puchalatravel.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, '../db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'puchalatravel',
+        'USER': 'puchalatravel_admin',
+        'PASSWORD': 'WSXqaz123',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
