@@ -3,7 +3,7 @@
 {% block three_columns %}
 <section class="one-third" id="post-1">
     <div class="post-container">
-        <a href="#"><img src="{{ latest_post.main_image.picture.url }}">
+        <a href="{{ latest_post.get_absolute_url }}"><img src="{{ latest_post.main_image.picture.url }}">
         <div class="post-title">
             {{ latest_post.title }}</a>
         </div>
@@ -11,7 +11,7 @@
 </section>
 <section class="one-third" id="post-2">
     <div class="post-container">
-        <a href="#"><img src="{{ second_latest_post.main_image.picture.url }}">
+        <a href="{{ second_latest_post.get_absolute_url }}"><img src="{{ second_latest_post.main_image.picture.url }}">
         <div class="post-title">
             {{ second_latest_post.title }}</a>
         </div>
@@ -19,7 +19,7 @@
 </section>
 <section class="one-third" id="post-3">
     <div class="post-container">
-        <a href="#"><img src="{{ third_latest_post.main_image.picture.url }}">
+        <a href="{{ third_latest_post.get_absolute_url }}"><img src="{{ third_latest_post.main_image.picture.url }}">
         <div class="post-title">
             {{ third_latest_post.title }}</a>
         </div>
