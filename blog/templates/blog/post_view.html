@@ -4,16 +4,21 @@
 {% get_hit_count_js_variables for post as hitcount %}
 
 {% block banner %}
-{% endblock %}
-
-{% block two_columns %}
-<div id='posts_list'>
+<div id='post-title'>
     {{ post.title }} <br>
+</div>
+<div id='post-body'>
     {{ post.text|safe }} <br><br>
+</div>
+<div id='post-details'>
+Author: {{ post.author.first_name }}, published: {{ post.published_date }}
+</div>
+<div id='post-likes'>
     Post has {{ post.post_likes.count }} likes.
     <a class="like-btn" href = "{{ post.get_like_url }}">Like</a><br>
     Post has {{ hitcount.total_hits }} views <br>
-
+</div>
+<div id='post-comments'>
     {% for comment in post.comments.all %}
         <div class="comment">
             <div class="date">{{ comment.created_date }}</div>

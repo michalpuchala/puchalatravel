@@ -294,6 +294,36 @@ footer.copyrights p {
   padding: 4% 4% 6% 4%
 }
 
+#post-title {
+  text-align: center;
+  padding-top: 70px;
+  font-size: 200%
+}
+
+#post-details {
+  text-align: center;
+  ont-size:80%
+}
+
+#post-body {
+  width: 70%;
+  padding-left: 15%;
+  padding-right: 15%;
+  font-size: 110%
+}
+
+#picture-caption {
+  font-size:80%
+}
+
+#post-likes {
+
+}
+
+#post-comments {
+  margin-bottom: -50px
+}
+
 .comment {
     margin: 20px 0px 20px 20px;
 }
