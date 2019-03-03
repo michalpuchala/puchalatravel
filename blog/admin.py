@@ -19,7 +19,7 @@ class PostAdmin(admin.ModelAdmin):
     }
 
     fieldsets = [
-        (None,      {'fields': ['author', 'trip', 'tag', 'category', 'post_likes']}),
+        (None,      {'fields': ['author', 'trip', 'tag', 'category', 'place']}),
         ('Content', {'fields': ['title', 'byline', 'text']}),
         ('Images',  {'fields': ['main_image', 'images']}),
         ('Dates',   {'fields': ['created_date', 'published_date']}),

@@ -36,53 +36,39 @@
 </section>
 <section class="one-third" id="post-1">
     <div class="post-container">
-        <a href="#"><img src="{{ latest_post.main_image.picture.url }}">
+        <a href="{{ most_viewed_post.get_absolute_url }}"><img src="{{ most_viewed_post.main_image.picture.url }}">
         <div class="post-title">
-            {{ latest_post.title }}</a>
+            {{ most_viewed_post.title }}</a>
         </div>
     </div>
 </section>
 <section class="one-third" id="post-2">
     <div class="post-container">
-        <a href="#"><img src="{{ second_latest_post.main_image.picture.url }}">
+        <a href="{{ second_most_viewed_post.get_absolute_url }}"><img src="{{ second_most_viewed_post.main_image.picture.url }}">
         <div class="post-title">
-            {{ second_latest_post.title }}</a>
+            {{ second_most_viewed_post.title }}</a>
         </div>
     </div>
 </section>
 <section class="one-third" id="post-3">
     <div class="post-container">
-        <a href="#"><img src="{{ third_latest_post.main_image.picture.url }}">
+        <a href="{{ third_most_viewed_post.get_absolute_url }}"><img src="{{ third_most_viewed_post.main_image.picture.url }}">
         <div class="post-title">
-            {{ third_latest_post.title }}</a>
+            {{ third_most_viewed_post.title }}</a>
         </div>
     </div>
 </section>
+{% endblock %}
+{% block one_column %}
 <section class="section-title">
-        Other stories
-</section>
-<section class="one-third" id="post-1">
-    <div class="post-container">
-        <a href="#"><img src="{{ latest_post.main_image.picture.url }}">
-        <div class="post-title">
-            {{ latest_post.title }}</a>
-        </div>
+        All stories
+    <div id='posts-other-list'>
+        {% for i in post_list %}
+            <a href="{{ i.get_absolute_url }}">
+                {{ i.title }} <div id='post-list-byline'> | {{ i.byline }} | {{ i.published_date }}</div><br>
+            </a>
+        {% endfor %}
     </div>
 </section>
-<section class="one-third" id="post-2">
-    <div class="post-container">
-        <a href="#"><img src="{{ second_latest_post.main_image.picture.url }}">
-        <div class="post-title">
-            {{ second_latest_post.title }}</a>
-        </div>
-    </div>
-</section>
-<section class="one-third" id="post-3">
-    <div class="post-container">
-        <a href="#"><img src="{{ third_latest_post.main_image.picture.url }}">
-        <div class="post-title">
-            {{ third_latest_post.title }}</a>
-        </div>
-    </div>
-</section>
+
 {% endblock %}

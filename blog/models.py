@@ -3,6 +3,9 @@ from django.utils import timezone
 from django.urls import reverse
 from markdownx.utils import markdownify
 from django.contrib.auth.models import User
+from django.contrib.contenttypes.fields import GenericRelation
+
+from hitcount.models import HitCount, HitCountMixin
 
 
 class Category(models.Model):
@@ -92,7 +95,7 @@ class Place(models.Model):
         return self.name
 
 
-class Post(models.Model):
+class Post(models.Model, HitCountMixin):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     category = models.ManyToManyField(Category)
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
@@ -109,6 +112,9 @@ class Post(models.Model):
     instagram_link = models.URLField(blank=True, null=True)
     twitter_link = models.URLField(blank=True, null=True)
     post_likes = models.ManyToManyField(User, blank=True, related_name='post_likes')
+    hit_count_generic = GenericRelation(
+        HitCount, object_id_field='object_pk',
+        related_query_name='hit_count_generic_relation')
 
     # Create a property that returns the markdown instead
     @property

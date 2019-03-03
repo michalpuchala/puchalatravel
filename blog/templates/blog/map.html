@@ -36,7 +36,7 @@ var geojson_planned = {
       },
       properties: {
         title: '{{ i.name }}',
-        description: '{{ i.status }}'
+        description: '{{ i.post.title }}'
       }
     },
   {% endfor %}
@@ -70,7 +70,7 @@ var geojson_visited = {
       },
       properties: {
         title: '{{ i.name }}',
-        description: '{{ i.status }}'
+        description: '{{ i.post.title }}'
       }
     },
   {% endfor %}
@@ -104,7 +104,7 @@ var geojson_planned_wedding = {
       },
       properties: {
         title: '{{ i.name }}',
-        description: '{{ i.status }}'
+        description: '{{ i.post.title }}'
       }
     },
   {% endfor %}
@@ -138,7 +138,7 @@ var geojson_visited_wedding = {
       },
       properties: {
         title: '{{ i.name }}',
-        description: '{{ i.status }}'
+        description: '{{ i.post.title }}'
       }
     },
   {% endfor %}

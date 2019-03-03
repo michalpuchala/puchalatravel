@@ -40,14 +40,20 @@ def about_us(request):
 
 
 def posts(request):
-    posts = Post.objects.all().order_by('published_date')
-    latest_post = Post.objects.all().order_by('published_date')[0]
-    second_latest_post = Post.objects.all().order_by('published_date')[1]
-    third_latest_post = Post.objects.all().order_by('published_date')[2]
-    return render(request, 'blog/posts.html', {'posts': posts,
-                                                'latest_post': latest_post,
-                                                'second_latest_post': second_latest_post,
-                                                'third_latest_post': third_latest_post})
+    post_list = Post.objects.all()
+    latest_post = Post.objects.all().order_by('-published_date')[0]
+    second_latest_post = Post.objects.all().order_by('-published_date')[1]
+    third_latest_post = Post.objects.all().order_by('-published_date')[2]
+    most_viewed_post = Post.objects.all().order_by('-hit_count_generic__hits')[0]
+    second_most_viewed_post = Post.objects.all().order_by('-hit_count_generic__hits')[1]
+    third_most_viewed_post = Post.objects.all().order_by('-hit_count_generic__hits')[2]
+    return render(request, 'blog/posts.html', {'post_list': post_list,
+                                               'latest_post': latest_post,
+                                               'second_latest_post': second_latest_post,
+                                               'third_latest_post': third_latest_post,
+                                               'most_viewed_post': most_viewed_post,
+                                               'second_most_viewed_post': second_most_viewed_post,
+                                               'third_most_viewed_post': third_most_viewed_post})
 
 
 class PostDetailView(HitCountDetailView):
