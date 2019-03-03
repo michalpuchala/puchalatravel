@@ -306,21 +306,30 @@ footer.copyrights p {
 }
 
 #post-body {
+  text-align: justify;
   width: 70%;
   padding-left: 15%;
   padding-right: 15%;
   font-size: 110%
 }
 
+#post-section-title {
+  text-align: center;
+  font-weight: bold;
+}
+
 #picture-caption {
-  font-size:80%
+  padding-top: 5px;
+  font-size:90%;
+  text-align: center
 }
 
 #post-likes {
-
+  padding-left: 15%;
 }
 
 #post-comments {
+    padding-left: 15%;
   margin-bottom: -50px
 }
 
