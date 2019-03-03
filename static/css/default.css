@@ -294,6 +294,21 @@ footer.copyrights p {
   padding: 4% 4% 6% 4%
 }
 
+#posts-other-list {
+  display: block;
+  text-align: left;
+  font-size: 80%;
+  width: 92%;
+  padding-left: 4%;
+}
+
+#post-list-byline {
+  display:inline;
+  text-align: right;
+  font-size: 70%;
+  font-weight: 200;
+}
+
 #post-title {
   text-align: center;
   padding-top: 70px;
