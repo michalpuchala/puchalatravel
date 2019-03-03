@@ -11,10 +11,10 @@ from .forms import CommentForm
 
 
 def index(request):
-    posts = Post.objects.all().order_by('published_date')
-    latest_post = Post.objects.all().order_by('published_date')[0]
-    second_latest_post = Post.objects.all().order_by('published_date')[1]
-    third_latest_post = Post.objects.all().order_by('published_date')[2]
+    posts = Post.objects.all().order_by('-published_date')
+    latest_post = Post.objects.all().order_by('-published_date')[0]
+    second_latest_post = Post.objects.all().order_by('-published_date')[1]
+    third_latest_post = Post.objects.all().order_by('-published_date')[2]
     places = Place.objects.all()
     return render(request, 'blog/index.html', {'posts': posts,
                                                'places': places,
