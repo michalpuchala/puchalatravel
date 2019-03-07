@@ -24,4 +24,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
     url(r'^markdownx/', include('markdownx.urls')),
-] + staticfiles_urlpatterns() + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + staticfiles_urlpatterns() + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_ENCRYPT_URL, document_root=settings.STATIC_ENCRYPT_ROOT)
