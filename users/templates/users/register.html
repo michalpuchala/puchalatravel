@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block banner %}
+{% endblock %}
+
+{% block one_column %}
+    <div class="form-general">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-content">
+                <legend class="form-title">Create an account</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="">
+                <button class="form-button" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="">
+            If you already have an account - <a href="{% url 'login' %}">sign in</a>
+        </div>
+    </div>
+{% endblock %}

@@ -87,6 +87,7 @@ class Place(models.Model):
     status = models.ForeignKey(PlaceStatus, on_delete=models.CASCADE)
     trip = models.ManyToManyField(Trip, blank=True)
     images = models.ManyToManyField(Image, blank=True)
+    post = models.ManyToManyField('Post')
 
     def __unicode__(self):
         return self.name
@@ -99,7 +100,7 @@ class Post(models.Model, HitCountMixin):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     category = models.ManyToManyField(Category)
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
-    place = models.ManyToManyField(Place, blank=True)
+    #place = models.ManyToManyField(Place, blank=True)
     title = models.CharField(max_length=100, unique=True)
     byline = models.CharField(max_length=255)
     tag = models.ManyToManyField(Tag, blank=True)

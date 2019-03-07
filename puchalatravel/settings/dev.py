@@ -41,10 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',
+    'blog.apps.BlogConfig',
+    'users.apps.UsersConfig',
     'markdownx',
     'hitcount',
     'jquery',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -132,12 +134,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
 STATIC_ENCRYPT_URL = '/.well-known/'
 STATIC_ENCRYPT_ROOT = '/var/www/common/letsencrypt/'
 
-# Markdownx settings
-
-MARKDOWNX_IMAGE_MAX_SIZE = {
-    'size': (1000, 5000),
-    'quality': 100
-}
-
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = 'login'
+
+# email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'puchalatravel'
+EMAIL_HOST_PASSWORD = 'wflbtrdqhnsvbesv'
+
+# crispy forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

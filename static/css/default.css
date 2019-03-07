@@ -35,7 +35,7 @@ p {
   color: #3d3d3d;
   font-size: 120%;
   line-height: 120%;
-  padding: 3%;
+  padding: 0%;
   text-indent: 2%;
   text-align: justify;
 }
@@ -123,6 +123,12 @@ nav ul li a:hover {
 
 /*--- End Navigation --*/
 
+.message {
+  text-align: center;
+  padding-top: 70px;
+  font-weight: bold;
+}
+
 .banner {
   width: 100%;
   background-color: #fcfcfc;
@@ -199,6 +205,10 @@ article {
   font-size: 80%;
   background-color: #fcfcfc;
   text-align: center
+}
+
+#about-us-p {
+  padding: 3%;
 }
 
 aside {
@@ -428,11 +438,59 @@ footer.copyrights p {
 
 /*--- Start Login and Registration --*/
 
+.form-general {
+  padding-top: 70px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.form-content {
+  font-size: 100%;
+}
+
+.form-title {
+  font-size: 200%;
+  font-weight: bold;
+}
+
+.form-button {
+  background-color: #3d3d3d;
+  border: none;
+  color: white;
+  padding: 0.2% 2%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 80%;
+  margin: 5px 2px;
+  cursor: pointer;
+}
+
 #login {
   width: 100%;
   padding-top: 60px;
   text-align: center;
   font-size: 120%;
+}
+
+.logout {
+  text-align: center;
+  padding-top: 70px;
+  font-size: 120%;
+  font-weight: bold;
+}
+
+.profile-picture {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.profile-body {
+
 }
 
 /*--- Start Media Queries --*/

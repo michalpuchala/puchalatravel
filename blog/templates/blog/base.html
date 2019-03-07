@@ -41,9 +41,11 @@
                     <li><a href="{% url 'map' %}">Map</a></li>
                     <li><a href="{% url 'about_us' %}">About us</a></li>
                     {% if user.is_authenticated %}
-                        <li><a href="{% url 'logout'%}?next={{request.path}}">{{ user.get_username }} (logout)</a></li>
+                        <li><u><a href="{% url 'profile'%}">Profile ({{ user.get_username }})</a></u></li>
+                        <li><u><a href="{% url 'logout'%}">Logout</a></u></li>
                     {% else %}
-                        <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+                        <li><u><a href="{% url 'register'%}">Register</a></u></li>
+                        <li><u><a href="{% url 'login'%}">Login</a></u></li>
                     {% endif %}
                 </ul>
             </nav>
@@ -51,6 +53,13 @@
     </header>
     {% endblock %}
 <!---End Header-->
+    {% block messages %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endblock %}
     {% block banner %}
     <section class="banner">
         <div class="banner-inner">
