@@ -70,7 +70,7 @@ var geojson_visited = {
       },
       properties: {
         title: '{{ i.name }}',
-        description: {% for j in i.post.all %} '{{ j.title }}' {% endfor %}
+        description: '{{ i.post.title }}'
       }
     },
   {% endfor %}
