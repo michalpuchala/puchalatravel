@@ -13,21 +13,23 @@
 <div id='post-details'>
 Author: {{ post.author.first_name }}, published: {{ post.published_date|date:'Y-m-d' }}
 </div>
-<div id='post-likes'>
-    Post has {{ post.post_likes.count }} likes.
-    <a class="like-btn" href = "{{ post.get_like_url }}">Like</a><br>
-    Post has {{ hitcount.total_hits }} views <br>
+<div class='post-likes'>
+    {{ hitcount.total_hits }} views | {{ post.post_likes.count }} likes
+    <div id="like-btn"><a href = "{{ post.get_like_url }}">Like</a></div><br>
 </div>
-<div id='post-comments'>
+<div class='post-comments'>
     {% for comment in post.comments.all %}
-        <div class="comment">
-            <div class="date">{{ comment.created_date }}</div>
-            <strong>{{ comment.author }}</strong>
+        <div id="comment">
+            <strong>{{ comment.author }}  </strong><div id="date"> | {{ comment.created_date|date:'Y-m-d, H:i' }}</div>
             <p>{{ comment.text|linebreaks }}</p>
         </div>
     {% empty %}
-        <p>No comments here yet :(</p>
+        <div id="comment">
+            <p>No comments here yet :(</p>
+        </div>
     {% endfor %}
-    <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+    <div id="add-comment"><a href="{% url 'add_comment_to_post' pk=post.pk %}">
+        <button class="form-button" type="submit">Add comment</button>
+    </a></div>
 </div>
 {% endblock %}

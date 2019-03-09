@@ -1,5 +1,7 @@
 ### db ###
 db.sqlite3
+blog/migrations/
+users/migrations/
 
 ### media ###
 media/

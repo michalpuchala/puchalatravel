@@ -1,9 +1,20 @@
 {% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
 
-{% block two_columns %}
-    <h1>New comment</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Send</button>
-    </form>
+{% block banner %}
+{% endblock %}
+
+{% block one_column %}
+    <div class="form-general">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-content">
+                <legend class="form-title">New comment</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="">
+                <button class="form-button" type="submit">Send</button>
+            </div>
+        </form>
+    </div>
 {% endblock %}

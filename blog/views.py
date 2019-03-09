@@ -3,8 +3,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import RedirectView
 from django.shortcuts import get_object_or_404
-from django.utils.dateformat import DateFormat
-from django.utils.formats import get_format
+from django.contrib.auth.decorators import login_required
 
 from hitcount.views import HitCountDetailView
 from datetime import datetime
@@ -83,6 +82,7 @@ class PostDetailView(HitCountDetailView):
     template_name = 'blog/post_view.html'
 
 
+@login_required
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
@@ -91,7 +91,7 @@ def add_comment_to_post(request, pk):
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
-            return redirect('post_view', pk=post.pk)
+            return redirect('post-detail', pk=post.pk)
     else:
         form = CommentForm()
         return render(request, 'blog/add_comment_to_post.html', {'form': form})
