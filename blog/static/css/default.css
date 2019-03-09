@@ -246,7 +246,7 @@ aside {
 #logo {
   background-color: #fcfcfc;
   font-size: 50%;
-  padding: 0;
+  padding-top: 3px;
   clear: both
 }
 
@@ -267,10 +267,10 @@ footer {
 }
 
 .social img {
-  width: 2vw;
-  height: 2vw;
-  margin: 1%;
-  padding: 0 5% 0 5%
+  width: 1.6vw;
+  height: 1.6vw;
+  margin: 0.5%;
+  padding: 0 2% 0 2%
 }
 
 .social img:hover {
@@ -348,12 +348,6 @@ footer.copyrights p {
   padding: 1% 8% 2% 0%
 }
 
-#posts_list {
-  background-color: #fcfcfc;
-  width: 25.33%;
-  padding: 4% 4% 6% 4%
-}
-
 .posts-other-list {
   display: block;
   text-align: left;
@@ -361,6 +355,7 @@ footer.copyrights p {
   width: 84%;
   padding-left: 8%;
   padding-right: 8%;
+  padding-bottom: 2%;
 }
 
 .posts-other-list a:link {
