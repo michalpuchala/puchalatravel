@@ -456,7 +456,7 @@ footer.copyrights p {
 .place-title {
   padding-top: 1%;
   padding-bottom: 1%;
-  font-size: 150%;
+  font-size: 130%;
   font-weight: bold;
 }
 
@@ -599,6 +599,9 @@ footer.copyrights p {
 /*--- Start Media Queries --*/
 
 @media all and (max-width: 1100px) {
+
+  /*--- General --*/
+
   h2 {
     font-size: 150%
   }
@@ -615,11 +618,12 @@ footer.copyrights p {
     z-index: 995
   }
   #title {
-    font-size: 130%;
-    margin: 13px 0 20px 15px; 
+    font-size: 170%;
+    margin: 5px 0 20px 15px;
   }
   #menu-icon {
     display: inline-block;
+    padding: 1% 1% 1% 1%;
   }
   nav ul, nav:active ul {
     float: right;
@@ -642,6 +646,15 @@ footer.copyrights p {
     width: 100%;
     font-weight: 800
   }
+  #clear-top {
+    width: 100%;
+    height: 1px;
+    margin-top: 50px;
+    z-index: 0
+  }
+
+  /*--- Homepage --*/
+
   .banner {
     margin-top: 50px
   }
@@ -652,17 +665,17 @@ footer.copyrights p {
   .post-container {
     font-size: 100%;
   }
-  #post-1 {
-    width: 70%;
-    padding: 5% 15% 10% 15%
+  #post-1-main {
+    width: 80%;
+    padding: 0% 10% 5% 10%
   }
-  #post-2 {
-    width: 70%;
-    padding: 0% 15% 15% 15%
+  #post-2-main {
+    width: 80%;
+    padding: 0% 10% 5% 10%
   }
-  #post-3 {
-    width: 70%;
-    padding: 0% 15% 15% 15%
+  #post-3-main {
+    width: 80%;
+    padding: 0% 10% 5% 10%
   }
   article {
     float: left;
@@ -673,29 +686,123 @@ footer.copyrights p {
     width: 100%
   }
   .social img {
+    padding-top: 5%;
     width: 8vw;
     height: 8vw;
   }
   .copyrights {
-    font-size: 50%
+    height: 6%;
+    font-size: 100%
   }
+
+  /*--- Blog List View --*/
+
+  .top-section-title {
+  width: 100%;
+  text-align: center;
+  padding-top: 0;
+  font-size: 200%;
+  margin-bottom: 0px
+  }
+
+ #post-1-blog {
+    width: 80%;
+    padding: 0% 10% 2% 10%
+  }
+
+  #post-2-blog {
+    width: 80%;
+    padding: 0% 10% 2% 10%
+  }
+
+  #post-3-blog {
+    width: 80%;
+    padding: 0% 10% 5% 10%
+  }
+
+  #post-4-blog {
+    width: 80%;
+    padding: 0% 10% 2% 10%
+  }
+
+  #post-5-blog {
+    width: 80%;
+    padding: 0% 10% 2% 10%
+  }
+
+  #post-6-blog {
+    width: 80%;
+    padding: 0% 10% 5% 10%
+  }
+
+  .posts-other-list {
+    display: block;
+    text-align: left;
+    font-size: 60%;
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 2%;
+  }
+
+  .posts-other-list a:link {
+    color: #666666
+  }
+
+  .posts-other-list a:hover {
+    color: #d3953d
+  }
+
+  #post-list-byline {
+    display:inline;
+    text-align: right;
+    font-size: 70%;
+    font-weight: 200;
+  }
+
+  /*--- Map --*/
+
   #map{
-    margin-top: 60px;
+    margin-top: 50px;
     z-index: 0
   }
-  .top-section-title {
-    width: 100%;
-    text-align: center;
-    font-size: 200%;
+  .place-title {
+  font-size: 250%;
   }
+
+  .place-post {
+    font-size: 250%;
+    margin-top: 10px;
+    line-height: 35px;
+  }
+
+  .place-post a:link {
+    color: #666666;
+  }
+
+  .place-post a:hover {
+    color: #d3953d
+  }
+
+ /*--- About Us --*/
+
   .inner-wrapper-about-us {
-    z-index: 0;
-    padding-top: 50px;
+    clear:both;
+    padding-top: 0px;
     position: relative;
     width: 100%;
-    background-color: none
+    background-color: #fcfcfc
   }
+
   #about {
-    z-index: 0
+    height: auto;
+  }
+
+  #magda {
+    background-color: #fcfcfc
+  }
+
+  #michal {
+    background-color: #fcfcfc
   }
 }
