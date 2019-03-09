@@ -469,6 +469,10 @@ footer.copyrights p {
   font-size: 200%;
 }
 
+.place-post a:link {
+  color: #666666
+}
+
 .place-post a:hover {
   color: #d3953d
 }
