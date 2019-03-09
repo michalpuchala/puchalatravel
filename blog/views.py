@@ -48,7 +48,7 @@ def about_us(request):
 
 
 def posts(request):
-    post_list = Post.objects.all()
+    post_list = Post.objects.all().order_by('-published_date')
     latest_post = Post.objects.all().order_by('-published_date')[0]
     second_latest_post = Post.objects.all().order_by('-published_date')[1]
     third_latest_post = Post.objects.all().order_by('-published_date')[2]
