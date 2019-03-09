@@ -4,6 +4,10 @@
 {% get_hit_count_js_variables for post as hitcount %}
 
 {% block banner %}
+    <div id='clear-top'></div>
+{% endblock %}
+
+{% block one_column %}
 <div id='post-title'>
     {{ post.title }} <br>
 </div>

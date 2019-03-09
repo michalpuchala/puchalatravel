@@ -653,6 +653,23 @@ footer.copyrights p {
     z-index: 0
   }
 
+  .form-general {
+    padding-top: 0px;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .logout {
+
+    padding: 0 10%;
+    font-size: 100%;
+  }
+
+  .form-button {
+    padding: 2% 4%;
+    font-size: 90%;
+  }
+
   /*--- Homepage --*/
 
   .banner {
@@ -758,6 +775,45 @@ footer.copyrights p {
     text-align: right;
     font-size: 70%;
     font-weight: 200;
+  }
+
+  /*--- Post View --*/
+
+  #post-title {
+    padding-top: 0px;
+  }
+
+
+  #post-body {
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 100%
+  }
+
+  #picture-caption {
+    font-size: 85%;
+  }
+
+  .post-comments {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 2%
+  }
+
+  #date {
+    display:inline-block;
+  }
+
+  #comment {
+    font-size: 85%;
+    padding: 1% 25% 1% 1%;
+    margin: 20px 0 20px 0;
+    border: 1px solid #e0e0e0
+  }
+
+  #add-comment {
+    padding: 0px 2px 2px 2px;
   }
 
   /*--- Map --*/
