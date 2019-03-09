@@ -11,7 +11,7 @@
     {{ post.text|safe }} <br><br>
 </div>
 <div id='post-details'>
-Author: {{ post.author.first_name }}, published: {{ post.published_date }}
+Author: {{ post.author.first_name }}, published: {{ post.published_date|date:'Y-m-d' }}
 </div>
 <div id='post-likes'>
     Post has {{ post.post_likes.count }} likes.

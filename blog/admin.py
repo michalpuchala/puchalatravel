@@ -1,11 +1,8 @@
 from django import forms
 from django.contrib import admin
 from django.db import models
-from markdownx.widgets import AdminMarkdownxWidget
 from django.forms import TextInput, Textarea
 from blog.models import Category, Tag, Author, Trip, Image, PlaceStatus, Place, Post
-
-# Adjusting views
 
 
 class CustomModelChoiceField(forms.ModelChoiceField):
@@ -13,18 +10,21 @@ class CustomModelChoiceField(forms.ModelChoiceField):
         return "%s" % (obj.name)
 
 
-class PostAdmin(admin.ModelAdmin):
-    formfield_overrides = {
-        models.TextField: {'widget': AdminMarkdownxWidget},
-    }
+class PostsInLine(admin.TabularInline):
+    model = Post.place.through
+    extra = 1
 
+
+class PostAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,      {'fields': ['author', 'trip', 'tag', 'category', 'place']}),
+        (None,      {'fields': ['author', 'trip', 'tag', 'category', 'place', 'title_place']}),
         ('Content', {'fields': ['title', 'byline', 'text']}),
         ('Images',  {'fields': ['main_image', 'images']}),
         ('Dates',   {'fields': ['created_date', 'published_date']}),
         ('Links',   {'fields': ['instagram_link', 'twitter_link', 'slug']}),
     ]
+
+    filter_horizontal = ('place',)
 
 
 class PostInline(admin.TabularInline):
@@ -33,12 +33,7 @@ class PostInline(admin.TabularInline):
 
 
 class ImageAdmin(admin.ModelAdmin):
-    def trip_name(self, obj):
-        return obj.trip.name
-    trip_name.name = 'Name'
-    trip_name.admin_order_field = 'trip__name'
-
-    list_display = ('name', 'trip_name', 'uploaded', 'taken')
+    list_display = ('name', 'uploaded', 'taken')
 
     fieldsets = [
         (None,    {'fields': ['name', 'picture', 'trip']}),
@@ -69,6 +64,10 @@ class PlaceStatusAdmin(admin.ModelAdmin):
 
 class PlaceAdmin(admin.ModelAdmin):
     list_display = ('name',)
+
+    inlines = [
+        PostsInLine,
+    ]
 
 
 class AuthorAdmin(admin.ModelAdmin):

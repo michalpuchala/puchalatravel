@@ -11,7 +11,7 @@
 
 body {
   background: #fcfcfc;
-  color: #3d3d3d;
+  color: #666666;
   font-family: "Saira Condensed", sans-serif;
   margin: 0
 }
@@ -32,7 +32,7 @@ h3 {
 
 p {
   font-family: "Saira Condensed", sans-serif;
-  color: #3d3d3d;
+  color: #666666;
   font-size: 120%;
   line-height: 120%;
   padding: 0%;
@@ -52,7 +52,7 @@ a:link {
 }
 
 a:visited {
-  color: #3d3d3d;
+  color: #666666;
 }
 
 header {
@@ -73,7 +73,7 @@ header {
   float: left;
   font-size: 250%;
   font-weight: 700;
-  color: #3d3d3d;
+  color: #666666;
 }
 
 /*--- Start Navigation --*/
@@ -109,12 +109,12 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #3d3d3d;
+  color: #666666;
   text-decoration: none
 }
 
 nav ul li a:hover {
-  color: #b7b7b7
+  color: #d3953d
 }
 
 .current {
@@ -144,22 +144,25 @@ nav ul li a:hover {
   text-align: center
 }
 
-#post-1 {
+#post-1-main {
   background-color: #fcfcfc;
   width: 25.33%;
-  padding: 4% 4% 6% 4%
+  margin-top: -1%;
+  padding: 0% 0% 3% 8%
 }
 
-#post-2 {
+#post-2-main {
   background-color: #fcfcfc;
   width: 25.33%;
-  padding: 4% 4% 6% 4%
+  margin-top: -1%;
+  padding: 0% 4% 3% 4%
 }
 
-#post-3 {
+#post-3-main {
   background-color: #fcfcfc;
   width: 25.33%;
-  padding: 4% 4% 6% 4%
+  margin-top: -1%;
+  padding: 0% 8% 3% 0%
 }
 
 .post-container {
@@ -180,11 +183,23 @@ nav ul li a:hover {
 }
 
 .post-title {
-  position: absolute;
-  z-index: 900;
-  top: 110%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  padding-top: 2%
+}
+
+#post-date {
+  font-size: 75%;
+  font-weight: 200;
+  color: #d3953d;
+}
+
+a:hover #post-date {
+  color: #e5bb80;
+  opacity: 0.8
+}
+
+#post-place {
+  font-size: 75%;
+  font-weight: 200;
 }
 
 .inner-wrapper {
@@ -252,8 +267,8 @@ footer {
 }
 
 .social img {
-  width: 3vw;
-  height: 3vw;
+  width: 2vw;
+  height: 2vw;
   margin: 1%;
   padding: 0 5% 0 5%
 }
@@ -292,10 +307,45 @@ footer.copyrights p {
   background-color: #fcfcfc;
   text-align: center;
   margin-top: -20px;
-  margin-bottom: -30px;
   z-index: 995;
   position: relative;
   font-size: 200%
+}
+
+#post-1-blog {
+  background-color: #fcfcfc;
+  width: 25.33%;
+  padding: 4% 0% 2% 8%
+}
+
+#post-2-blog {
+  background-color: #fcfcfc;
+  width: 25.33%;
+  padding: 4% 4% 2% 4%
+}
+
+#post-3-blog {
+  background-color: #fcfcfc;
+  width: 25.33%;
+  padding: 4% 8% 2% 0%
+}
+
+#post-4-blog {
+  background-color: #fcfcfc;
+  width: 25.33%;
+  padding: 1% 0% 2% 8%
+}
+
+#post-5-blog {
+  background-color: #fcfcfc;
+  width: 25.33%;
+  padding: 1% 4% 2% 4%
+}
+
+#post-6-blog {
+  background-color: #fcfcfc;
+  width: 25.33%;
+  padding: 1% 8% 2% 0%
 }
 
 #posts_list {
@@ -304,12 +354,21 @@ footer.copyrights p {
   padding: 4% 4% 6% 4%
 }
 
-#posts-other-list {
+.posts-other-list {
   display: block;
   text-align: left;
   font-size: 80%;
-  width: 92%;
-  padding-left: 4%;
+  width: 84%;
+  padding-left: 8%;
+  padding-right: 8%;
+}
+
+.posts-other-list a:link {
+  color: #666666
+}
+
+.posts-other-list a:hover {
+  color: #d3953d
 }
 
 #post-list-byline {
@@ -341,10 +400,13 @@ footer.copyrights p {
 #post-section-title {
   text-align: center;
   font-weight: bold;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 #picture-caption {
   padding-top: 5px;
+  padding-bottom: 2%;
   font-size:90%;
   text-align: center
 }

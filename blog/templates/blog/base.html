@@ -3,6 +3,7 @@
 <head>
     <title>Puchała Travel</title>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{% static 'pictures/favicon.png' %}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Puchała Travel blog">
     <meta name="keywords" content="travel,blog,photography">
@@ -61,11 +62,6 @@
         {% endif %}
     {% endblock %}
     {% block banner %}
-    <section class="banner">
-        <div class="banner-inner">
-            <img src="{% static 'pictures/top_background.jpg' %}">
-        </div>
-    </section>
     {% endblock %}
 <!---End Banner-->
     {% block three_columns %}

@@ -1,28 +1,47 @@
 {% extends 'blog/base.html' %}
 {% load static %}
+{% block banner %}
+    <section class="banner">
+        <div class="banner-inner">
+            <img src="{% static 'pictures/top_background.jpg' %}">
+        </div>
+        <h2>
+            BLOG
+        </h2>
+    </section>
+{% endblock %}
 {% block three_columns %}
-<section class="one-third" id="post-1">
+<section class="one-third" id="post-1-main">
     <div class="post-container">
         <a href="{{ latest_post.get_absolute_url }}"><img src="{{ latest_post.main_image.picture.url }}">
         <div class="post-title">
-            {{ latest_post.title }}</a>
+            {{ latest_post.title }}<br>
+            <div id="post-date">{{ latest_post_date }}</div>
+            <div id="post-place">{{ latest_post.title_place }}</div>
         </div>
+        </a>
     </div>
 </section>
-<section class="one-third" id="post-2">
+<section class="one-third" id="post-2-main">
     <div class="post-container">
         <a href="{{ second_latest_post.get_absolute_url }}"><img src="{{ second_latest_post.main_image.picture.url }}">
         <div class="post-title">
-            {{ second_latest_post.title }}</a>
+            {{ second_latest_post.title }}<br>
+            <div id="post-date">{{ second_latest_post_date }}</div>
+            <div id="post-place">{{ second_latest_post.title_place }}</div>
         </div>
+        </a>
     </div>
 </section>
-<section class="one-third" id="post-3">
+<section class="one-third" id="post-3-main">
     <div class="post-container">
         <a href="{{ third_latest_post.get_absolute_url }}"><img src="{{ third_latest_post.main_image.picture.url }}">
         <div class="post-title">
-            {{ third_latest_post.title }}</a>
+            {{ third_latest_post.title }}<br>
+            <div id="post-date">{{ third_latest_post_date }}</div>
+            <div id="post-place">{{ third_latest_post.title_place }}</div>
         </div>
+        </a>
     </div>
 </section>
 {% endblock %}

@@ -1,6 +1,8 @@
 from django.urls import path, include
-from . import views
 from django.conf.urls import url
+from django.http import HttpResponseRedirect
+from . import views
+from puchalatravel.settings.prod import STATIC_URL
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -13,4 +15,5 @@ urlpatterns = [
     url(r'^signup/$', views.signup, name='signup'),
     url(r'hitcount/', include('hitcount.urls', namespace='hitcount')),
     path('posts/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
+    url(r'^favicon.ico/$', lambda x: HttpResponseRedirect('static/pictures/favicon..png')), # google chrome favicon fix
 ]

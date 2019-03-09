@@ -3,8 +3,11 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import RedirectView
 from django.shortcuts import get_object_or_404
+from django.utils.dateformat import DateFormat
+from django.utils.formats import get_format
 
 from hitcount.views import HitCountDetailView
+from datetime import datetime
 
 from .models import Post, Place
 from .forms import CommentForm
@@ -15,12 +18,18 @@ def index(request):
     latest_post = Post.objects.all().order_by('-published_date')[0]
     second_latest_post = Post.objects.all().order_by('-published_date')[1]
     third_latest_post = Post.objects.all().order_by('-published_date')[2]
+    latest_post_date = Post.objects.all().order_by('-published_date')[0].published_date.strftime('%d %B %Y')
+    second_latest_post_date = Post.objects.all().order_by('-published_date')[1].published_date.strftime('%d %B %Y')
+    third_latest_post_date = Post.objects.all().order_by('-published_date')[2].published_date.strftime('%d %B %Y')
     places = Place.objects.all()
     return render(request, 'blog/index.html', {'posts': posts,
                                                'places': places,
                                                'latest_post': latest_post,
                                                'second_latest_post': second_latest_post,
-                                               'third_latest_post': third_latest_post})
+                                               'third_latest_post': third_latest_post,
+                                               'latest_post_date': latest_post_date,
+                                               'second_latest_post_date': second_latest_post_date,
+                                               'third_latest_post_date': third_latest_post_date})
 
 
 def map(request):
@@ -47,13 +56,25 @@ def posts(request):
     most_viewed_post = Post.objects.all().order_by('-hit_count_generic__hits')[0]
     second_most_viewed_post = Post.objects.all().order_by('-hit_count_generic__hits')[1]
     third_most_viewed_post = Post.objects.all().order_by('-hit_count_generic__hits')[2]
+    latest_post_date = Post.objects.all().order_by('-published_date')[0].published_date.strftime('%d %B %Y')
+    second_latest_post_date = Post.objects.all().order_by('-published_date')[1].published_date.strftime('%d %B %Y')
+    third_latest_post_date = Post.objects.all().order_by('-published_date')[2].published_date.strftime('%d %B %Y')
+    most_viewed_post_date = Post.objects.all().order_by('hit_count_generic__hits')[0].published_date.strftime('%d %B %Y')
+    second_most_viewed_post_date = Post.objects.all().order_by('hit_count_generic__hits')[1].published_date.strftime('%d %B %Y')
+    third_most_viewed_post_date = Post.objects.all().order_by('hit_count_generic__hits')[2].published_date.strftime('%d %B %Y')
     return render(request, 'blog/posts.html', {'post_list': post_list,
                                                'latest_post': latest_post,
                                                'second_latest_post': second_latest_post,
                                                'third_latest_post': third_latest_post,
                                                'most_viewed_post': most_viewed_post,
                                                'second_most_viewed_post': second_most_viewed_post,
-                                               'third_most_viewed_post': third_most_viewed_post})
+                                               'third_most_viewed_post': third_most_viewed_post,
+                                               'latest_post_date': latest_post_date,
+                                               'second_latest_post_date': second_latest_post_date,
+                                               'third_latest_post_date': third_latest_post_date,
+                                               'most_viewed_post_date': most_viewed_post_date,
+                                               'second_most_viewed_post_date': second_most_viewed_post_date,
+                                               'third_most_viewed_post_date': third_most_viewed_post_date})
 
 
 class PostDetailView(HitCountDetailView):
