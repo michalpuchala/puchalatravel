@@ -788,8 +788,7 @@ footer.copyrights p {
     padding-top: 0px;
   }
 
-
-  #post-body {
+  .post-body {
     width: 80%;
     padding-left: 10%;
     padding-right: 10%;
