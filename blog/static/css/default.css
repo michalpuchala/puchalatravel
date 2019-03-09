@@ -458,6 +458,21 @@ footer.copyrights p {
   height: 90%
 }
 
+.place-title {
+  padding-top: 1%;
+  padding-bottom: 1%;
+  font-size: 150%;
+  font-weight: bold;
+}
+
+.place-post {
+  font-size: 200%;
+}
+
+.place-post a:hover {
+  color: #d3953d
+}
+
 .marker-green {
   background-image: url(../pictures/green_pin.png);
   background-size: cover;

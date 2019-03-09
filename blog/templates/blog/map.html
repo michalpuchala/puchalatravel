@@ -35,8 +35,8 @@ var geojson_planned = {
         coordinates: [{{ i.coord_h }}, {{ i.coord_v }}]
       },
       properties: {
-        title: '{{ i.name }}',
-        description: '{{ i.post.title }}'
+        title: "<div class='place-title'>{{ i.name }}</div>",
+        description: "<div class='place-post'>{% for post in i.posts.all %}<a href='{{ post.get_absolute_url }}'>{{ post.title }}</a><br/>{% endfor %}</div>"
       }
     },
   {% endfor %}
@@ -69,8 +69,8 @@ var geojson_visited = {
         coordinates: [{{ i.coord_h }}, {{ i.coord_v }}]
       },
       properties: {
-        title: '{{ i.name }}',
-        description: '{{ i.post.title }}'
+        title: "<div class='place-title'>{{ i.name }}</div>",
+        description: "<div class='place-post'>{% for post in i.posts.all %}<a href='{{ post.get_absolute_url }}'>{{ post.title }}</a><br/>{% endfor %}</div>"
       }
     },
   {% endfor %}
@@ -103,8 +103,8 @@ var geojson_planned_wedding = {
         coordinates: [{{ i.coord_h }}, {{ i.coord_v }}]
       },
       properties: {
-        title: '{{ i.name }}',
-        description: '{{ i.post.title }}'
+        title: "<div class='place-title'>{{ i.name }}</div>",
+        description: "<div class='place-post'>{% for post in i.posts.all %}<a href='{{ post.get_absolute_url }}'>{{ post.title }}</a><br/>{% endfor %}</div>"
       }
     },
   {% endfor %}
@@ -137,8 +137,8 @@ var geojson_visited_wedding = {
         coordinates: [{{ i.coord_h }}, {{ i.coord_v }}]
       },
       properties: {
-        title: '{{ i.name }}',
-        description: '{{ i.post.title }}'
+        title: "<div class='place-title'>{{ i.name }}</div>",
+        description: "<div class='place-post'>{% for post in i.posts.all %}<a href='{{ post.get_absolute_url }}'>{{ post.title }}</a><br/>{% endfor %}</div>"
       }
     },
   {% endfor %}
