@@ -384,12 +384,16 @@ footer.copyrights p {
   ont-size:80%
 }
 
-#post-body {
+.post-body {
   text-align: justify;
   width: 70%;
   padding-left: 15%;
   padding-right: 15%;
   font-size: 110%
+}
+
+.post-body a:link {
+  color: #666666
 }
 
 #post-section-title {
@@ -428,8 +432,7 @@ footer.copyrights p {
 .post-comments {
   padding-left: 15%;
   padding-right: 15%;
-  padding-bottom: 2%
-  margin-bottom: -50px
+  padding-bottom: 2%;
 }
 
 #date {
@@ -630,13 +633,15 @@ footer.copyrights p {
     display: none;
     z-index: 1000;
     position: absolute;
-    padding: 20px;
+    padding: 5px 10px;
     background: #f7f6f4;
-    right: 15px;
-    top: 60px;
+    right: 5px;
+    top: 55px;
     border: 1px solid #b7b7b7;
     border-radius: 2px 0 2px 2px;
     width: 30%;
+    font-size: 90%;
+    font-weight: 200;
   }
   nav:hover ul {
     display: block;
