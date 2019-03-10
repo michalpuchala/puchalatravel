@@ -11,7 +11,7 @@
 
 body {
   background: #fcfcfc;
-  color: #666666;
+  color: #494e6b;
   font-family: "Saira Condensed", sans-serif;
   margin: 0
 }
@@ -32,7 +32,7 @@ h3 {
 
 p {
   font-family: "Saira Condensed", sans-serif;
-  color: #666666;
+  color: #494e6b;
   font-size: 120%;
   line-height: 120%;
   padding: 0%;
@@ -52,7 +52,7 @@ a:link {
 }
 
 a:visited {
-  color: #666666;
+  color: #494e6b;
 }
 
 header {
@@ -73,7 +73,7 @@ header {
   float: left;
   font-size: 250%;
   font-weight: 700;
-  color: #666666;
+  color: #494e6b;
 }
 
 /*--- Start Navigation --*/
@@ -109,7 +109,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #666666;
+  color: #494e6b;
   text-decoration: none
 }
 
@@ -174,12 +174,12 @@ nav ul li a:hover {
 }
 
 .post-container a {
-  color: #3d3d3d;
+  color: #494e6b;
 }
 
 .post-container a:hover {
-  color: #b7b7b7;
-  opacity: 0.8
+  color: #8b8ea0;
+  opacity: 0.9
 }
 
 .post-title {
@@ -245,7 +245,7 @@ aside {
 }
 
 #progressbar {
-  border: 1px solid #666666;
+  border: 1px solid #494e6b;
   border-radius: 13px;
   margin: 3%;
   padding: 3px;
@@ -376,7 +376,7 @@ footer.copyrights p {
 }
 
 .posts-other-list a:link {
-  color: #666666
+  color: #494e6b
 }
 
 .posts-other-list a:hover {
@@ -417,7 +417,7 @@ footer.copyrights p {
 }
 
 .post-body a:link {
-  color: #666666
+  color: #494e6b
 }
 
 .post-body a:hover {
@@ -455,7 +455,7 @@ footer.copyrights p {
 }
 
 .post-likes a:link {
-  color: #666666
+  color: #494e6b
 }
 
 .post-likes a:hover {
@@ -505,7 +505,7 @@ footer.copyrights p {
 }
 
 .place-post a:link {
-  color: #666666
+  color: #494e6b
 }
 
 .place-post a:hover {
@@ -804,7 +804,7 @@ footer.copyrights p {
   }
 
   .posts-other-list a:link {
-    color: #666666
+    color: #494e6b
   }
 
   .posts-other-list a:hover {
@@ -877,7 +877,7 @@ footer.copyrights p {
   }
 
   .place-post a:link {
-    color: #666666;
+    color: #494e6b;
   }
 
   .place-post a:hover {
