@@ -443,6 +443,11 @@ footer.copyrights p {
   height: 80%
 }
 
+.mapboxgl-popup {
+max-width: 400px;
+font: 200% 'Saira Condensed', sans-serif;
+}
+
 .post-likes {
   padding-left: 15%;
   padding-right: 15%;
