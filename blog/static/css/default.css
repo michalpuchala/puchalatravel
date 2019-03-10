@@ -422,6 +422,11 @@ footer.copyrights p {
   text-align: center
 }
 
+#map-post {
+  width: 100%;
+  height: 80%
+}
+
 .post-likes {
   padding-left: 15%;
   padding-right: 15%;
