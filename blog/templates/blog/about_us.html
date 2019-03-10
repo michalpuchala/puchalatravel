@@ -11,24 +11,16 @@
         <article id="magda">
             <img src="{% static 'pictures/magda.jpg' %}">
         </article>
-        <aside id="about-us">
+        <aside id="size-bump">
             <h2>MAGDA</h2>
-            <p id="about-us-p">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</p>
+            <p id="about-us-p">{{ magda_bio.bio|safe }}</p>
         </aside>
     </div>
     </section>
     <section class="inner-wrapper-2">
-        <article id="michal">
+        <article id="size-bump">
             <h2>MICHAŁ</h2>
-            <p id="about-us-p">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</p>
+            <p id="about-us-p">{{ michal_bio.bio|safe }}</p>
         </article>
         <aside id="about-us">
                 <img src="{% static 'pictures/michal.jpg' %}">

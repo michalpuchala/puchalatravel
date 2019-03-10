@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from hitcount.views import HitCountDetailView
 from datetime import datetime
 
-from .models import Post, Place
+from .models import Post, Place, Author
 from .forms import CommentForm
 
 
@@ -44,7 +44,10 @@ def map(request):
 
 
 def about_us(request):
-    return render(request, 'blog/about_us.html')
+    magda_bio = Author.objects.filter(id=1)[0]
+    michal_bio = Author.objects.filter(id=2)[0]
+
+    return render(request, 'blog/about_us.html', {'magda_bio': magda_bio, 'michal_bio': michal_bio})
 
 
 def posts(request):

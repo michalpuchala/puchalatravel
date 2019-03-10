@@ -16,6 +16,10 @@ class PostsInLine(admin.TabularInline):
 
 
 class PostAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        models.TextField: {'widget': Textarea(attrs={'rows': 40, 'cols': 100})},
+    }
+
     fieldsets = [
         (None,      {'fields': ['author', 'trip', 'tag', 'category', 'place', 'title_place']}),
         ('Content', {'fields': ['title', 'byline', 'text']}),
@@ -24,7 +28,7 @@ class PostAdmin(admin.ModelAdmin):
         ('Links',   {'fields': ['instagram_link', 'twitter_link', 'slug']}),
     ]
 
-    filter_horizontal = ('place',)
+    filter_horizontal = ('tag', 'category', 'place', 'images',)
 
 
 class PostInline(admin.TabularInline):
@@ -63,7 +67,8 @@ class PlaceStatusAdmin(admin.ModelAdmin):
 
 
 class PlaceAdmin(admin.ModelAdmin):
-    list_display = ('name',)
+    list_display = ('name', 'status',)
+    filter_horizontal = ('images', 'trip',)
 
     inlines = [
         PostsInLine,
