@@ -260,6 +260,13 @@ aside {
   border-radius: 10px;
 }
 
+#map-index {
+  width:100%;
+  height: 50%;
+  margin: 0;
+  padding: 0
+}
+
 #logo {
   background-color: #fcfcfc;
   font-size: 50%;

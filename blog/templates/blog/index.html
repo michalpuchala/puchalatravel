@@ -1,5 +1,9 @@
 {% extends 'blog/base.html' %}
 {% load static %}
+{% block header %}
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css' rel='stylesheet'/>
+{% endblock %}
 {% block banner %}
     <section class="banner">
         <div class="banner-inner">
@@ -52,7 +56,7 @@
         <a href="{% url 'about_us' %}"><img src="{% static 'pictures/about_us.jpg' %}"></a>
     </article>
     <aside id="about-us">
-        <h2>ABOUT US</h2>
+        <h2><a href="{% url 'about_us' %}">ABOUT US</a></h2>
         <p id="about-us-p">We got addicted to travelling about seven years ago, when Magda moved to Spain for the first time.
             We would travel to see each other at least once a month and then we just couldn’t stop.
             Both of us have a full time job in Barcelona, so we had to become experts in optimising holidays.
@@ -65,7 +69,7 @@
 </section>
 <section class="inner-wrapper-2">
     <article id="travel-challenge">
-        <h2>THE TRAVEL CHALLENGE</h2>
+        <h2><a href="{% url 'map' %}">THE TRAVEL CHALLENGE</a></h2>
         <p id="about-us-p">When people get married, they usually get good wishes. For us, the best wish is to go to places
             we would fall in love with, so we asked our wedding guests to share the most beautiful places they have ever
             seen and we promised to visit every one of them. We’re not sure the guests were entirely serious (or sober;))
@@ -74,8 +78,157 @@
             <div>21%</div>
         </div>
     </article>
-    <aside id="about-us">
-            <a href="{% url 'map' %}"><img src="{% static 'pictures/puchalatravel_mapa.JPG' %}"></a>
+    <aside>
+            <div id='map-index'></div>
+                <script>
+
+                mapboxgl.accessToken = 'pk.eyJ1IjoibWljaGFscHVjaGFsYSIsImEiOiJjamxxeWk0ZTYwcWJyM3BwbGVzMWpobjFqIn0.sBxqcK2lDMxn9RvqaBfduw';
+
+                var map = new mapboxgl.Map({
+                  container: 'map-index',
+                  style: 'mapbox://styles/mapbox/light-v9',
+                  center: [0, 20],
+                  zoom: 0.5
+                });
+
+                // planned
+                var geojson_planned = {
+                  type: 'FeatureCollection',
+                  features: [
+                  {% for i in planned_places %}
+                    {
+                      type: 'Feature',
+                      geometry: {
+                        type: 'Point',
+                        coordinates: [{{ i.coord_h }}, {{ i.coord_v }}]
+                      },
+                      properties: {
+                        title: "<div class='place-title'>{{ i.name }}</div>",
+                        description: "<div class='place-post'>{% for post in i.posts.all %}<a href='{{ post.get_absolute_url }}'>{{ post.title }}</a><br/>{% endfor %}</div>"
+                      }
+                    },
+                  {% endfor %}
+                ]
+                };
+
+                // add markers to map
+                geojson_planned.features.forEach(function(marker) {
+
+                // create a HTML element for each feature
+                var el = document.createElement('div');
+                el.className = 'marker-light-red';
+
+                // visited
+                new mapboxgl.Marker(el)
+                .setLngLat(marker.geometry.coordinates)
+                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+                .addTo(map);
+                });
+
+                var geojson_visited = {
+                  type: 'FeatureCollection',
+                  features: [
+                  {% for i in visited_places %}
+                    {
+                      type: 'Feature',
+                      geometry: {
+                        type: 'Point',
+                        coordinates: [{{ i.coord_h }}, {{ i.coord_v }}]
+                      },
+                      properties: {
+                        title: "<div class='place-title'>{{ i.name }}</div>",
+                        description: "<div class='place-post'>{% for post in i.posts.all %}<a href='{{ post.get_absolute_url }}'>{{ post.title }}</a><br/>{% endfor %}</div>"
+                      }
+                    },
+                  {% endfor %}
+                ]
+                };
+
+                // add markers to map
+                geojson_visited.features.forEach(function(marker) {
+
+                // create a HTML element for each feature
+                var el = document.createElement('div');
+                el.className = 'marker-light-green';
+
+                // planned wedding
+                new mapboxgl.Marker(el)
+                .setLngLat(marker.geometry.coordinates)
+                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+                .addTo(map);
+                });
+
+                var geojson_planned_wedding = {
+                  type: 'FeatureCollection',
+                  features: [
+                  {% for i in planned_wedding_places %}
+                    {
+                      type: 'Feature',
+                      geometry: {
+                        type: 'Point',
+                        coordinates: [{{ i.coord_h }}, {{ i.coord_v }}]
+                      },
+                      properties: {
+                        title: "<div class='place-title'>{{ i.name }}</div>",
+                        description: "<div class='place-post'>{% for post in i.posts.all %}<a href='{{ post.get_absolute_url }}'>{{ post.title }}</a><br/>{% endfor %}</div>"
+                      }
+                    },
+                  {% endfor %}
+                ]
+                };
+
+                // add markers to map
+                geojson_planned_wedding.features.forEach(function(marker) {
+
+                // create a HTML element for each feature
+                var el = document.createElement('div');
+                el.className = 'marker-red';
+
+                // visited_wedding
+                new mapboxgl.Marker(el)
+                .setLngLat(marker.geometry.coordinates)
+                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+                .addTo(map);
+                });
+
+                var geojson_visited_wedding = {
+                  type: 'FeatureCollection',
+                  features: [
+                  {% for i in visited_wedding_places %}
+                    {
+                      type: 'Feature',
+                      geometry: {
+                        type: 'Point',
+                        coordinates: [{{ i.coord_h }}, {{ i.coord_v }}]
+                      },
+                      properties: {
+                        title: "<div class='place-title'>{{ i.name }}</div>",
+                        description: "<div class='place-post'>{% for post in i.posts.all %}<a href='{{ post.get_absolute_url }}'>{{ post.title }}</a><br/>{% endfor %}</div>"
+                      }
+                    },
+                  {% endfor %}
+                ]
+                };
+
+                // add markers to map
+                geojson_visited_wedding.features.forEach(function(marker) {
+
+                // create a HTML element for each feature
+                var el = document.createElement('div');
+                el.className = 'marker-green';
+
+                // make a marker for each feature and add to the map
+                new mapboxgl.Marker(el)
+                .setLngLat(marker.geometry.coordinates)
+                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+                .addTo(map);
+                });
+
+                </script>
     </aside>
 </section>
 {% endblock %}

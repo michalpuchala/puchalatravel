@@ -21,6 +21,12 @@ def index(request):
     second_latest_post_date = Post.objects.all().order_by('-published_date')[1].published_date.strftime('%d %B %Y')
     third_latest_post_date = Post.objects.all().order_by('-published_date')[2].published_date.strftime('%d %B %Y')
     places = Place.objects.all()
+
+    planned_places = Place.objects.filter(status=1)
+    visited_places = Place.objects.filter(status=2)
+    planned_wedding_places = Place.objects.filter(status=3)
+    visited_wedding_places = Place.objects.filter(status=4)
+
     return render(request, 'blog/index.html', {'posts': posts,
                                                'places': places,
                                                'latest_post': latest_post,
@@ -28,7 +34,12 @@ def index(request):
                                                'third_latest_post': third_latest_post,
                                                'latest_post_date': latest_post_date,
                                                'second_latest_post_date': second_latest_post_date,
-                                               'third_latest_post_date': third_latest_post_date})
+                                               'third_latest_post_date': third_latest_post_date,
+                                               'planned_places': planned_places,
+                                               'visited_places': visited_places,
+                                               'planned_wedding_places': planned_wedding_places,
+                                               'visited_wedding_places': visited_wedding_places
+                                               })
 
 
 def map(request):
