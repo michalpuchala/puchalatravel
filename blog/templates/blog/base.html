@@ -54,11 +54,9 @@
                     <li><a href="{% url 'map' %}">Map</a></li>
                     <li><a href="{% url 'about_us' %}">About us</a></li>
                     {% if user.is_authenticated %}
-                        <li><u><a href="{% url 'profile'%}">Profile ({{ user.get_username }})</a></u></li>
-                        <li><u><a href="{% url 'logout'%}">Logout</a></u></li>
+                        <li><a href="{% url 'profile' %}"><img class="profile-icon" src="/media/default.png"></a></li>
                     {% else %}
-                        <li><u><a href="{% url 'register'%}">Register</a></u></li>
-                        <li><u><a href="{% url 'login'%}">Login</a></u></li>
+                        <li><a href="{% url 'login' %}"><img class="profile-icon" src="/media/unknown_user.png"></a></li>
                     {% endif %}
                 </ul>
             </nav>
