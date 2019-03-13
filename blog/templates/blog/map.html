@@ -54,7 +54,7 @@ el.className = 'marker-light-red';
 new mapboxgl.Marker(el)
 .setLngLat(marker.geometry.coordinates)
 .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-.setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+.setHTML(marker.properties.title + marker.properties.description))
 .addTo(map);
 });
 
@@ -88,7 +88,7 @@ el.className = 'marker-light-green';
 new mapboxgl.Marker(el)
 .setLngLat(marker.geometry.coordinates)
 .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-.setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+.setHTML(marker.properties.title + marker.properties.description))
 .addTo(map);
 });
 
@@ -122,7 +122,7 @@ el.className = 'marker-red';
 new mapboxgl.Marker(el)
 .setLngLat(marker.geometry.coordinates)
 .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-.setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+.setHTML(marker.properties.title + marker.properties.description))
 .addTo(map);
 });
 
@@ -156,9 +156,15 @@ el.className = 'marker-green';
 new mapboxgl.Marker(el)
 .setLngLat(marker.geometry.coordinates)
 .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-.setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+.setHTML(marker.properties.title + marker.properties.description))
 .addTo(map);
 });
 
 </script>
+    <div class="map-legend">
+        <span id="legend-visited">&#x25CF;</span> visited&nbsp;&nbsp;
+        <span id="legend-planned">&#x25CF;</span> planned&nbsp;&nbsp;
+        <span id="legend-visited-other">&#x25CF;</span> other visited&nbsp;&nbsp;
+        <span id="legend-next-destination">&#x25CF;</span> next destination&nbsp;&nbsp;
+    </div>
 {% endblock %}
