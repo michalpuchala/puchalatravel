@@ -10,7 +10,8 @@
       <div class="media">
         <img class="profile-picture" src="{{ user.userprofile.profile_picture.url }}">
         <div class="profile-body">
-          <h2 class="profile-username">{{ user.username }}</h2>
+            <h2 class="profile-username">{{ user.username }}</h2>
+            <div id="logout-button"><a href="{% url 'logout' %}">Log out</a></div>
         </div>
       </div>
         <form method="POST" enctype="multipart/form-data">

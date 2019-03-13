@@ -28,3 +28,6 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['country', 'profile_picture']
+        labels = {
+                "profile_picture": "Profile picture (square)"
+            }

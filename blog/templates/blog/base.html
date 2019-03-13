@@ -54,9 +54,9 @@
                     <li><a href="{% url 'map' %}">Map</a></li>
                     <li><a href="{% url 'about_us' %}">About us</a></li>
                     {% if user.is_authenticated %}
-                        <li><a href="{% url 'profile' %}"><img class="profile-icon" src="/media/default.png"></a></li>
+                        <li><a href="{% url 'profile' %}" title="Edit your profile"><img class="profile-icon" src="{{ user.userprofile.profile_picture.url }}"></a></li>
                     {% else %}
-                        <li><a href="{% url 'login' %}"><img class="profile-icon" src="/media/unknown_user.png"></a></li>
+                        <li><a href="{% url 'login' %}" title="Log in or create an account"><img class="profile-icon" src="/media/unknown_user.png"></a></li>
                     {% endif %}
                 </ul>
             </nav>
