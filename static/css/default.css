@@ -272,20 +272,36 @@ aside {
   font-size: 110%;
 }
 
+#post-legend{
+  font-size: 90%;
+}
+
 #legend-visited {
-  color: red
+  color: #61755b;
 }
 
 #legend-planned {
-  color: blue
+  color: #6f1d1b;
 }
 
 #legend-visited-other {
-  color: yellow
+  color: #a5b99f;
 }
 
 #legend-next-destination {
-  color: green
+  color: #d3953d;
+}
+
+#legend-food {
+  color: #6f1d1b;
+}
+
+#legend-accommodation {
+  color: #d3953d;
+}
+
+#legend-spots {
+  color: #494e6b;
 }
 
 #map-index {
