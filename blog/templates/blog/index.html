@@ -7,7 +7,7 @@
 {% block banner %}
     <section class="banner">
         <div class="banner-inner">
-            <img src="{% static 'pictures/top_background.jpg' %}">
+            <img id="mobile-image" src="{% static 'pictures/top_background.jpg' %}">
         </div>
         <h2>
             BLOG
@@ -53,7 +53,7 @@
 {% block two_columns %}
 <section class="inner-wrapper">
     <article id="about-us">
-        <a href="{% url 'about_us' %}"><img src="{% static 'pictures/about_us.jpg' %}"></a>
+        <a href="{% url 'about_us' %}"><img id="mobile-image" src="{% static 'pictures/about_us.jpg' %}"></a>
     </article>
     <aside id="about-us">
         <h2><a href="{% url 'about_us' %}">ABOUT US</a></h2>

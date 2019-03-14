@@ -9,7 +9,7 @@
 <section class="inner-wrapper-about-us">
     <div id='about'>
         <article id="magda">
-            <img src="{% static 'pictures/magda.jpg' %}">
+            <img id="mobile-image" src="{% static 'pictures/magda.jpg' %}">
         </article>
         <aside id="size-bump">
             <h2>MAGDA</h2>
@@ -23,7 +23,7 @@
             <p id="about-us-p">{{ michal_bio.bio|safe }}</p>
         </article>
         <aside id="about-us">
-                <img src="{% static 'pictures/michal.jpg' %}">
+                <img id="mobile-image" src="{% static 'pictures/michal.jpg' %}">
         </aside>
     </section>
 {% endblock %}

@@ -23,6 +23,14 @@ h2 {
   padding: 2%
 }
 
+h2 a:link {
+  color: #494e6b;
+}
+
+h2 a:hover {
+  color: #d3953d;
+}
+
 h3 {
   font-size: 175%;
   line-height: 155%;
@@ -44,7 +52,6 @@ img {
   max-width: 100%;
   height: auto;
   width: auto;
-  margin-bottom: -4px
 }
 
 a:link {
@@ -322,7 +329,7 @@ aside {
 
 footer {
   background-color: #f7f6f4;
-  width: 100%
+  width: 100%;
 }
 
 .social {
@@ -706,26 +713,32 @@ footer.copyrights p {
   h2 {
     font-size: 150%
   }
+
   h3 {
     font-size: 125%
   }
+
   p {
     font-size: 120%
   }
+
   header {
     position: fixed;
     height: 50px;
     margin-top: -50px;
     z-index: 995
   }
+
   #title {
-    font-size: 170%;
-    margin: 5px 0 20px 15px;
+    font-size: 220%;
+    margin: 0 0 20px 15px;
   }
+
   #menu-icon {
     display: inline-block;
     padding: 1% 1% 1% 1%;
   }
+
   nav ul, nav:active ul {
     float: right;
     display: none;
@@ -741,14 +754,22 @@ footer.copyrights p {
     font-size: 90%;
     font-weight: 200;
   }
+
   nav:hover ul {
     display: block;
   }
+
   nav li {
     text-align: justify;
     width: 100%;
     font-weight: 800
   }
+
+  #mobile-image {
+    height: 40%;
+    object-fit: cover;
+  }
+
   #clear-top {
     width: 100%;
     height: 1px;
@@ -782,29 +803,40 @@ footer.copyrights p {
     float: left;
     width: 100%
   }
+
   .post-container {
     font-size: 100%;
   }
+
   #post-1-main {
     width: 80%;
     padding: 0% 10% 5% 10%
   }
+
   #post-2-main {
     width: 80%;
     padding: 0% 10% 5% 10%
   }
+
   #post-3-main {
     width: 80%;
     padding: 0% 10% 5% 10%
   }
+
   article {
     float: left;
     width: 100%;
     z-index: 0
   }
+
   aside {
     width: 100%
   }
+
+  #about-us-p {
+    padding: 1% 5% 5% 5%;
+  }
+
   .social img {
     padding-top: 5%;
     width: 8vw;
@@ -928,12 +960,13 @@ footer.copyrights p {
     margin-top: 50px;
     z-index: 0
   }
+
   .place-title {
-  font-size: 250%;
+  font-size: 160%;
   }
 
   .place-post {
-    font-size: 250%;
+    font-size: 120%;
     margin-top: 10px;
     line-height: 35px;
   }
