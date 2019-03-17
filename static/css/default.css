@@ -655,8 +655,9 @@ footer.copyrights p {
   padding-right: 5%;
 }
 
-.form-general a {
+.form-general a:link {
   text-decoration: underline;
+  color: #494e6b;
 }
 
 .form-general a:hover {
