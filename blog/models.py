@@ -141,7 +141,7 @@ class Post(models.Model, HitCountMixin):
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
-    author = models.ManyToManyField(User, blank=True, related_name='post_comments')
+    author = models.CharField(default="guest", max_length=100)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)

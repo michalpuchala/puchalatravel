@@ -2,7 +2,7 @@ from django import forms
 from django.contrib import admin
 from django.db import models
 from django.forms import TextInput, Textarea
-from blog.models import Category, Tag, Author, Trip, Image, PlaceStatus, Place, Post
+from blog.models import Category, Tag, Author, Trip, Image, PlaceStatus, Place, Post, Comment
 
 
 class CustomModelChoiceField(forms.ModelChoiceField):
@@ -88,6 +88,10 @@ class AuthorAdmin(admin.ModelAdmin):
     ]
 
 
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('author', 'post', 'text', 'created_date',)
+
+
 # Registering
 
 admin.site.register(Post, PostAdmin)
@@ -98,3 +102,4 @@ admin.site.register(Category, CategoryAdmin)
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(PlaceStatus, PlaceStatusAdmin)
 admin.site.register(Place, PlaceAdmin)
+admin.site.register(Comment, CommentAdmin)
