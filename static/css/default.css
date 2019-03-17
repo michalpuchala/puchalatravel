@@ -2,6 +2,7 @@
 @import "https://fonts.googleapis.com/css?family=Open Sans";
 @import "https://fonts.googleapis.com/css?family=Saira+Condensed";
 @import "https://fonts.googleapis.com/css?family=Saira+Extra+Condensed";
+@import "http://db.onlinewebfonts.com/c/df324edad26a4b3c01a1d93d3dec1213?family=Mf+I+Love+Glitter";
 
 * {
   margin: 0;
@@ -17,10 +18,11 @@ body {
 }
 
 h2 {
-  font-size: 200%;
+  font-size: 250%;
   font-weight: 700;
   text-align: center;
-  padding: 2%
+  padding: 2%;
+  font-family: "Mf I Love Glitter", sans-serif;
 }
 
 h2 a:link {
@@ -76,7 +78,8 @@ header {
 }
 
 #title {
-  margin: 0 0 0 15px;
+  font-family: "Mf I Love Glitter", sans-serif;
+  margin: 10px 0 0 15px;
   float: left;
   font-size: 250%;
   font-weight: 700;
@@ -87,7 +90,7 @@ header {
 
 nav {
   float: right;
-  padding: 15px 20px 0 0;
+  padding: 10px 20px 0 0;
 }
 
 #menu-icon {
@@ -196,7 +199,13 @@ nav ul li a:hover {
 }
 
 .post-title {
-  padding-top: 2%
+  padding-top: 2%;
+}
+
+#title-post {
+  font-size: 130%;
+  font-weight: bold;
+  font-family: "Mf I Love Glitter", sans-serif;
 }
 
 #post-date {
@@ -372,8 +381,10 @@ footer.copyrights p {
   width: 100%;
   text-align: center;
   padding-top: 70px;
-  font-size: 200%;
-  margin-bottom: -50px
+  font-size: 250%;
+  font-weight: bold;
+  margin-bottom: -50px;
+  font-family: "Mf I Love Glitter", sans-serif;
 }
 
 .section-title {
@@ -381,10 +392,12 @@ footer.copyrights p {
   width: 100%;
   background-color: #fcfcfc;
   text-align: center;
-  margin-top: -20px;
+  margin-top: 0;
   z-index: 995;
   position: relative;
-  font-size: 200%
+  font-size: 250%;
+  font-weight: bold;
+  font-family: "Mf I Love Glitter", sans-serif;
 }
 
 #post-1-blog {
@@ -426,11 +439,12 @@ footer.copyrights p {
 .posts-other-list {
   display: block;
   text-align: left;
-  font-size: 80%;
+  font-size: 60%;
   width: 84%;
   padding-left: 8%;
   padding-right: 8%;
   padding-bottom: 2%;
+  font-family: "Saira Condensed", sans-serif;
 }
 
 .posts-other-list a:link {
@@ -439,6 +453,13 @@ footer.copyrights p {
 
 .posts-other-list a:hover {
   color: #d3953d
+}
+
+#other-post-title {
+  display: inline;
+  font-weight: bold;
+  font-size: 120%;
+  font-family: "Mf I Love Glitter", sans-serif;
 }
 
 #post-list-byline {
@@ -450,8 +471,10 @@ footer.copyrights p {
 
 #post-title {
   text-align: center;
-  padding-top: 70px;
-  font-size: 200%
+  padding: 80px 0 10px 0;
+  font-size: 250%;
+  font-weight: bold;
+  font-family: "Mf I Love Glitter", sans-serif;
 }
 
 #post-details {
@@ -475,7 +498,8 @@ footer.copyrights p {
 }
 
 .post-body a:link {
-  color: #494e6b
+  color: #494e6b;
+  text-decoration: underline;
 }
 
 .post-body a:hover {
@@ -497,9 +521,12 @@ footer.copyrights p {
 
 #post-section-title {
   text-align: center;
+  font-size: 150%;
   font-weight: bold;
   padding-top: 2%;
   padding-bottom: 2%;
+  font-weight: bold;
+  font-family: "Mf I Love Glitter", sans-serif;
 }
 
 #picture-caption {
@@ -741,7 +768,7 @@ footer.copyrights p {
   /*--- General --*/
 
   h2 {
-    font-size: 150%
+    font-size: 200%
   }
 
   h3 {
@@ -760,13 +787,14 @@ footer.copyrights p {
   }
 
   #title {
-    font-size: 220%;
-    margin: 0 0 20px 15px;
+    font-size: 240%;
+    margin: 10px 0 20px 15px;
   }
 
   #menu-icon {
     display: inline-block;
-    padding: 1% 1% 1% 1%;
+    margin-top: 3px;
+    padding: 1%;
   }
 
   nav ul, nav:active ul {
@@ -774,7 +802,7 @@ footer.copyrights p {
     display: none;
     z-index: 1000;
     position: absolute;
-    padding: 5px 10px;
+    padding: 10px 10px;
     background: #f7f6f4;
     right: 5px;
     top: 55px;
@@ -833,13 +861,13 @@ footer.copyrights p {
 
   #post-3-main {
     width: 80%;
-    padding: 0% 10% 5% 10%
+    padding: 0% 10% 5% 10%;
   }
 
   article {
     float: left;
     width: 100%;
-    z-index: 0
+    z-index: 0;
   }
 
   aside {
@@ -852,12 +880,12 @@ footer.copyrights p {
   }
 
   .social img {
-    padding-top: 5%;
+    padding-top: 2%;
     width: 8vw;
     height: 8vw;
   }
   .copyrights {
-    height: 6%;
+    height: 4%;
     font-size: 100%
   }
 
@@ -870,6 +898,10 @@ footer.copyrights p {
   font-size: 200%;
   margin-bottom: 0px
   }
+
+  .section-title {
+  font-size: 200%;
+}
 
  #post-1-blog {
     width: 80%;
@@ -929,7 +961,11 @@ footer.copyrights p {
   /*--- Post View --*/
 
   #post-title {
-    padding-top: 0px;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 200%;
+    font-weight: bold;
+    font-family: "Mf I Love Glitter", sans-serif;
   }
 
   .post-body {

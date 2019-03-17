@@ -12,7 +12,7 @@
     <div class="post-container">
         <a href="{{ latest_post.get_absolute_url }}"><img src="{{ latest_post.main_image.picture.url }}">
         <div class="post-title">
-            {{ latest_post.title }}<br>
+            <div id="title-post">{{ latest_post.title }}</div>
             <div id="post-date">{{ latest_post_date }}</div>
             <div id="post-place">{{ latest_post.title_place }}</div>
         </div>
@@ -23,7 +23,7 @@
     <div class="post-container">
         <a href="{{ second_latest_post.get_absolute_url }}"><img src="{{ second_latest_post.main_image.picture.url }}">
         <div class="post-title">
-            {{ second_latest_post.title }}<br>
+            <div id="title-post">{{ second_latest_post.title }}</div>
             <div id="post-date">{{ second_latest_post_date }}</div>
             <div id="post-place">{{ second_latest_post.title_place }}</div>
         </div>
@@ -34,7 +34,7 @@
     <div class="post-container">
         <a href="{{ third_latest_post.get_absolute_url }}"><img src="{{ third_latest_post.main_image.picture.url }}">
         <div class="post-title">
-            {{ third_latest_post.title }}<br>
+            <div id="title-post">{{ third_latest_post.title }}</div>
             <div id="post-date">{{ third_latest_post_date }}</div>
             <div id="post-place">{{ third_latest_post.title_place }}</div>
         </div>
@@ -48,7 +48,7 @@
     <div class="post-container">
         <a href="{{ most_viewed_post.get_absolute_url }}"><img src="{{ most_viewed_post.main_image.picture.url }}">
         <div class="post-title">
-            {{ most_viewed_post.title }}<br>
+            <div id="title-post">{{ most_viewed_post.title }}</div>
             <div id="post-date">{{ most_viewed_post_date }}</div>
             <div id="post-place">{{ most_viewed_post.title_place }}</div>
         </div>
@@ -59,7 +59,7 @@
     <div class="post-container">
         <a href="{{ second_most_viewed_post.get_absolute_url }}"><img src="{{ second_most_viewed_post.main_image.picture.url }}">
         <div class="post-title">
-            {{ second_most_viewed_post.title }}<br>
+            <div id="title-post">{{ second_most_viewed_post.title }}</div>
             <div id="post-date">{{ second_most_viewed_post_date }}</div>
             <div id="post-place">{{ second_most_viewed_post.title_place }}</div>
         </div>
@@ -70,7 +70,7 @@
     <div class="post-container">
         <a href="{{ third_most_viewed_post.get_absolute_url }}"><img src="{{ third_most_viewed_post.main_image.picture.url }}">
         <div class="post-title">
-            {{ third_most_viewed_post.title }}<br>
+            <div id="title-post">{{ third_most_viewed_post.title }}</div>
             <div id="post-date">{{ third_most_viewed_post_date }}</div>
             <div id="post-place">{{ third_most_viewed_post.title_place }}</div>
         </div>
@@ -84,7 +84,7 @@
     <div class='posts-other-list'>
         {% for i in post_list %}
             <a href="{{ i.get_absolute_url }}">
-                {{ i.title }} <div id='post-list-byline'> | {{ i.byline }} | {{ i.published_date|date:'Y-m-d' }}</div><br>
+                <div id="other-post-title">{{ i.title }}</div> <div id='post-list-byline'> | {{ i.byline }} | {{ i.published_date|date:'Y-m-d' }}</div><br>
             </a>
         {% endfor %}
     </div>

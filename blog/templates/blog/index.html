@@ -19,7 +19,7 @@
     <div class="post-container">
         <a href="{{ latest_post.get_absolute_url }}"><img src="{{ latest_post.main_image.picture.url }}">
         <div class="post-title">
-            {{ latest_post.title }}<br>
+            <div id="title-post">{{ latest_post.title }}</div>
             <div id="post-date">{{ latest_post_date }}</div>
             <div id="post-place">{{ latest_post.title_place }}</div>
         </div>
@@ -30,7 +30,7 @@
     <div class="post-container">
         <a href="{{ second_latest_post.get_absolute_url }}"><img src="{{ second_latest_post.main_image.picture.url }}">
         <div class="post-title">
-            {{ second_latest_post.title }}<br>
+            <div id="title-post">{{ second_latest_post.title }}</div>
             <div id="post-date">{{ second_latest_post_date }}</div>
             <div id="post-place">{{ second_latest_post.title_place }}</div>
         </div>
@@ -41,7 +41,7 @@
     <div class="post-container">
         <a href="{{ third_latest_post.get_absolute_url }}"><img src="{{ third_latest_post.main_image.picture.url }}">
         <div class="post-title">
-            {{ third_latest_post.title }}<br>
+            <div id="title-post">{{ third_latest_post.title }}</div>
             <div id="post-date">{{ third_latest_post_date }}</div>
             <div id="post-place">{{ third_latest_post.title_place }}</div>
         </div>
