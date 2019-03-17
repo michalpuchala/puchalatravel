@@ -482,6 +482,19 @@ footer.copyrights p {
   color: #d3953d
 }
 
+.post-vertical-images {
+  content: "";
+  clear: both;
+  display: flex;
+}
+
+.post-vertical-images-image {
+  display: inline;
+  float: left;
+  flex: 50%;
+  padding: 5px;
+}
+
 #post-section-title {
   text-align: center;
   font-weight: bold;
@@ -642,17 +655,29 @@ footer.copyrights p {
   padding-right: 5%;
 }
 
+.form-general a {
+  text-decoration: underline;
+}
+
+.form-general a:hover {
+  color: #d3953d;
+}
+
+.form-general input {
+  border-bottom: 1px solid #494e6b;
+}
+
 .form-content {
   font-size: 100%;
 }
 
 .form-title {
-  font-size: 200%;
+  font-size: 175%;
   font-weight: bold;
 }
 
 .form-button {
-  background-color: #3d3d3d;
+  background-color: #494e6b;
   border: none;
   color: white;
   padding: 0.2% 2%;
@@ -660,8 +685,12 @@ footer.copyrights p {
   text-decoration: none;
   display: inline-block;
   font-size: 80%;
-  margin: 5px 2px;
+  margin: 10px 0 5px 0;
   cursor: pointer;
+}
+
+.form-button:hover {
+  background-color: #d3953d;
 }
 
 #login {
@@ -675,7 +704,6 @@ footer.copyrights p {
   text-align: center;
   padding: 90px 0 20px 0;
   font-size: 120%;
-  font-weight: bold;
 }
 
 .logout a:hover {
@@ -774,23 +802,6 @@ footer.copyrights p {
     z-index: 0
   }
 
-  .form-general {
-    padding-top: 0px;
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-
-  .logout {
-
-    padding: 0 10%;
-    font-size: 100%;
-  }
-
-  .form-button {
-    padding: 2% 4%;
-    font-size: 90%;
-  }
-
   /*--- Homepage --*/
 
   .banner {
@@ -831,6 +842,7 @@ footer.copyrights p {
   }
 
   #about-us-p {
+    font-size: 100%;
     padding: 1% 5% 5% 5%;
   }
 
@@ -926,6 +938,14 @@ footer.copyrights p {
     width: 100%;
   }
 
+  .post-vertical-images {
+    display: block;
+  }
+
+  .post-vertical-images-image {
+    width: 100%;
+  }
+
   #picture-caption {
     font-size: 85%;
   }
@@ -997,4 +1017,27 @@ footer.copyrights p {
   #michal {
     background-color: #fcfcfc
   }
+
+  /*--- Forms --*/
+  .form-general {
+    font-size: 120%;
+    padding-top: 0px;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .logout {
+    padding: 5% 10%;
+    font-size: 120%;
+  }
+
+  .form-button {
+    padding: 2% 4%;
+    font-size: 90%;
+  }
+
+  #logout-button {
+    margin: 0px 0 20px 0;
+  }
+
 }
