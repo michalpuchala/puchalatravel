@@ -642,6 +642,10 @@ footer.copyrights p {
   cursor: pointer;
 }
 
+.marker-light-green:hover {
+  opacity: 0.5;
+}
+
 .marker-light-red {
   background-image: url(../pictures/light_red_pin.png);
   background-size: cover;
@@ -649,6 +653,22 @@ footer.copyrights p {
   height: 10px;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.marker-green:hover {
+  opacity: 0.5;
+}
+
+.marker-red:hover {
+  opacity: 0.5;
+}
+
+.marker-light-green:hover {
+  opacity: 0.5;
+}
+
+.marker-light-red:hover {
+  opacity: 0.5;
 }
 
 .mapboxgl-popup {
