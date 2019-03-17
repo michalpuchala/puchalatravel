@@ -30,11 +30,11 @@ Author: {{ post.author.first_name }}, published: {{ post.published_date|date:'Y-
     {% for comment in post.comments.all %}
         <div id="comment">
             <strong>{{ comment.author }}  </strong><div id="date"> | {{ comment.created_date|date:'Y-m-d, H:i' }}</div>
-            <p>{{ comment.text|linebreaks }}</p>
+            <div id="comment-text">{{ comment.text|linebreaks }}</div>
         </div>
     {% empty %}
         <div id="comment">
-            <p>No comments here yet :(</p>
+            <div id="comment-text">No comments here yet :(</div>
         </div>
     {% endfor %}
     <div id="add-comment"><a href="{% url 'add_comment_to_post' pk=post.pk %}">

@@ -44,7 +44,7 @@ p {
   font-size: 120%;
   line-height: 120%;
   padding: 0%;
-  text-indent: 2%;
+  text-indent: 0%;
   text-align: justify;
 }
 
@@ -547,6 +547,10 @@ footer.copyrights p {
   padding: 1% 25% 1% 1%;
   margin: 20px 25% 20px 20px;
   border: 1px solid #e0e0e0
+}
+
+#comment-text {
+  font-size: 90%;
 }
 
 #add-comment {
