@@ -18,13 +18,12 @@
         }(document));
     </script>
     <script async defer data-pin-hover="true" src="//assets.pinterest.com/js/pinit.js"></script>
-    <!-- Facebook -->
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2"></script>
 {% endblock %}
 
 {% block banner %}
     <div id='clear-top'></div>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2"></script>
 {% endblock %}
 
 {% block one_column %}
@@ -38,8 +37,8 @@
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-via="puchalatravel" data-related="puchalatravel" data-show-count="false">Tweet</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     &nbsp;&nbsp;
-    <div class="fb-share-button" data-href="{{ request.build_absolute_uri }}" data-layout="button" data-size="small">
-    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+<div class="fb-share-button" data-href="{{ request.build_absolute_uri }}" data-layout="button" data-size="small">
+    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fabc.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
     <br>
 Author: {{ post.author.first_name }}, published: {{ post.published_date|date:'Y-m-d' }}
 </div>
