@@ -35,6 +35,29 @@
             a.appendChild(r);
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
     </script>
+    <!-- Cookie consent -->
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+    <script>
+    window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#fcfcfc",
+          "text": "#494e6b"
+        },
+        "button": {
+          "background": "#494e6b",
+          "text": "#fcfcfc"
+        }
+      },
+      "theme": "edgeless",
+      "content": {
+        "message": "We're using cookies to provide you with the best experience on our blog. No personal data of any kind is stored on our side!",
+        "link": "More"
+      }
+    })});
+    </script>
     <!-- End of external tags -->
     {% block header %}
     {% endblock %}

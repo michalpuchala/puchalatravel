@@ -479,7 +479,8 @@ footer.copyrights p {
 
 #post-details {
   text-align: center;
-  ont-size:80%
+  ont-size:80%;
+  margin-top: -20px;
 }
 
 .post-body {

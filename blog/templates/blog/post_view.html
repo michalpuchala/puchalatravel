@@ -4,8 +4,23 @@
 {% get_hit_count_js_variables for post as hitcount %}
 
 {% block header %}
+    <!-- Mapbox -->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css' rel='stylesheet'/>
+    <!-- Pinterest -->
+    <script type="text/javascript">
+        (function(d){
+            var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
+            p.type = 'text/javascript';
+            p.async = true;
+            p.src = '//assets.pinterest.com/js/pinit.js';
+            f.parentNode.insertBefore(p, f);
+        }(document));
+    </script>
+    <script async defer data-pin-hover="true" src="//assets.pinterest.com/js/pinit.js"></script>
+    <!-- Facebook -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2"></script>
 {% endblock %}
 
 {% block banner %}
@@ -20,6 +35,12 @@
     {{ post.text|safe }} <br><br>
 </div>
 <div id='post-details'>
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-via="puchalatravel" data-related="puchalatravel" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    &nbsp;&nbsp;
+    <div class="fb-share-button" data-href="{{ post.get_absolute_url }}" data-layout="button" data-size="small">
+    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+    <br>
 Author: {{ post.author.first_name }}, published: {{ post.published_date|date:'Y-m-d' }}
 </div>
 <div class='post-likes'>
