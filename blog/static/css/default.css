@@ -30,7 +30,7 @@ h2 {
   font-weight: 700;
   text-align: center;
   padding: 2%;
-  font-family: "Mf I Love Glitter", sans-serif;
+  font-family: "Mf I Love Glitter", "Saira Condensed", sans-serif;
 }
 
 h3 {
@@ -78,7 +78,7 @@ header {
 }
 
 #title {
-  font-family: "Mf I Love Glitter", sans-serif;
+  font-family: "Mf I Love Glitter", "Saira Condensed", sans-serif;
   margin: 10px 0 0 15px;
   float: left;
   font-size: 250%;
