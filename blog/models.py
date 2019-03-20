@@ -112,6 +112,7 @@ class Post(models.Model, HitCountMixin):
     images = models.ManyToManyField(Image, related_name='images', blank=True)
     instagram_link = models.URLField(blank=True, null=True)
     twitter_link = models.URLField(blank=True, null=True)
+    facebook_link = models.URLField(blank=True, null=True)
     post_likes = models.ManyToManyField(User, blank=True, related_name='post_likes')
     hit_count_generic = GenericRelation(
         HitCount, object_id_field='object_pk',
