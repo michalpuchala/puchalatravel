@@ -10,6 +10,14 @@
   border: 0
 }
 
+a:link {
+  color: #494e6b;
+}
+
+a:hover {
+  color: #d3953d;
+}
+
 body {
   background: #fcfcfc;
   color: #494e6b;
@@ -23,14 +31,6 @@ h2 {
   text-align: center;
   padding: 2%;
   font-family: "Mf I Love Glitter", sans-serif;
-}
-
-h2 a:link {
-  color: #494e6b;
-}
-
-h2 a:hover {
-  color: #d3953d;
 }
 
 h3 {
@@ -479,8 +479,15 @@ footer.copyrights p {
 
 #post-details {
   text-align: center;
-  ont-size:80%;
   margin-top: -20px;
+}
+
+.post-share {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: grayscale(50%);
+  margin-bottom: -20px;
 }
 
 .post-body {

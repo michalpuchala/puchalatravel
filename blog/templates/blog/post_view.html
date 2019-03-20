@@ -34,12 +34,13 @@
     {{ post.text|safe }} <br><br>
 </div>
 <div id='post-details'>
-    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-via="puchalatravel" data-related="puchalatravel" data-show-count="false">Tweet</a>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    &nbsp;&nbsp;
-    <div class="fb-share-button" data-href="{{ post.facebook_link }}" data-layout="button" data-size="small">
-    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fabc.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
-    <br>
+    <div class="post-share">
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-via="puchalatravel" data-show-count="false">Tweet</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        &nbsp;&nbsp;
+        <div class="fb-share-button" data-href="{{ post.facebook_link }}" data-layout="button" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fabc.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+    </div><br>
 Author: {{ post.author.first_name }}, published: {{ post.published_date|date:'Y-m-d' }}
 </div>
 <div class='post-likes'>
