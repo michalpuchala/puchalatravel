@@ -32,7 +32,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = [
     '*',
-    'ec2-18-188-249-6.us-east-2.compute.amazonaws.com',
+    'ec2-52-15-45-108.us-east-2.compute.amazonaws.com',
     'puchalatravel.com',
 ]
 
