@@ -5,8 +5,8 @@
 @font-face {
   font-family: "Mf I Love Glitter";
   src:
-  url(../fonts/I Love Glitter.ttf) format("ttf"),
-  url(../fonts/I Love Glitter.otf) format("otf");
+  url("https://puchalatravel.com/static/fonts/I Love Glitter.ttf") format("truetype"),
+  url("https://puchalatravel.com/static/fonts/I Love Glitter.otf") format("opentype");
 }
 
 * {
