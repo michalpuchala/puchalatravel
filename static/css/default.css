@@ -2,7 +2,12 @@
 @import "https://fonts.googleapis.com/css?family=Open Sans";
 @import "https://fonts.googleapis.com/css?family=Saira+Condensed";
 @import "https://fonts.googleapis.com/css?family=Saira+Extra+Condensed";
-@import "https://db.onlinewebfonts.com/c/df324edad26a4b3c01a1d93d3dec1213?family=Mf+I+Love+Glitter";
+@font-face {
+  font-family: "Mf I Love Glitter";
+  src:
+  url(../fonts/I Love Glitter.ttf) format("ttf"),
+  url(../fonts/I Love Glitter.otf) format("otf");
+}
 
 * {
   margin: 0;
