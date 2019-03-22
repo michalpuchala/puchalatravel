@@ -3,6 +3,10 @@
 {% load hitcount_tags %}
 {% get_hit_count_js_variables for post as hitcount %}
 
+{% block title %}
+    <title>{{ post.title }} | Puchała Travel</title>
+{% endblock %}
+
 {% block header %}
     <!-- Mapbox -->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.js'></script>
