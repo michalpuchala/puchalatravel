@@ -38,6 +38,10 @@ h2 {
   font-family: "Mf I Love Glitter", "Saira Condensed", sans-serif;
 }
 
+h2 a:hover {
+  color: #d3953d;
+}
+
 h3 {
   font-size: 175%;
   line-height: 155%;
@@ -129,7 +133,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #d3953d
+  color: #d3953d;
 }
 
 .profile-icon {
