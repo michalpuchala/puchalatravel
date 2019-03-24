@@ -231,6 +231,7 @@ a:hover #post-date {
 #post-place {
   font-size: 75%;
   font-weight: 200;
+  padding: 0 5%;
 }
 
 .inner-wrapper {
