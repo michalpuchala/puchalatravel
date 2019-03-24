@@ -62,7 +62,7 @@ Author: {{ post.author.first_name }}, published: {{ post.published_date|date:'Y-
             <div id="comment-text">No comments here yet :(</div>
         </div>
     {% endfor %}
-    <div id="add-comment"><a href="{% url 'add_comment_to_post' pk=post.pk %}">
+    <div id="add-comment"><a href="{% url 'add_comment_to_post' slug=post.slug %}">
         <button class="form-button" type="submit">Add comment</button>
     </a></div>
 </div>

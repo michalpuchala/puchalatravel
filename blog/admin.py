@@ -21,11 +21,11 @@ class PostAdmin(admin.ModelAdmin):
     }
 
     fieldsets = [
-        (None,      {'fields': ['author', 'trip', 'tag', 'category', 'place', 'title_place']}),
+        (None,      {'fields': ['slug', 'author', 'trip', 'tag', 'category', 'place', 'title_place']}),
         ('Content', {'fields': ['title', 'byline', 'text']}),
         ('Images',  {'fields': ['main_image', 'images']}),
         ('Dates',   {'fields': ['created_date', 'published_date']}),
-        ('Links',   {'fields': ['instagram_link', 'twitter_link', 'facebook_link', 'slug']}),
+        ('Links',   {'fields': ['instagram_link', 'twitter_link', 'facebook_link']}),
     ]
 
     filter_horizontal = ('tag', 'category', 'place', 'images',)

@@ -124,13 +124,13 @@ class Post(models.Model, HitCountMixin):
         return markdownify(self.text)
 
     def get_absolute_url(self):
-        return reverse('post-detail', kwargs={'pk': self.pk})
+        return reverse('post-detail', kwargs={'slug': self.slug})
 
     def get_like_url(self):
-        return reverse('post-like-toggle', kwargs={'pk': self.pk})
+        return reverse('post-like-toggle', kwargs={'slug': self.slug})
 
     def get_api_like_url(self):
-        return reverse('post-like-api-toggle', kwargs={'pk': self.pk})
+        return reverse('post-like-api-toggle', kwargs={'slug': self.slug})
 
     def publish(self):
         self.published_date = timezone.now()
