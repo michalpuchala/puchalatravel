@@ -7,6 +7,14 @@
     <title>{{ post.title }} | Puchała Travel</title>
 {% endblock %}
 
+{% block meta %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Puchała Travel - {{ post.title }} - {{ post.byline }}">
+    <meta name="keywords" content="{% for tag in post.tags %} {{ tag.name }}, {% endfor %}">
+    <meta name="author" content="Michał Puchała, Magdalena Puchała">
+{% endblock %}
+
 {% block header %}
     <!-- Mapbox -->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.js'></script>
