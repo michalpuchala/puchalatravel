@@ -1,8 +1,13 @@
 from django.urls import path, include
 from django.conf.urls import url
 from django.http import HttpResponseRedirect
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import PostSitemap
 from . import views
-from puchalatravel.settings.prod import STATIC_URL
+
+sitemaps = {
+    'posts': PostSitemap
+}
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -15,5 +20,6 @@ urlpatterns = [
     url(r'^signup/$', views.signup, name='signup'),
     url(r'hitcount/', include('hitcount.urls', namespace='hitcount')),
     url(r'post/(?P<slug>[-\w]+)/comment', views.add_comment_to_post, name='add_comment_to_post'),
-    url(r'^favicon.ico/$', lambda x: HttpResponseRedirect('static/pictures/favicon..png')), # google chrome favicon fix
+    url(r'^favicon.ico/$', lambda x: HttpResponseRedirect('static/pictures/favicon..png')),
+    url(r'^sitemap\.xml/$', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
 ]
