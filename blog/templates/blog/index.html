@@ -28,7 +28,7 @@
         <div class="post-title">
             <div id="title-post">{{ latest_post.title }}</div>
             <div id="post-date">{{ latest_post_date }}</div>
-            <div id="post-place">{{ latest_post.byline }}</div>
+            <div id="post-place">{{ latest_post.byline|safe }}</div>
         </div>
         </a>
     </div>
@@ -39,7 +39,7 @@
         <div class="post-title">
             <div id="title-post">{{ second_latest_post.title }}</div>
             <div id="post-date">{{ second_latest_post_date }}</div>
-            <div id="post-place">{{ second_latest_post.byline }}</div>
+            <div id="post-place">{{ second_latest_post.byline|safe }}</div>
         </div>
         </a>
     </div>
@@ -50,7 +50,7 @@
         <div class="post-title">
             <div id="title-post">{{ third_latest_post.title }}</div>
             <div id="post-date">{{ third_latest_post_date }}</div>
-            <div id="post-place">{{ third_latest_post.byline }}</div>
+            <div id="post-place">{{ third_latest_post.byline|safe }}</div>
         </div>
         </a>
     </div>
