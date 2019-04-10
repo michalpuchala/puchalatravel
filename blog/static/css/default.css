@@ -102,6 +102,25 @@ nav {
   padding: 10px 20px 0 0;
 }
 
+.lang-button{
+  width: 30px;
+  height: 50px;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+
+  font-family: "Saira Extra Condensed", sans-serif;
+  font-size: 75%;
+  color: #494e6b;
+}
+
+.lang-button:hover{
+  color: #d3953d;
+}
+
 #menu-icon {
   display: hidden;
   margin-top: -3px;

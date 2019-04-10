@@ -1,4 +1,9 @@
 {% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+
 <html>
 <head>
     {% block title %}
@@ -77,10 +82,46 @@
             <nav>
                 <a href="#" id="menu-icon"></a>
                 <ul>
-                    <li><a href="{% url 'index' %}" class="current">Home</a></li>
-                    <li><a href="{% url 'posts' %}">Blog</a></li>
-                    <li><a href="{% url 'map' %}">Map</a></li>
-                    <li><a href="{% url 'about_us' %}">About us</a></li>
+                    <li>
+                        {% for language in languages %}
+                          <form action="{% url 'set_language' %}" method="post" id="form_{{ language.code }}" style="display:inline!important;">
+                          {% csrf_token %}
+                            <input name="next" type="hidden" value="{{ redirect_to }}" />
+                            <input name="language" type="hidden" value="{{ language.code }}" />
+                          </form>
+                          <button class="lang-button" type="submit" form="form_{{ language.code }}" value="Submit">
+                          {% if language.code == LANGUAGE_CODE %}
+                              <b>{{ language.code|upper }}</b>
+                          {% else %}
+                              {{ language.code|upper }}
+                          {% endif %}
+                          </button>
+                        {% endfor %}
+                    </li>
+                    <li><a href="{% url 'index' %}" class="current">
+                        {% if LANGUAGE_CODE == 'pl' %}
+                            Strona główna
+                        {% else %}
+                            Home
+                        {% endif %}
+                    </a></li>
+                    <li><a href="{% url 'posts' %}">
+                        Blog
+                    </a></li>
+                    <li><a href="{% url 'map' %}">
+                        {% if LANGUAGE_CODE == 'pl' %}
+                            Mapa
+                        {% else %}
+                            Map
+                        {% endif %}
+                    </a></li>
+                    <li><a href="{% url 'about_us' %}">
+                        {% if LANGUAGE_CODE == 'pl' %}
+                            O nas
+                        {% else %}
+                            About us
+                        {% endif %}
+                    </a></li>
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'profile' %}" title="Edit your profile"><img class="profile-icon" src="{{ user.userprofile.profile_picture.url }}"></a></li>
                     {% else %}

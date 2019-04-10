@@ -18,7 +18,9 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from django.contrib.staticfiles.urls import static, staticfiles_urlpatterns
 from django.conf import settings
+from django.conf.urls import url
 from users import views as user_views
+from django.views.i18n import JavaScriptCatalog
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,4 +37,6 @@ urlpatterns = [
     path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(
         template_name='users/password_reset_complete.html'), name='password_reset_complete'),
     path('profile/', user_views.profile, name='profile'),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
+    path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
 ] + staticfiles_urlpatterns() + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_ENCRYPT_URL, document_root=settings.STATIC_ENCRYPT_ROOT)

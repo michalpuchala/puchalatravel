@@ -3,10 +3,8 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import RedirectView
 from django.shortcuts import get_object_or_404
-from django.contrib.auth.decorators import login_required
 
 from hitcount.views import HitCountDetailView
-from datetime import datetime
 
 from .models import Post, Place, Author
 from .forms import CommentForm
@@ -17,9 +15,9 @@ def index(request):
     latest_post = Post.objects.all().order_by('-published_date')[0]
     second_latest_post = Post.objects.all().order_by('-published_date')[1]
     third_latest_post = Post.objects.all().order_by('-published_date')[2]
-    latest_post_date = Post.objects.all().order_by('-published_date')[0].published_date.strftime('%d %B %Y')
-    second_latest_post_date = Post.objects.all().order_by('-published_date')[1].published_date.strftime('%d %B %Y')
-    third_latest_post_date = Post.objects.all().order_by('-published_date')[2].published_date.strftime('%d %B %Y')
+    latest_post_date = Post.objects.all().order_by('-published_date')[0].published_date.strftime('%d.%m.%Y')
+    second_latest_post_date = Post.objects.all().order_by('-published_date')[1].published_date.strftime('%d.%m.%Y')
+    third_latest_post_date = Post.objects.all().order_by('-published_date')[2].published_date.strftime('%d.%m.%Y')
     places = Place.objects.all()
 
     planned_places = Place.objects.filter(status=1)
