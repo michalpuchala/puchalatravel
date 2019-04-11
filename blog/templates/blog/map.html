@@ -166,9 +166,9 @@ new mapboxgl.Marker(el)
 
 </script>
     <div class="map-legend">
-        <span id="legend-visited">&#x25CF;</span> visited&nbsp;&nbsp;
-        <span id="legend-planned">&#x25CF;</span> planned&nbsp;&nbsp;
-        <span id="legend-visited-other">&#x25CF;</span> other visited&nbsp;&nbsp;
-        <span id="legend-next-destination">&#x25CF;</span> next destination&nbsp;&nbsp;
+        <span id="legend-visited">&#x25CF;</span> {% if LANGUAGE_CODE == 'pl' %} zaliczone {% else %} visited&nbsp;{% endif %}
+        <span id="legend-planned">&#x25CF;</span> {% if LANGUAGE_CODE == 'pl' %} planowane {% else %} planned&nbsp;{% endif %}&nbsp;&nbsp;
+        <span id="legend-visited-other">&#x25CF;</span> {% if LANGUAGE_CODE == 'pl' %} inne zaliczone {% else %} other visited&nbsp;{% endif %}&nbsp;&nbsp;
+        <span id="legend-next-destination">&#x25CF;</span> {% if LANGUAGE_CODE == 'pl' %} natępna podróż {% else %} next destination&nbsp;{% endif %}
     </div>
 {% endblock %}

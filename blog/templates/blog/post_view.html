@@ -40,24 +40,39 @@
 
 {% block one_column %}
 <div id='post-title'>
-    {{ post.title }} <br>
+    {% if LANGUAGE_CODE == 'pl' %} {{ post.title_pl }} {% else %} {{ post.title }} {% endif %}
+    <br>
 </div>
 <div class='post-body'>
-    {{ post.text|safe }} <br><br>
+    {% if LANGUAGE_CODE == 'pl' %} {{ post.text_pl|safe }} {% else %} {{ post.text|safe }} {% endif %}
+    <br><br>
 </div>
 <div id='post-details'>
     <div class="post-share">
-        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-via="puchalatravel" data-show-count="false">Tweet</a>
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-via="puchalatravel" data-show-count="false">
+            Tweet
+        </a>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         &nbsp;&nbsp;
         <div class="fb-share-button" data-href="{{ post.facebook_link }}" data-layout="button" data-size="small">
-        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fabc.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fabc.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
+            Share
+        </a></div>
     </div><br>
-Author: {{ post.author.first_name }}, published: {{ post.published_date|date:'Y-m-d' }}
+    {% if LANGUAGE_CODE == 'pl' %}
+        Autor: {{ post.author.first_name }}, opublikowane: {{ post.published_date|date:'Y-m-d' }}
+    {% else %}
+        Author: {{ post.author.first_name }}, published: {{ post.published_date|date:'Y-m-d' }}
+    {% endif %}
 </div>
 <div class='post-likes'>
-    {{ hitcount.total_hits }} views | {{ post.post_likes.count }} likes
-    <div id="like-btn"><a href = "{{ post.get_like_url }}">Like</a></div><br>
+    {% if LANGUAGE_CODE == 'pl' %}
+        {{ hitcount.total_hits }} wyświetleń | {{ post.post_likes.count }} polubień
+        <div id="like-btn"><a href = "{{ post.get_like_url }}">Polub</a></div><br>
+    {% else %}
+        {{ hitcount.total_hits }} views | {{ post.post_likes.count }} likes
+        <div id="like-btn"><a href = "{{ post.get_like_url }}">Like</a></div><br>
+    {% endif %}
 </div>
 <div class='post-comments'>
     {% for comment in post.comments.all %}
@@ -67,11 +82,19 @@ Author: {{ post.author.first_name }}, published: {{ post.published_date|date:'Y-
         </div>
     {% empty %}
         <div id="comment">
-            <div id="comment-text">No comments here yet :(</div>
+            {% if LANGUAGE_CODE == 'pl' %}
+                <div id="comment-text">Brak komentarzy :(</div>
+            {% else %}
+                <div id="comment-text">No comments here yet :(</div>
+            {% endif %}
         </div>
     {% endfor %}
     <div id="add-comment"><a href="{% url 'add_comment_to_post' slug=post.slug %}">
-        <button class="form-button" type="submit">Add comment</button>
+        {% if LANGUAGE_CODE == 'pl' %}
+            <button class="form-button" type="submit">Dodaj komentarz</button>
+        {% else %}
+            <button class="form-button" type="submit">Add comment</button>
+        {% endif %}
     </a></div>
 </div>
 {% endblock %}

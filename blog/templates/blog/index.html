@@ -1,9 +1,5 @@
 {% extends 'blog/base.html' %}
 {% load static %}
-{% load i18n %}
-{% get_current_language as LANGUAGE_CODE %}
-{% get_available_languages as LANGUAGES %}
-{% get_language_info_list for LANGUAGES as languages %}
 
 {% block meta %}
     <meta charset="UTF-8">
@@ -136,10 +132,10 @@
             <div>21%</div>
         </div>
         <div class="map-legend">
-            <span id="legend-visited">&#x25CF;</span> visited&nbsp;&nbsp;
-            <span id="legend-planned">&#x25CF;</span> planned&nbsp;&nbsp;
-            <span id="legend-visited-other">&#x25CF;</span> other visited&nbsp;&nbsp;
-            <span id="legend-next-destination">&#x25CF;</span> next destination&nbsp;&nbsp;
+            <span id="legend-visited">&#x25CF;</span> {% if LANGUAGE_CODE == 'pl' %} zaliczone {% else %} visited&nbsp;{% endif %}
+            <span id="legend-planned">&#x25CF;</span> {% if LANGUAGE_CODE == 'pl' %} planowane {% else %} planned&nbsp;{% endif %}&nbsp;&nbsp;
+            <span id="legend-visited-other">&#x25CF;</span> {% if LANGUAGE_CODE == 'pl' %} inne zaliczone {% else %} other visited&nbsp;{% endif %}&nbsp;&nbsp;
+            <span id="legend-next-destination">&#x25CF;</span> {% if LANGUAGE_CODE == 'pl' %} natępna podróż {% else %} next destination&nbsp;{% endif %}
         </div>
     </article>
     <aside>
@@ -167,7 +163,7 @@
                         coordinates: [{{ i.coord_h }}, {{ i.coord_v }}]
                       },
                       properties: {
-                        title: "<div class='place-title'>{{ i.name }}</div>",
+                        title: "<div class='place-title'>{% if LANGUAGE_CODE == 'pl' %} {{ i.name_pl }} {% else %} {{ i.name }} {% endif %}</div>",
                         description: "<div class='place-post'>{% for post in i.posts.all %}<a href='{{ post.get_absolute_url }}'>{{ post.title }}</a><br/>{% endfor %}</div>"
                       }
                     },
