@@ -122,11 +122,12 @@ nav {
 }
 
 #menu-icon {
-  display: hidden;
+  display: none;
   margin-top: -3px;
   width: 30px;
   height: 30px;
-  background: url(../pictures/menu.png) center;
+  object-fit: contain;
+  /*background: url(../pictures/menu.png) center;*/
 }
 
 a:hover#menu-icon {
@@ -850,7 +851,8 @@ footer.copyrights p {
 
   #menu-icon {
     display: inline-block;
-    margin-top: 3px;
+    object-fit: contain;
+    margin-top: 0;
     padding: 1%;
   }
 

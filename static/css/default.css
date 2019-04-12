@@ -102,12 +102,32 @@ nav {
   padding: 10px 20px 0 0;
 }
 
+.lang-button{
+  width: 30px;
+  height: 50px;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+
+  font-family: "Saira Extra Condensed", sans-serif;
+  font-size: 75%;
+  color: #494e6b;
+}
+
+.lang-button:hover{
+  color: #d3953d;
+}
+
 #menu-icon {
-  display: hidden;
+  display: none;
   margin-top: -3px;
   width: 30px;
   height: 30px;
-  background: url(../pictures/menu.png) center;
+  object-fit: contain;
+  /*background: url(../pictures/menu.png) center;*/
 }
 
 a:hover#menu-icon {
@@ -831,7 +851,8 @@ footer.copyrights p {
 
   #menu-icon {
     display: inline-block;
-    margin-top: 3px;
+    object-fit: contain;
+    margin-top: 0;
     padding: 1%;
   }
 
