@@ -2,7 +2,11 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-    <title>Register | Puchała Travel</title>
+    {% if LANGUAGE_CODE == 'pl' %}
+        <title>Rejestracja | Puchała Travel</title>
+    {% else %}
+        <title>Register | Puchała Travel</title>
+    {% endif %}
 {% endblock %}
 
 {% block banner %}
@@ -12,17 +16,32 @@
 {% block one_column %}
     <div class="form-general">
         <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-content">
-                <legend class="form-title">Create an account</legend>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="">
-                <button class="form-button" type="submit">Sign Up</button>
-            </div>
-        </form>
-        <div class="">
-            If you already have an account - <a href="{% url 'login' %}">sign in</a>
-        </div>
+            {% if LANGUAGE_CODE == 'pl' %}
+                {% csrf_token %}
+                    <fieldset class="form-content">
+                        <legend class="form-title">Stwórz konto</legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="">
+                        <button class="form-button" type="submit">Zarejestruj się</button>
+                    </div>
+                </form>
+                <div class="">
+                    Jeżeli posiadasz już konto - <a href="{% url 'login' %}">zaloguj się</a>
+                </div>
+            {% else %}
+                {% csrf_token %}
+                    <fieldset class="form-content">
+                        <legend class="form-title">Create an account</legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="">
+                        <button class="form-button" type="submit">Sign Up</button>
+                    </div>
+                </form>
+                <div class="">
+                    If you already have an account - <a href="{% url 'login' %}">sign in</a>
+                </div>
+            {% endif %}
     </div>
 {% endblock %}

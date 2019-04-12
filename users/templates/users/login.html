@@ -6,7 +6,11 @@
 {% endblock %}
 
 {% block title %}
-    <title>Login | Puchała Travel</title>
+    {% if LANGUAGE_CODE == 'pl' %}
+        <title>Logowanie | Puchała Travel</title>
+    {% else %}
+        <title>Login | Puchała Travel</title>
+    {% endif %}
 {% endblock %}
 
 {% block one_column %}
@@ -14,16 +18,30 @@
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-content">
-                <legend class="form-title">Log In</legend>
-                {{ form|crispy }}
+                {% if LANGUAGE_CODE == 'pl' %}
+                    <legend class="form-title">Zaloguj się</legend>
+                    {{ form|crispy }}
+                {% else %}
+                    <legend class="form-title">Log In</legend>
+                    {{ form|crispy }}
+                {% endif %}
             </fieldset>
             <div class="">
-                <button class="form-button" type="submit">Log In</button>
+                {% if LANGUAGE_CODE == 'pl' %}
+                    <button class="form-button" type="submit">Zaloguj się</button>
+                {% else %}
+                    <button class="form-button" type="submit">Log In</button>
+                {% endif %}
             </div>
         </form>
         <div class="">
-            If you don't have an account yet - <a href="{% url 'register' %}">sign up</a><br>
-            If you forgot your password - <a href="{% url 'password_reset' %}">reset your password here</a>
+            {% if LANGUAGE_CODE == 'pl' %}
+                Jeśli jeszcze nie masz konta - <a href="{% url 'register' %}">zarejestruj się</a><br>
+                Jeśli nie pamiętasz hasła - <a href="{% url 'password_reset' %}">zresetuj hasło</a>
+            {% else %}
+                If you don't have an account yet - <a href="{% url 'register' %}">sign up</a><br>
+                If you forgot your password - <a href="{% url 'password_reset' %}">reset your password here</a>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

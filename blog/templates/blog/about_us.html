@@ -2,7 +2,11 @@
 {% load static %}
 
 {% block title %}
-    <title>About Us | Puchała Travel</title>
+    {% if LANGUAGE_CODE == 'pl' %}
+        <title>O nas | Puchała Travel</title>
+    {% else %}
+        <title>About Us | Puchała Travel</title>
+    {% endif %}
 {% endblock %}
 
 {% block meta %}

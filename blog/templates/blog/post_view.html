@@ -4,7 +4,11 @@
 {% get_hit_count_js_variables for post as hitcount %}
 
 {% block title %}
-    <title>{{ post.title }} | Puchała Travel</title>
+    {% if LANGUAGE_CODE == 'pl' %}
+        <title>{{ post.title_pl }} | Puchała Travel</title>
+    {% else %}
+        <title>{{ post.title }} | Puchała Travel</title>
+    {% endif %}
 {% endblock %}
 
 {% block meta %}

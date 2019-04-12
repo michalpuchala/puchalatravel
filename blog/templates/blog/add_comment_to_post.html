@@ -2,7 +2,11 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-    <title>Add Comment | Puchała Travel</title>
+    {% if LANGUAGE_CODE == 'pl' %}
+        <title>Dodaj komentarz | Puchała Travel</title>
+    {% else %}
+        <title>Add Comment | Puchała Travel</title>
+    {% endif %}
 {% endblock %}
 
 {% block banner %}

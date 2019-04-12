@@ -1,7 +1,11 @@
 {% extends 'blog/base.html' %}
 
 {% block title %}
-    <title>Log In | Puchała Travel</title>
+    {% if LANGUAGE_CODE == 'pl' %}
+        <title>Wylogowanie | Puchała Travel</title>
+    {% else %}
+        <title>Logout | Puchała Travel</title>
+    {% endif %}
 {% endblock %}
 
 {% block banner %}
@@ -10,6 +14,10 @@
 
 {% block one_column %}
     <div class="logout">
-        You have been successfully logged out. If you want to log back in go <a href="{% url 'login' %}">here</a>
+        {% if LANGUAGE_CODE == 'pl' %}
+            Zostałeś wylogowany/a. Jeżeli chcesz się zalogować ponownie liknij <a href="{% url 'login' %}">tutaj</a>
+        {% else %}
+            You have been successfully logged out. If you want to log back in go <a href="{% url 'login' %}">here</a>
+        {% endif %}
     </div>
 {% endblock %}
