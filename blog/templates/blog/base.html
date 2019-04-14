@@ -78,30 +78,6 @@
             <nav>
                 <a href="#" id="menu-icon"><img src="{% static 'pictures/menu.png' %}"></a>
                 <ul>
-                    <li>
-                          <form action="{% url 'change_language' %}" method="post" id="form_en" style="display:inline!important;">
-                          {% csrf_token %}
-                            <input name="language" type="hidden" value="en" />
-                          </form>
-                          <button class="lang-button" type="submit" form="form_en" value="Submit">
-                          {% if LANGUAGE_CODE == 'en' %}
-                              <b>EN</b>
-                          {% else %}
-                              EN
-                          {% endif %}
-                          </button>
-                          <form action="{% url 'change_language' %}" method="post" id="form_pl" style="display:inline!important;">
-                          {% csrf_token %}
-                            <input name="language" type="hidden" value="pl" />
-                          </form>
-                          <button class="lang-button" type="submit" form="form_pl" value="Submit">
-                          {% if LANGUAGE_CODE == 'pl' %}
-                              <b>PL</b>
-                          {% else %}
-                              PL
-                          {% endif %}
-                          </button>
-                    </li>
                     <li><a href="{% url 'index' %}" class="current">
                         {% if LANGUAGE_CODE == 'pl' %}
                             Strona główna
@@ -126,11 +102,36 @@
                             About us
                         {% endif %}
                     </a></li>
+                    <div id="nav-icons">
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'profile' %}" title="Edit your profile"><img class="profile-icon" src="{{ user.userprofile.profile_picture.url }}"></a></li>
                     {% else %}
                         <li><a href="{% url 'login' %}" title="Log in or create an account"><img class="profile-icon" src="/media/unknown_user.png"></a></li>
                     {% endif %}
+                    <li>
+                          <form action="{% url 'change_language' %}" method="post" id="form_en" style="display:inline!important;">
+                          {% csrf_token %}
+                            <input name="language" type="hidden" value="en" />
+                          </form>
+                          <button class="lang-button" type="submit" form="form_en" value="Submit">
+                          {% if LANGUAGE_CODE == 'en' %}
+                              <b>EN</b>
+                          {% else %}
+                              EN
+                          {% endif %}
+                          </button>
+                          <form action="{% url 'change_language' %}" method="post" id="form_pl" style="display:inline!important;">
+                          {% csrf_token %}
+                            <input name="language" type="hidden" value="pl" />
+                          </form>
+                          <button class="lang-button" type="submit" form="form_pl" value="Submit">
+                          {% if LANGUAGE_CODE == 'pl' %}
+                              <b>PL</b>
+                          {% else %}
+                              PL
+                          {% endif %}
+                          </button>
+                    </li>
                 </ul>
             </nav>
         </div>
