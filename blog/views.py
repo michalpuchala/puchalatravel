@@ -12,13 +12,13 @@ from .forms import CommentForm, LanguageChangeForm
 
 
 def index(request):
-    posts = Post.objects.all().order_by('-published_date')
-    latest_post = Post.objects.all().order_by('-published_date')[0]
-    second_latest_post = Post.objects.all().order_by('-published_date')[1]
-    third_latest_post = Post.objects.all().order_by('-published_date')[2]
-    latest_post_date = Post.objects.all().order_by('-published_date')[0].published_date.strftime('%d.%m.%Y')
-    second_latest_post_date = Post.objects.all().order_by('-published_date')[1].published_date.strftime('%d.%m.%Y')
-    third_latest_post_date = Post.objects.all().order_by('-published_date')[2].published_date.strftime('%d.%m.%Y')
+    posts = Post.objects.filter(published=True).order_by('-published_date')
+    latest_post = Post.objects.filter(published=True).order_by('-published_date')[0]
+    second_latest_post = Post.objects.filter(published=True).order_by('-published_date')[1]
+    third_latest_post = Post.objects.filter(published=True).order_by('-published_date')[2]
+    latest_post_date = Post.objects.filter(published=True).order_by('-published_date')[0].published_date.strftime('%d.%m.%Y')
+    second_latest_post_date = Post.objects.filter(published=True).order_by('-published_date')[1].published_date.strftime('%d.%m.%Y')
+    third_latest_post_date = Post.objects.filter(published=True).order_by('-published_date')[2].published_date.strftime('%d.%m.%Y')
     places = Place.objects.all()
 
     planned_places = Place.objects.filter(status=1)
@@ -88,19 +88,19 @@ def about_us(request):
 
 
 def posts(request):
-    post_list = Post.objects.all().order_by('-published_date')
-    latest_post = Post.objects.all().order_by('-published_date')[0]
-    second_latest_post = Post.objects.all().order_by('-published_date')[1]
-    third_latest_post = Post.objects.all().order_by('-published_date')[2]
-    most_viewed_post = Post.objects.all().order_by('-hit_count_generic__hits')[0]
-    second_most_viewed_post = Post.objects.all().order_by('-hit_count_generic__hits')[1]
-    third_most_viewed_post = Post.objects.all().order_by('-hit_count_generic__hits')[2]
-    latest_post_date = Post.objects.all().order_by('-published_date')[0].published_date.strftime('%d.%m.%Y')
-    second_latest_post_date = Post.objects.all().order_by('-published_date')[1].published_date.strftime('%d.%m.%Y')
-    third_latest_post_date = Post.objects.all().order_by('-published_date')[2].published_date.strftime('%d.%m.%Y')
-    most_viewed_post_date = Post.objects.all().order_by('hit_count_generic__hits')[0].published_date.strftime('%d.%m.%Y')
-    second_most_viewed_post_date = Post.objects.all().order_by('hit_count_generic__hits')[1].published_date.strftime('%d.%m.%Y')
-    third_most_viewed_post_date = Post.objects.all().order_by('hit_count_generic__hits')[2].published_date.strftime('%d.%m.%Y')
+    post_list = Post.objects.filter(published=True).order_by('-published_date')
+    latest_post = Post.objects.filter(published=True).order_by('-published_date')[0]
+    second_latest_post = Post.objects.filter(published=True).order_by('-published_date')[1]
+    third_latest_post = Post.objects.filter(published=True).order_by('-published_date')[2]
+    most_viewed_post = Post.objects.filter(published=True).order_by('-hit_count_generic__hits')[0]
+    second_most_viewed_post = Post.objects.filter(published=True).order_by('-hit_count_generic__hits')[1]
+    third_most_viewed_post = Post.objects.filter(published=True).order_by('-hit_count_generic__hits')[2]
+    latest_post_date = Post.objects.filter(published=True).order_by('-published_date')[0].published_date.strftime('%d.%m.%Y')
+    second_latest_post_date = Post.objects.filter(published=True).order_by('-published_date')[1].published_date.strftime('%d.%m.%Y')
+    third_latest_post_date = Post.objects.filter(published=True).order_by('-published_date')[2].published_date.strftime('%d.%m.%Y')
+    most_viewed_post_date = Post.objects.filter(published=True).order_by('hit_count_generic__hits')[0].published_date.strftime('%d.%m.%Y')
+    second_most_viewed_post_date = Post.objects.filter(published=True).order_by('hit_count_generic__hits')[1].published_date.strftime('%d.%m.%Y')
+    third_most_viewed_post_date = Post.objects.filter(published=True).order_by('hit_count_generic__hits')[2].published_date.strftime('%d.%m.%Y')
 
     if 'LANGUAGE_CODE' in request.COOKIES:
         language_code = request.COOKIES.get('LANGUAGE_CODE')

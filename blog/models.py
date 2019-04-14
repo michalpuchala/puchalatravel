@@ -115,6 +115,7 @@ class Post(models.Model, HitCountMixin):
     text = models.TextField()
     text_pl = models.TextField(blank=True, null=True)
     slug = models.SlugField(max_length=128)
+    published = models.BooleanField(default=False)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     main_image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name='main_image')
