@@ -45,15 +45,6 @@ class ImageAdmin(admin.ModelAdmin):
     ]
 
 
-class TripAdmin(admin.ModelAdmin):
-    list_display = ('name', 'destination', 'start_date', 'end_date')
-
-    fieldsets = [
-        (None,    {'fields': ['name', 'name_pl', 'destination']}),
-        ('Dates', {'fields': ['start_date', 'end_date']}),
-    ]
-
-
 class TagAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
@@ -72,6 +63,15 @@ class PlaceAdmin(admin.ModelAdmin):
 
     inlines = [
         PostsInLine,
+    ]
+
+
+class TripAdmin(admin.ModelAdmin):
+    list_display = ('name', 'destination', 'start_date', 'end_date')
+
+    fieldsets = [
+        (None, {'fields': ['name', 'name_pl', 'destination']}),
+        ('Dates', {'fields': ['start_date', 'end_date']}),
     ]
 
 

@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 
 from hitcount.views import HitCountDetailView
 
-from .models import Post, Place, Author
+from .models import Post, Place, Author, Trip
 from .forms import CommentForm, LanguageChangeForm
 
 
@@ -129,12 +129,21 @@ class PostDetailView(HitCountDetailView):
     template_name = 'blog/post_view.html'
 
     def get_context_data(self, **kwargs):
+        # getting language
         context = super(PostDetailView, self).get_context_data(**kwargs)
         if 'LANGUAGE_CODE' in self.request.COOKIES:
             language_code = self.request.COOKIES.get('LANGUAGE_CODE')
         else:
             language_code = 'en'
         context['LANGUAGE_CODE'] = language_code
+
+        # getting suggested posts list
+        trip = list(Trip.objects.filter(post=self.object).distinct())
+        posts = []
+        for t in trip:
+            posts += list(t.post_set.all())
+        context['posts'] = posts
+
         return context
 
 
