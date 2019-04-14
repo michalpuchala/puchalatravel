@@ -52,7 +52,7 @@
     <br><br>
 </div>
 <div class="related-posts">
-    <div id="post-section-title">Related blog posts</div>
+    <div id="post-section-title">{% if LANGUAGE_CODE == 'pl' %} Powiązane wpisy {% else %} Related blog posts {% endif %}</div>
     {% for i in posts %}
         <a href="{{ i.get_absolute_url }}">
             {% if LANGUAGE_CODE == 'pl' %}
