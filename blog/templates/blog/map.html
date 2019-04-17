@@ -327,10 +327,53 @@
 {% endif %}
 
     <div class="map-legend">
-        <span id="legend-visited">&#x25CF;</span> {% if LANGUAGE_CODE == 'pl' %} zaliczone {% else %} visited&nbsp;{% endif %}
-        <span id="legend-planned">&#x25CF;</span> {% if LANGUAGE_CODE == 'pl' %} planowane {% else %} planned&nbsp;{% endif %}&nbsp;&nbsp;
-        <span id="legend-visited-other">&#x25CF;</span> {% if LANGUAGE_CODE == 'pl' %} inne zaliczone {% else %} other visited&nbsp;{% endif %}&nbsp;&nbsp;
+        <span id="legend-visited">&#x25CF;</span> {% if LANGUAGE_CODE == 'pl' %} zaliczone&nbsp;&nbsp; {% else %} visited&nbsp;&nbsp;{% endif %}
+        <span id="legend-planned">&#x25CF;</span> {% if LANGUAGE_CODE == 'pl' %} planowane&nbsp;&nbsp; {% else %} planned&nbsp;&nbsp;{% endif %}
+        <span id="legend-visited-other">&#x25CF;</span> {% if LANGUAGE_CODE == 'pl' %} inne zaliczone&nbsp;&nbsp; {% else %} other visited&nbsp;&nbsp;{% endif %}
         <span id="legend-next-destination">&#x25CF;</span> {% if LANGUAGE_CODE == 'pl' %} natępna podróż {% else %} next destination&nbsp;{% endif %}
+    </div>
+
+{% endblock %}
+
+{% block four_columns %}
+    <div class="destination-list">
+        <div class="one-fourth">
+            <div id="post-section-title">
+                {% if LANGUAGE_CODE == 'pl' %} Zaliczone {% else %} Visited {% endif %} - {{ visited_wedding_places|length }}/43
+            </div>
+            {% for place in visited_wedding_places %}
+                {% if LANGUAGE_CODE == 'pl' %} {{ place.name_pl }}<br> {% else %} {{ place.name }} <br> {% endif %}
+            {% endfor %}
+        </div>
+        <div class="one-fourth">
+            <div id="post-section-title">
+                {% if LANGUAGE_CODE == 'pl' %} Do zaliczenia {% else %} Planned {% endif %} - {{ planned_wedding_places|length }}/43
+            </div>
+            {% for place in planned_wedding_places %}
+                {% if LANGUAGE_CODE == 'pl' %} {{ place.name_pl }}<br> {% else %} {{ place.name }}<br> {% endif %}
+            {% endfor %}
+        </div>
+        <div class="one-fourth">
+            <div id="post-section-title">
+                {% if LANGUAGE_CODE == 'pl' %} Inne zaliczone {% else %} Other visited {% endif %} - {{ visited_places|length }}
+            </div>
+            {% for place in visited_places %}
+                {% if LANGUAGE_CODE == 'pl' %} {{ place.name_pl }}<br> {% else %} {{ place.name }}<br>&nbsp;{% endif %}
+            {% endfor %}
+        </div>
+        <div class="one-fourth">
+            <div id="post-section-title">
+                {% if LANGUAGE_CODE == 'pl' %} Następna podróż {% else %} Next destination {% endif %}
+            </div>
+            {% if planned_places %}
+            {% for place in planned_places %}
+                {% if LANGUAGE_CODE == 'pl' %} {{ place.name_pl }}<br> {% else %} {{ place.name }}<br>&nbsp;{% endif %}
+            {% endfor %}
+            {% else %}
+            ?
+            {% endif %}
+
+        </div>
     </div>
 
 {% endblock %}

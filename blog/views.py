@@ -55,10 +55,10 @@ def index(request):
 
 
 def map(request):
-    planned_places = Place.objects.filter(status=1)
-    visited_places = Place.objects.filter(status=2)
-    planned_wedding_places = Place.objects.filter(status=3)
-    visited_wedding_places = Place.objects.filter(status=4)
+    planned_places = Place.objects.filter(status=1).order_by('name')
+    visited_places = Place.objects.filter(status=2).order_by('name')
+    planned_wedding_places = Place.objects.filter(status=3).order_by('name')
+    visited_wedding_places = Place.objects.filter(status=4).order_by('name')
 
     if 'LANGUAGE_CODE' in request.COOKIES:
         language_code = request.COOKIES.get('LANGUAGE_CODE')
