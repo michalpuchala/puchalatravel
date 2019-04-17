@@ -98,9 +98,9 @@ def posts(request):
     latest_post_date = Post.objects.filter(published=True).order_by('-published_date')[0].published_date.strftime('%d.%m.%Y')
     second_latest_post_date = Post.objects.filter(published=True).order_by('-published_date')[1].published_date.strftime('%d.%m.%Y')
     third_latest_post_date = Post.objects.filter(published=True).order_by('-published_date')[2].published_date.strftime('%d.%m.%Y')
-    most_viewed_post_date = Post.objects.filter(published=True).order_by('hit_count_generic__hits')[0].published_date.strftime('%d.%m.%Y')
-    second_most_viewed_post_date = Post.objects.filter(published=True).order_by('hit_count_generic__hits')[1].published_date.strftime('%d.%m.%Y')
-    third_most_viewed_post_date = Post.objects.filter(published=True).order_by('hit_count_generic__hits')[2].published_date.strftime('%d.%m.%Y')
+    most_viewed_post_date = Post.objects.filter(published=True).order_by('-hit_count_generic__hits')[0].published_date.strftime('%d.%m.%Y')
+    second_most_viewed_post_date = Post.objects.filter(published=True).order_by('-hit_count_generic__hits')[1].published_date.strftime('%d.%m.%Y')
+    third_most_viewed_post_date = Post.objects.filter(published=True).order_by('-hit_count_generic__hits')[2].published_date.strftime('%d.%m.%Y')
 
     if 'LANGUAGE_CODE' in request.COOKIES:
         language_code = request.COOKIES.get('LANGUAGE_CODE')
