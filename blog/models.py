@@ -10,6 +10,7 @@ from hitcount.models import HitCount, HitCountMixin
 
 class Category(models.Model):
     name = models.CharField(max_length=32)
+    name_pl = models.CharField(max_length=32, blank=True, null=True)
 
     class Meta:
         verbose_name_plural = "Categories"
@@ -23,6 +24,7 @@ class Category(models.Model):
 
 class Tag(models.Model):
     name = models.CharField(max_length=32)
+    name_pl = models.CharField(max_length=32, blank=True, null=True)
 
     def __unicode__(self):
         return self.name
@@ -35,6 +37,7 @@ class Author(models.Model):
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
     bio = models.TextField(max_length=5000)
+    bio_pl = models.TextField(max_length=5000, blank=True, null=True)
 
     def __str__(self):
         return self.first_name
@@ -42,6 +45,7 @@ class Author(models.Model):
 
 class Trip(models.Model):
     name = models.CharField(max_length=32)
+    name_pl = models.CharField(max_length=32, blank=True, null=True)
     destination = models.CharField(max_length=50)
     start_date = models.DateTimeField(blank=True, null=True)
     end_date = models.DateTimeField(blank=True, null=True)
@@ -82,6 +86,7 @@ class PlaceStatus(models.Model):
 
 class Place(models.Model):
     name = models.CharField(max_length=32)
+    name_pl = models.CharField(max_length=32, blank=True, null=True)
     coord_v = models.FloatField()
     coord_h = models.FloatField()
     status = models.ForeignKey(PlaceStatus, on_delete=models.CASCADE)
@@ -101,11 +106,16 @@ class Post(models.Model, HitCountMixin):
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
     place = models.ManyToManyField(Place, related_name='posts')
     title_place = models.CharField(max_length=100, blank=True, null=True)
+    title_place_pl = models.CharField(max_length=100, blank=True, null=True)
     title = models.CharField(max_length=100, unique=True)
+    title_pl = models.CharField(max_length=100, blank=True, null=True)
     byline = models.CharField(max_length=255)
+    byline_pl = models.CharField(max_length=255, blank=True, null=True)
     tag = models.ManyToManyField(Tag, blank=True)
     text = models.TextField()
+    text_pl = models.TextField(blank=True, null=True)
     slug = models.SlugField(max_length=128)
+    published = models.BooleanField(default=False)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     main_image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name='main_image')
@@ -120,9 +130,6 @@ class Post(models.Model, HitCountMixin):
 
     # Create a property that returns the markdown instead
     @property
-    def formatted_markdown(self):
-        return markdownify(self.text)
-
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'slug': self.slug})
 

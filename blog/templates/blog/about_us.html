@@ -2,7 +2,11 @@
 {% load static %}
 
 {% block title %}
-    <title>About Us | Puchała Travel</title>
+    {% if LANGUAGE_CODE == 'pl' %}
+        <title>O nas | Puchała Travel</title>
+    {% else %}
+        <title>About Us | Puchała Travel</title>
+    {% endif %}
 {% endblock %}
 
 {% block meta %}
@@ -25,14 +29,22 @@
         </article>
         <aside>
             <h2>magda</h2>
-            <p id="about-us-p">{{ magda_bio.bio|safe }}</p>
+            {% if LANGUAGE_CODE == 'pl' %}
+                <p id="about-us-p">{{ magda_bio.bio_pl|safe }}</p>
+            {% else %}
+                <p id="about-us-p">{{ magda_bio.bio|safe }}</p>
+            {% endif %}
         </aside>
     </div>
     </section>
     <section class="inner-wrapper-2">
         <article>
             <h2>michał</h2>
-            <p id="about-us-p">{{ michal_bio.bio|safe }}</p>
+            {% if LANGUAGE_CODE == 'pl' %}
+                <p id="about-us-p">{{ michal_bio.bio_pl|safe }}</p>
+            {% else %}
+                <p id="about-us-p">{{ michal_bio.bio|safe }}</p>
+            {% endif %}
         </article>
         <aside id="about-us">
                 <img id="mobile-image" src="{% static 'pictures/michal.jpg' %}">

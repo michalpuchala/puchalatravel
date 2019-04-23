@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'post/(?P<slug>[-\w]+)/comment', views.add_comment_to_post, name='add_comment_to_post'),
     url(r'^favicon.ico/$', lambda x: HttpResponseRedirect('static/pictures/favicon..png')),
     url(r'^sitemap\.xml/$', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
+    url(r'^change_language$', views.change_language, name='change_language')
 ]

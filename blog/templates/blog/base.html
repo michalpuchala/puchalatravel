@@ -1,4 +1,5 @@
 {% load static %}
+
 <html>
 <head>
     {% block title %}
@@ -75,17 +76,62 @@
                 <a href="{% url 'index' %}">puchała travel</a><br>
             </div>
             <nav>
-                <a href="#" id="menu-icon"></a>
+                <a href="#" id="menu-icon"><img src="{% static 'pictures/menu.png' %}"></a>
                 <ul>
-                    <li><a href="{% url 'index' %}" class="current">Home</a></li>
-                    <li><a href="{% url 'posts' %}">Blog</a></li>
-                    <li><a href="{% url 'map' %}">Map</a></li>
-                    <li><a href="{% url 'about_us' %}">About us</a></li>
+                    <li><a href="{% url 'index' %}" class="current">
+                        {% if LANGUAGE_CODE == 'pl' %}
+                            Strona główna
+                        {% else %}
+                            Home
+                        {% endif %}
+                    </a></li>
+                    <li><a href="{% url 'posts' %}">
+                        Blog
+                    </a></li>
+                    <li><a href="{% url 'map' %}">
+                        {% if LANGUAGE_CODE == 'pl' %}
+                            Mapa
+                        {% else %}
+                            Map
+                        {% endif %}
+                    </a></li>
+                    <li><a href="{% url 'about_us' %}">
+                        {% if LANGUAGE_CODE == 'pl' %}
+                            O nas
+                        {% else %}
+                            About us
+                        {% endif %}
+                    </a></li>
+                    <div id="nav-icons">
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'profile' %}" title="Edit your profile"><img class="profile-icon" src="{{ user.userprofile.profile_picture.url }}"></a></li>
                     {% else %}
                         <li><a href="{% url 'login' %}" title="Log in or create an account"><img class="profile-icon" src="/media/unknown_user.png"></a></li>
                     {% endif %}
+                    <li>
+                          <form action="{% url 'change_language' %}" method="post" id="form_en" style="display:inline!important;">
+                          {% csrf_token %}
+                            <input name="language" type="hidden" value="en" />
+                          </form>
+                          <button class="lang-button" type="submit" form="form_en" value="Submit">
+                          {% if LANGUAGE_CODE == 'en' %}
+                              <b>EN</b>
+                          {% else %}
+                              EN
+                          {% endif %}
+                          </button>
+                          <form action="{% url 'change_language' %}" method="post" id="form_pl" style="display:inline!important;">
+                          {% csrf_token %}
+                            <input name="language" type="hidden" value="pl" />
+                          </form>
+                          <button class="lang-button" type="submit" form="form_pl" value="Submit">
+                          {% if LANGUAGE_CODE == 'pl' %}
+                              <b>PL</b>
+                          {% else %}
+                              PL
+                          {% endif %}
+                          </button>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -108,6 +154,9 @@
     {% block two_columns %}
     {% endblock %}
 <!---End Two Column Section-->
+    {% block four_columns %}
+    {% endblock %}
+<!---End Four Column Section-->
     {% block one_column %}
     {% endblock %}
 <!---End One Column Section-->

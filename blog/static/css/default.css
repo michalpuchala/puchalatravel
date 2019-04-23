@@ -102,12 +102,38 @@ nav {
   padding: 10px 20px 0 0;
 }
 
+#nav-icons {
+  display: inline-block;
+}
+
+.lang-button{
+  width: 30px;
+  height: 28px;
+  margin: -8px;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  display: block;
+
+  font-family: "Saira Extra Condensed", sans-serif;
+  font-size: 75%;
+  color: #494e6b;
+}
+
+.lang-button:hover{
+  color: #d3953d;
+}
+
 #menu-icon {
-  display: hidden;
+  display: none;
   margin-top: -3px;
   width: 30px;
   height: 30px;
-  background: url(../pictures/menu.png) center;
+  object-fit: contain;
+  /*background: url(../pictures/menu.png) center;*/
 }
 
 a:hover#menu-icon {
@@ -489,7 +515,7 @@ footer.copyrights p {
 
 #post-details {
   text-align: center;
-  margin-top: -20px;
+  margin-top: 0px;
 }
 
 .post-share {
@@ -557,6 +583,15 @@ footer.copyrights p {
 #map-post {
   width: 100%;
   height: 80%
+}
+
+.related-posts {
+  font-size: 120%;
+  text-align: left;
+  width: 70%;
+  padding-left: 15%;
+  padding-right: 15%;
+  margin: -20px 0 20px 0;
 }
 
 .post-likes {
@@ -695,6 +730,18 @@ footer.copyrights p {
   font-family: 'Saira Condensed', Sans-Serif;
 }
 
+.destination-list {
+  width: 90%;
+  margin: 2% 5% 0 5%;
+}
+
+.one-fourth {
+  width: 25%;
+  display: inline-block;
+  float: left;
+  text-align: center
+}
+
 /*--- Start About Us View --*/
 
 .inner-wrapper-about-us {
@@ -831,7 +878,8 @@ footer.copyrights p {
 
   #menu-icon {
     display: inline-block;
-    margin-top: 3px;
+    object-fit: contain;
+    margin-top: 0;
     padding: 1%;
   }
 
@@ -840,25 +888,48 @@ footer.copyrights p {
     display: none;
     z-index: 1000;
     position: absolute;
-    padding: 10px 10px;
+    padding: 10px;
     background: #f7f6f4;
     right: 5px;
     top: 55px;
     border: 1px solid #b7b7b7;
     border-radius: 2px 0 2px 2px;
-    width: 30%;
-    font-size: 90%;
+    width: 35%;
+    font-size: 85%;
     font-weight: 200;
   }
 
   nav:hover ul {
     display: block;
+    padding: 15px 0 0 10px;
+    margin: 0;
+    list-style: none;
   }
 
   nav li {
-    text-align: justify;
+    padding: 0 3px;
+    margin: 0;
+    text-align: left;
     width: 100%;
     font-weight: 800
+  }
+
+  #nav-icons {
+    text-align: center;
+  }
+
+  .profile-icon {
+    display: inline-block;
+    text-align: center;
+  }
+
+  .lang-button {
+    display: inline;
+    text-align: center;
+    height: 50px;
+    width: 65px;
+    font-size: 100%;
+    padding-bottom: 0
   }
 
   #mobile-image {
@@ -878,6 +949,7 @@ footer.copyrights p {
   .banner {
     margin-top: 50px
   }
+
   .one-third {
     float: left;
     width: 100%
@@ -1073,6 +1145,16 @@ footer.copyrights p {
 
   .place-post a:hover {
     color: #d3953d
+  }
+
+  .destination-list {
+    width: 98%;
+    margin: 5% 1% 3% 1%;
+  }
+
+  .one-fourth {
+    float: left;
+    width: 50%
   }
 
  /*--- About Us --*/
