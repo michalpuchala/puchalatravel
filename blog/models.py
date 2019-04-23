@@ -108,7 +108,7 @@ class Post(models.Model, HitCountMixin):
     title_place = models.CharField(max_length=100, blank=True, null=True)
     title_place_pl = models.CharField(max_length=100, blank=True, null=True)
     title = models.CharField(max_length=100, unique=True)
-    title_pl = models.CharField(max_length=100, unique=True, blank=True, null=True)
+    title_pl = models.CharField(max_length=100, blank=True, null=True)
     byline = models.CharField(max_length=255)
     byline_pl = models.CharField(max_length=255, blank=True, null=True)
     tag = models.ManyToManyField(Tag, blank=True)
