@@ -121,7 +121,7 @@
         <h2><a href="{% url 'map' %}">ślubne wyzwanie</a></h2>
         <p id="about-us-p">Na naszym weselu ponad rok temu, poprosiliśmy gości żeby zamiast życzeń podzielili się z nami
             najpiękniejszymi miejscami, które udało im się odwiedzić; i zobowiązaliśmy się zobaczyć je wszystkie. Mamy
-            wrażenie, że nie wszyscy podeszli do tematu na serio (vel trzeźwo;)) ale i tak planujemy zaliczyć każde miejsce
+            wrażenie, że nie wszyscy podeszli do tematu na serio (vel trzeźwo ;)) ale i tak planujemy zaliczyć każde miejsce
             z naszej ślubnej mapy. Praca wre!</p>
         {% else %}
         <h2><a href="{% url 'map' %}">the travel challenge</a></h2>
@@ -130,9 +130,11 @@
             seen and we promised to visit every one of them. We’re not sure the guests were entirely serious (or sober;))
             about them but the promise stands, we’re trying to visit them all. Challenge in progress!</p>
         {% endif %}
-        <div id="progressbar">
-            <div>21%</div>
-        </div>
+        <a href="{% url 'map' %}#legend-visited">
+            <div id="progressbar">
+                <div>21%</div>
+            </div>
+        </a>
         <div class="map-legend">
             <span id="legend-visited">&#x25CF;</span> {% if LANGUAGE_CODE == 'pl' %} zaliczone&nbsp;&nbsp; {% else %} visited&nbsp;&nbsp;{% endif %}
             <span id="legend-planned">&#x25CF;</span> {% if LANGUAGE_CODE == 'pl' %} planowane&nbsp;&nbsp; {% else %} planned&nbsp;&nbsp;{% endif %}

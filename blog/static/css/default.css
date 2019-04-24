@@ -275,14 +275,13 @@ article {
 }
 
 #about-us {
-  font-size: 100%;
   background-color: #fcfcfc;
   text-align: center
 }
 
 #about-us-p {
-  padding: 1% 5%;
-  font-size: 120%;
+  padding: 0.5% 5%;
+  font-size: 110%;
 }
 
 aside {
@@ -985,7 +984,7 @@ footer.copyrights p {
   }
 
   #about-us-p {
-    font-size: 100%;
+    font-size: 90%;
     padding: 1% 5% 5% 5%;
   }
 
