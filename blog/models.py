@@ -129,7 +129,6 @@ class Post(models.Model, HitCountMixin):
         related_query_name='hit_count_generic_relation')
 
     # Create a property that returns the markdown instead
-    @property
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'slug': self.slug})
 
