@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import RedirectView
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 
 from hitcount.views import HitCountDetailView
 
@@ -178,6 +179,8 @@ class PostLikeToggle(RedirectView):
                 obj.post_likes.remove(user)
             else:
                 obj.post_likes.add(user)
+        else:
+            messages.warning(self.request, 'You need to be logged in to like a post | Tylko zalogowani użytkownicy mogą polubić wpis')
         return url_
 
 

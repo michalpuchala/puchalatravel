@@ -176,8 +176,10 @@ nav ul li a:hover {
 
 .message {
   text-align: center;
-  padding-top: 70px;
+  padding: 70px 0 0 0;
+  font-size: 120%;
   font-weight: bold;
+  margin-bottom: -50px;
 }
 
 .banner {
