@@ -141,7 +141,7 @@ class PostDetailView(HitCountDetailView):
         trip = list(Trip.objects.filter(post=self.object).distinct())
         posts = []
         for t in trip:
-            posts += list(t.post_set.all())
+            posts += list(t.post_set.filter(published=True))
         context['posts'] = posts
 
         return context
