@@ -90,28 +90,29 @@
     <aside id="about-us">
         {% if LANGUAGE_CODE == 'pl' %}
             <h2><a href="{% url 'about_us' %}">o nas</a></h2>
-            <p id="about-us-p">Pierwszą wspólną podróż odbyliśmy w 2010. Odkąd Magda wyjechała na Erasmusa po raz pierwszy,
-                zaczęliśmy częściej latać i tak już zostało. W 2015 naszą bazą została Barcelona, gdzie obydwoje pracujemy.
-                Żeby pogodzić pełen etat i nienasyconą żądzę odwiedzania coraz to nowych miejsc, musieliśmy zostać ekspertami
-                optymalizacji dni wolnych. Jesteśmy uzależnieni od newslettera Fly4Free i najczęściej decydujemy się podróżować
-                tam, gdzie pojawia się dobra oferta.</p>
-            <p id="about-us-p">Nasze podróże kręcą się wokół pięknych miejsc (im mniej turystyczne tym lepiej), amatorskiej
-                fotografii i dobrego jedzenia. Staramy się osiągać w nich kompromis między uzależnieniem Magdy od świeżych
-                hotelowych ręczników i przekonaniem Michała, że należy trzymać się budżetu :)</p>
-            <p id="about-us-p">Ten blog to nasze zapiski z podróży, powód, dla którego warto spędzać godziny w Lightroomie
-                i miejsce do dzielenia się wskazówkami z tymi, którzy planują odwiedzać miejsca które my już widzieliśmy.
-                Jeśli chcecie podróżować, ale nie macie nieograniczonych funduszy ani dni wolnych, ten blog jest dla Was!</p>
+            <p id="about-us-p">Pierwszą wspólną podróż odbyliśmy w 2010 r. Odkąd Magda wyjechała na Erasmusa po raz pierwszy,
+                zaczęliśmy częściej latać i tak już zostało. Po studiach postanowiliśmy spróbować szczęścia w Barcelonie, gdzie
+                mieszkaliśmy i skąd podróżowaliśmy przez ponad cztery lata, kiedy to los postawił na naszej drodze przeprowadzkę do Tokio.
+                Żeby pogodzić pełen etat i nienasyconą żądzę odwiedzania coraz to nowych miejsc, musieliśmy zostać ekspertami optymalizacji
+                dni wolnych. Jesteśmy uzależnieni od newslettera Fly4Free i staramy się podróżować tam, gdzie pojawia się dobra oferta.</p>
+            <p id="about-us-p">Nasze podróże kręcą się wokół pięknych miejsc (im mniej turystycznych tym lepiej), amatorskiej fotografii
+                i dobrego jedzenia. Staramy się osiągać w nich kompromis między Magdy uzależnieniem od świeżych hotelowych ręczników
+                i Michała przekonaniem, że należy trzymać się budżetu :)</p>
+            <p id="about-us-p">Ten blog to nasze zapiski z podróży, powód, dla którego warto spędzać godziny w Lightroomie i miejsce
+                do dzielenia się wskazówkami z tymi, którzy planują odwiedzać miejsca które my już widzieliśmy. Jeśli chcecie podróżować
+                (obecnie w naszym wydaniu głównie po Azji), ale nie macie nieograniczonych funduszy ani dni wolnych, ten blog jest dla Was!</p>
         {% else %}
             <h2><a href="{% url 'about_us' %}">about us</a></h2>
-            <p id="about-us-p">We got addicted to travelling about seven years ago, when Magda moved to Spain for the first time.
-                We would travel to see each other at least once a month and then we just couldn’t stop.
-                Both of us have a full time job in Barcelona, so we had to become experts in optimising holidays.
+            <p id="about-us-p">We got addicted to travelling about eight years ago, when Magda moved to Spain for the first time. We would
+                travel to see each other at least once a month and then we just couldn’t stop. Then came Madrid and Rotterdam and after the
+                university we decided to try our luck in Barcelona. We lived and worked there for over four years, when a new adventure
+                came along. Now we both have full time jobs in Tokyo, so we keep travelling in the most optimised way whenever we can.
                 We’re hooked on Fly4free newsletter and try to travel where a good deal takes us.</p>
-                <p id="about-us-p">Our trips are about nice places, photography and good food, trying always to compromise between Magda’s love for
-                the fresh towels in hotels and Michał’s budgetary concerns :) This blog is meant to be our travel journal, a motivation
-                to improve our photography skills and a place to share with those who consider visiting places we’ve seen.</p>
-                <p id="about-us-p">If you love to travel comfortably but don't have unlimited budget nor vacation days, this blog is for you!
-            </p>
+            <p id="about-us-p">Our trips are about unusual places, photography and good food, trying always to compromise between Magda’s
+                love for the fresh towels in hotels and Michał’s budgetary concerns :) This blog is meant to be our travel journal,
+                a motivation to improve our photography skills and a place to share with those who consider visiting places we’ve seen.</p>
+            <p id="about-us-p">If you love to travel comfortably (currently focused on Asia) but don't have unlimited budget nor vacation
+              days, this blog is for you!</p>
         {% endif %}
     </aside>
 </section>
@@ -119,10 +120,9 @@
     <article id="travel-challenge">
         {% if LANGUAGE_CODE == 'pl' %}
         <h2><a href="{% url 'map' %}">ślubne wyzwanie</a></h2>
-        <p id="about-us-p">Na naszym weselu ponad rok temu, poprosiliśmy gości żeby zamiast życzeń podzielili się z nami
-            najpiękniejszymi miejscami, które udało im się odwiedzić; i zobowiązaliśmy się zobaczyć je wszystkie. Mamy
-            wrażenie, że nie wszyscy podeszli do tematu na serio (vel trzeźwo ;)) ale i tak planujemy zaliczyć każde miejsce
-            z naszej ślubnej mapy. Praca wre!</p>
+        <p id="about-us-p">Na naszym weselu ponad dwa lata temu, poprosiliśmy gości żeby zamiast życzeń podzielili się z nami najpiękniejszymi
+            miejscami, które udało im się odwiedzić i zobowiązaliśmy się zobaczyć je wszystkie. Mamy wrażenie, że nie wszyscy podeszli
+            do tematu na serio (lub na trzeźwo ;)) ale i tak planujemy zaliczyć każde miejsce z naszej ślubnej mapy. Do dzieła!</p>
         {% else %}
         <h2><a href="{% url 'map' %}">the travel challenge</a></h2>
         <p id="about-us-p">When people get married, they usually get good wishes. For us, the best wish is to go to places
