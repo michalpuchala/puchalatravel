@@ -29,6 +29,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '*',
     'ec2-18-188-249-6.us-east-2.compute.amazonaws.com',
+    'static.17.186.69.159.clients.your-server.de',
+    '159.69.186.17',
     'puchalatravel.com',
 ]
 
