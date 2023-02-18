@@ -34,6 +34,8 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 ALLOWED_HOSTS = [
     '*',
     'ec2-52-15-45-108.us-east-2.compute.amazonaws.com',
+    'static.17.186.69.159.clients.your-server.de',
+    '159.69.186.17',
     'puchalatravel.com',
 ]
 
@@ -180,3 +182,14 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # crispy forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# local HTTP
+CORS_REPLACE_HTTPS_REFERER      = False
+HOST_SCHEME                     = "http://"
+SECURE_PROXY_SSL_HEADER         = None
+SECURE_SSL_REDIRECT             = False
+SESSION_COOKIE_SECURE           = False
+CSRF_COOKIE_SECURE              = False
+SECURE_HSTS_SECONDS             = None
+SECURE_HSTS_INCLUDE_SUBDOMAINS  = False
+SECURE_FRAME_DENY               = False

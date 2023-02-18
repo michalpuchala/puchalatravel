@@ -8,6 +8,7 @@ puchalatravel.sock
 
 ### media ###
 media/
+static/pictures/puchalatravel*
 
 ### Django ###
 *.log
