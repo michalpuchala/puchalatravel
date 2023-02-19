@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '*',
-    'ec2-18-188-249-6.us-east-2.compute.amazonaws.com',
+    'ec2-3-71-107-83.eu-central-1.compute.amazonaws.com',
     'puchalatravel.com',
 ]
 
